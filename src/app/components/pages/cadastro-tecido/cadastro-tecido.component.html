@@ -1,2 +1,68 @@
 <h2>Cadastro de <span>Tecido</span>.</h2>
-<app-moment-form [btnText]="btnText"></app-moment-form>
+
+<form (ngSubmit)="submit()"[formGroup]="tecidoForm" #formDir="ngForm">
+    <div class="form-group">
+        <label for="title">Tecido:</label>
+        <input 
+            type="text" 
+            placeholder="Coloque o nome do tecido"
+            formControlName="title"
+            required
+        />
+        <div *ngIf="title.invalid && formDir.submitted" class="validation-error">
+            <p *ngIf="title.errors?.['required']">O nome do Tecido é obrigatório.</p>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="title">Composição:</label>
+        <input type="text" placeholder="Coloque a composição do tecido" required/>
+    </div>
+    <div class="form-group">
+        <label for="title">Gramatura:</label>
+        <input type="text" placeholder="Coloque gramatura do tecido" required/>
+    </div>
+    <div class="form-group">
+        <label for="title">Rendimento:</label>
+        <input type="text" placeholder="Coloque o rendimento do tecido" required/>
+    </div>
+    <div class="form-group">
+        <label for="title">Acabamento:</label>
+        <input type="text" placeholder="Coloque o acabamento do tecido" required/>
+    </div>
+    <div class="form-group">
+        <label for="title">Referencia:</label>
+        <input type="text" placeholder="Coloque a referencia do tecido" required/>
+    </div>
+    <div class="form-group">
+        <label for="title">Preço À Vista:</label>
+        <input type="text" placeholder="Coloque o preço à vista do tecido" required/>
+    </div>
+    <div class="form-group">
+        <label for="title">Preço A Prazo:</label>
+        <input type="text" placeholder="Coloque o preço a prazo do tecido" required/>
+    </div>
+    <div class="form-group">
+        <label for="title">Nome Do Fornecedor:</label>
+        <input type="text" placeholder="Coloque o nome do Fornecedor" required/>
+    </div>
+    <div class="form-group">
+        <label for="title">Fornecedor:</label>
+        <input type="text" placeholder="Selecione o Fornecedor" required/>
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="description">Complemento:</label>
+        <textarea placeholder="Informação adicional" required></textarea>
+    </div>
+
+
+    <div class="form-group">
+        <label for="image">Coloque a foto do tecido:</label>
+        <input type="file" (change)="OnFileSelected($event)">
+    </div>
+    
+    <input type="submit" value="{{btnText}}"/>
+</form>
