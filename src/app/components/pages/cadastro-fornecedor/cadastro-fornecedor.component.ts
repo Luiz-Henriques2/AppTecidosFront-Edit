@@ -1,7 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Fornecedor } from 'src/app/AppTecidos';
-
+import { CommentService } from 'src/app/services/comment.service';
+import { MessagesService } from 'src/app/services/messages.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-fornecedor',
@@ -10,6 +12,12 @@ import { Fornecedor } from 'src/app/AppTecidos';
 })
 export class CadastroFornecedorComponent implements OnInit{
  
+
+  constructor(
+    private commentService: CommentService, 
+    private messageService: MessagesService,
+    private router: Router
+    ){}
 
   btnText = 'Cadastrar';
   fornecedorForm!: FormGroup;
@@ -31,9 +39,22 @@ export class CadastroFornecedorComponent implements OnInit{
   }
 
 //---------------------------------
-createHandler(event: any){
-  console.log('deu boa');
+async createHandler(fornecedor: Fornecedor){
+  const formData = new FormData();
+
+  formData.append("nome", fornecedor.nome);
+  if (fornecedor.email){formData.append("email", fornecedor.email);}
+  if (fornecedor.telefone){formData.append("telefone", fornecedor.telefone);}
+  if (fornecedor.whatsapp){formData.append("whatsapp", fornecedor.whatsapp);}
+  if (fornecedor.endereco){formData.append("endereco", fornecedor.endereco);}  
+  if (fornecedor.site){formData.append("site", fornecedor.site);}  
+  await this.commentService.createFornecedor(formData).subscribe();
+
+  this.messageService.add('Fornecedor adicionado com sucesso!');
+
+  this.router.navigate(['/']);
 }
+//----------------------
 submit() {
   if (this.fornecedorForm.invalid){
     return;
