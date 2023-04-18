@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Fornecedor } from 'src/app/AppTecidos';
 
+
 @Component({
   selector: 'app-cadastro-fornecedor',
   templateUrl: './cadastro-fornecedor.component.html',
