@@ -1,18 +1,9 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../environment';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FornecedorService {
-  private baseApiUrl = environment.baseApiUrl
-  private apiUrl = `${this.baseApiUrl}api/fornecedor`
+export class CommentService {
 
-  constructor(private http: HttpClient) { }
-
-  createFornecedor(formData: FormData): Observable<FormData> {
-    return this.http.post<FormData>(this.apiUrl, formData)
-  }
+  constructor() { }
 }

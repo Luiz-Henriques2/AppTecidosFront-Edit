@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Fornecedor } from 'src/app/AppTecidos';
-import { FornecedorService } from 'src/app/services/comment.service';
+
 
 @Component({
   selector: 'app-cadastro-fornecedor',
@@ -10,11 +10,6 @@ import { FornecedorService } from 'src/app/services/comment.service';
 })
 export class CadastroFornecedorComponent implements OnInit{
  
-  constructor(private commentService: FornecedorService){}
-
-  get nome() {
-    return this.fornecedorForm.get('nome')!;
-  }
 
   btnText = 'Cadastrar';
   fornecedorForm!: FormGroup;
@@ -31,21 +26,14 @@ export class CadastroFornecedorComponent implements OnInit{
     });
   }
 
+  get nome() {
+    return this.fornecedorForm.get('nome')!;
+  }
 
-async createHandler(fornecedor: Fornecedor){
-  const formData = new FormData();
-
-  formData.append("nome", fornecedor.nome);
-  if (fornecedor.email){formData.append("email", fornecedor.email);}
-  if (fornecedor.telefone){formData.append("telefone", fornecedor.telefone);}
-  if (fornecedor.whatsapp){formData.append("whatsapp", fornecedor.whatsapp);}
-  if (fornecedor.endereco){formData.append("endereco", fornecedor.endereco);}
-  if (fornecedor.site){formData.append("site", String(fornecedor.site));}  
-
-  await this.commentService.createFornecedor(formData).subscribe();
+//---------------------------------
+createHandler(event: any){
+  console.log('deu boa');
 }
-
-
 submit() {
   if (this.fornecedorForm.invalid){
     return;
@@ -53,7 +41,7 @@ submit() {
   console.log(this.fornecedorForm.value);
   this.createHandler(this.fornecedorForm.value);
 }
-
+//---------------------------------
 
 }
 

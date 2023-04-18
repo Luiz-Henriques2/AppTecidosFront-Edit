@@ -14,7 +14,9 @@ import { CadastroFornecedorComponent } from './components/pages/cadastro-fornece
 import { PesquisaFornecedorComponent } from './components/pages/pesquisa-fornecedor/pesquisa-fornecedor.component';
 import { CadastroTecidoComponent } from './components/pages/cadastro-tecido/cadastro-tecido.component';
 import { PesquisaTecidoComponent } from './components/pages/pesquisa-tecido/pesquisa-tecido.component';
-import { MomentFormComponent } from './components/moment-form/moment-form.component';
+import { MessageComponent } from './components/message/message.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,7 @@ import { MomentFormComponent } from './components/moment-form/moment-form.compon
     PesquisaFornecedorComponent,
     CadastroTecidoComponent,
     PesquisaTecidoComponent,
-    MomentFormComponent
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,7 @@ import { MomentFormComponent } from './components/moment-form/moment-form.compon
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
