@@ -2,7 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Tecidos } from 'src/app/Comment';
 import { ApptecidoService } from 'src/app/services/apptecido.service';
-
+import { MessagesService } from 'src/app/services/messages.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-cadastro-tecido',
   templateUrl: './cadastro-tecido.component.html',
@@ -11,7 +12,11 @@ import { ApptecidoService } from 'src/app/services/apptecido.service';
 export class CadastroTecidoComponent implements OnInit{
   
 
-  constructor(private apptecidoService: ApptecidoService){}
+  constructor(
+    private apptecidoService: ApptecidoService, 
+    private messageService: MessagesService,
+    private router: Router
+    ){}
 
 get nome() {
   return this.tecidoForm.get('nome')!;
@@ -60,6 +65,10 @@ get nome() {
     if (tecido.observacao){formData.append("observacao", tecido.observacao);}    
 
     await this.apptecidoService.createTecido(formData).subscribe();
+
+    this.messageService.add('Tecido adicionado com sucesso!');
+
+    this.router.navigate(['/']);
   }
 
   
