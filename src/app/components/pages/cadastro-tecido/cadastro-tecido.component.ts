@@ -7,20 +7,9 @@ import { ApptecidoService } from 'src/app/services/apptecido.service';
   templateUrl: './cadastro-tecido.component.html',
   styleUrls: ['./cadastro-tecido.component.css']
 })
-export class CadastroTecidoComponent {
-constructor(private apptecidoService: ApptecidoService){}
+export class CadastroTecidoComponent implements OnInit{
+  
 
-OnFileSelected(event: any) {
-  const file: File = event.target.files[0];
-  this.tecidoForm.patchValue({image: file});
-}
-
-submit() {
-  if (this.tecidoForm.invalid){
-    return;
-  }
-  console.log(this.tecidoForm.value);
-}
 
 get title() {
   return this.tecidoForm.get('title')!;
@@ -46,26 +35,23 @@ get title() {
       complemento: new FormControl(''),
     });
   }
-  //createHandler(event: any){}
 
-
-    async createHandler(tecido: Tecidos){
-    const formData = new FormData();
-
-    formData.append("title", tecido.nome);
-    if (tecido.composicao){formData.append("composicao", tecido.composicao);}
-    if (tecido.imagem){formData.append("image", tecido.imagem);}
-    if (tecido.gramatura){formData.append("gramatura", String(tecido.gramatura));}
-    if (tecido.rendimento){formData.append("rendimento", String(tecido.rendimento));}
-    if (tecido.acabamento){formData.append("acabamento", String(tecido.acabamento));}
-    if (tecido.referencia){formData.append("referencia", String(tecido.referencia));}
-    if (tecido.avista){formData.append("avista", String(tecido.avista));}
-    if (tecido.prazo){formData.append("aprazo", String(tecido.prazo));}
-    if (tecido.fornecedor){formData.append("nomeFornecedor", tecido.fornecedor);}
-    if (tecido.fornecedorId){formData.append("fornecedor", String(tecido.fornecedorId));}
-    if (tecido.observacao){formData.append("complemento", tecido.observacao);}    
-
-    await this.apptecidoService.createTecido(formData).subscribe;
+  createHandler(event: any){
+    console.log('deu boa');
   }
+
+  OnFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    this.tecidoForm.patchValue({image: file});
+  }
+  
+  submit() {
+    if (this.tecidoForm.invalid){
+      return;
+    }
+    console.log(this.tecidoForm.value);
+    this.createHandler(this.tecidoForm.value);
+  }
+
 
 }
