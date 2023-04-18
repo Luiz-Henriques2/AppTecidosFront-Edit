@@ -1,1 +1,43 @@
-<p>cadastro-fornecedor works!</p>
+
+<h2>Cadastro de <span>Fornecedor</span>.</h2>
+<!--(onSubmit)="createHandler($event)"-->
+<form 
+    (ngSubmit)="submit()"
+    [formGroup]="fornecedorForm" 
+    #formDir="ngForm"
+>
+    <div class="form-group">
+        <label for="title">Fornecedor:</label>
+        <input 
+            type="text" 
+            placeholder="Coloque o nome do fornecedor"
+            formControlName="title"
+            required
+        />
+        <div *ngIf="title.invalid && formDir.submitted" class="validation-error">
+            <p *ngIf="title.errors?.['required']">O nome do Fornecedor é obrigatório.</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" placeholder="Coloque o email do fornecedor" formControlName="email"/>
+    </div>
+    <div class="form-group">
+        <label for="telefone">Telefone:</label>
+        <input type="text" placeholder="Coloque o telefone do fornecedor" formControlName="telefone"/>
+    </div>
+    <div class="form-group">
+        <label for="whatsapp">Whatsapp:</label>
+        <input type="text" placeholder="Coloque o whatsapp do fornecedor" formControlName="whatsapp"/>
+    </div>
+    <div class="form-group">
+        <label for="endereco">Endereço:</label>
+        <input type="text" placeholder="Coloque o endereço do fornecedor" formControlName="endereco"/>
+    </div>
+    <div class="form-group">
+        <label for="site">Site:</label>
+        <input type="text" placeholder="Coloque o site do fornecedor" formControlName="site"/>
+    </div>
+    
+    <input type="submit" value="{{btnText}}"/>
+</form>

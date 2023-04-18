@@ -1,2 +1,69 @@
 <h2>Cadastro de <span>Tecido</span>.</h2>
-<app-moment-form [btnText]="btnText"></app-moment-form>
+<!--(onSubmit)="createHandler($event)"-->
+<form 
+    (ngSubmit)="submit()"
+    [formGroup]="tecidoForm" 
+    #formDir="ngForm"
+>
+    <div class="form-group">
+        <label for="title">Tecido:</label>
+        <input 
+            type="text" 
+            placeholder="Coloque o nome do tecido"
+            formControlName="title"
+            required
+        />
+        <div *ngIf="title.invalid && formDir.submitted" class="validation-error">
+            <p *ngIf="title.errors?.['required']">O nome do Tecido é obrigatório.</p>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="composicao">Composição:</label>
+        <input type="text" placeholder="Coloque a composição do tecido" formControlName="composicao"/>
+    </div>
+    <div class="form-group">
+        <label for="gramatura">Gramatura:</label>
+        <input type="text" placeholder="Coloque gramatura do tecido" formControlName="gramatura"/>
+    </div>
+    <div class="form-group">
+        <label for="rendimento">Rendimento:</label>
+        <input type="text" placeholder="Coloque o rendimento do tecido" formControlName="rendimento"/>
+    </div>
+    <div class="form-group">
+        <label for="acabamento">Acabamento:</label>
+        <input type="text" placeholder="Coloque o acabamento do tecido" formControlName="acabamento"/>
+    </div>
+    <div class="form-group">
+        <label for="referencia">Referencia:</label>
+        <input type="text" placeholder="Coloque a referencia do tecido" formControlName="referencia"/>
+    </div>
+    <div class="form-group">
+        <label for="avista">Preço À Vista:</label>
+        <input type="text" placeholder="Coloque o preço à vista do tecido" formControlName="avista"/>
+    </div>
+    <div class="form-group">
+        <label for="aprazo">Preço A Prazo:</label>
+        <input type="text" placeholder="Coloque o preço a prazo do tecido" formControlName="aprazo"/>
+    </div>
+    <div class="form-group">
+        <label for="nomeFornecedor">Nome Do Fornecedor:</label>
+        <input type="text" placeholder="Coloque o nome do Fornecedor" formControlName="nomeFornecedor"/>
+    </div>
+    <div class="form-group">
+        <label for="fornecedor">Fornecedor:</label>
+        <input type="text" placeholder="Selecione o Fornecedor" formControlName="fornecedor"/>
+    </div>
+    <div class="form-group">
+        <label for="complemento">Complemento:</label>
+        <textarea placeholder="Informação adicional" formControlName="complemento"></textarea>
+    </div>
+
+
+    <div class="form-group">
+        <label for="image">Coloque a foto do tecido:</label>
+        <input type="file" (change)="OnFileSelected($event)">
+    </div>
+    
+    <input type="submit" value="{{btnText}}"/>
+</form>
