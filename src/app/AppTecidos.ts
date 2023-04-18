@@ -1,5 +1,5 @@
 //Fornecedor
-export interface AppTecido {
+export interface Fornecedor {
     id?: number,
     nome: string,
     email?: string,

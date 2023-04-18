@@ -1,5 +1,5 @@
 //Tecidos
-export interface Component {
+export interface Tecidos {
     id?: number,
     nome: string,
     composicao?: string,

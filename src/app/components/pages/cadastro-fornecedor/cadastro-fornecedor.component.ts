@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Fornecedor } from 'src/app/AppTecidos';
 
 @Component({
   selector: 'app-cadastro-fornecedor',
@@ -7,7 +8,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./cadastro-fornecedor.component.css']
 })
 export class CadastroFornecedorComponent {
-  @Output() onSubmit = new EventEmitter<AppTecido>()
+  @Output() onSubmit = new EventEmitter<Fornecedor>()
+
   btnText = 'Cadastrar';
   fornecedorForm!: FormGroup;
 
@@ -15,6 +17,11 @@ export class CadastroFornecedorComponent {
     this.fornecedorForm = new FormGroup({
       id: new FormControl(''),
       title: new FormControl('', [Validators.required]),
+      email: new FormControl(''),
+      telefone: new FormControl(''),
+      whatsapp: new FormControl(''),
+      endereco: new FormControl(''),
+      site: new FormControl(''),
     });
   }
 
@@ -26,7 +33,6 @@ export class CadastroFornecedorComponent {
     if (this.fornecedorForm.invalid){
       return;
     }
-    
     console.log(this.fornecedorForm.value);
 
     this.onSubmit.emit(this.fornecedorForm.value);
@@ -36,5 +42,5 @@ export class CadastroFornecedorComponent {
     console.log('deu boa');
   }
 
-}import { AppTecido } from 'src/app/AppTecidos';
+}
 
