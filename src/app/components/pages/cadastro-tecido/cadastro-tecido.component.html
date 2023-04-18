@@ -6,15 +6,15 @@
     #formDir="ngForm"
 >
     <div class="form-group">
-        <label for="title">Tecido:</label>
+        <label for="nome">Tecido:</label>
         <input 
             type="text" 
             placeholder="Coloque o nome do tecido"
-            formControlName="title"
+            formControlName="nome"
             required
         />
-        <div *ngIf="title.invalid && formDir.submitted" class="validation-error">
-            <p *ngIf="title.errors?.['required']">O nome do Tecido é obrigatório.</p>
+        <div *ngIf="nome.invalid && formDir.submitted" class="validation-error">
+            <p *ngIf="nome.errors?.['required']">O nome do Tecido é obrigatório.</p>
         </div>
     </div>
     

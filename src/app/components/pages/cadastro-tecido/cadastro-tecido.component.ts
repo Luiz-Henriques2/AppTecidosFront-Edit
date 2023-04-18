@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Tecidos } from 'src/app/Comment';
 import { ApptecidoService } from 'src/app/services/apptecido.service';
+
 @Component({
   selector: 'app-cadastro-tecido',
   templateUrl: './cadastro-tecido.component.html',
@@ -10,9 +11,10 @@ import { ApptecidoService } from 'src/app/services/apptecido.service';
 export class CadastroTecidoComponent implements OnInit{
   
 
+  constructor(private apptecidoService: ApptecidoService){}
 
-get title() {
-  return this.tecidoForm.get('title')!;
+get nome() {
+  return this.tecidoForm.get('nome')!;
 }
 
   btnText = 'Cadastrar';
@@ -21,7 +23,7 @@ get title() {
   ngOnInit(): void {
     this.tecidoForm = new FormGroup({
       id: new FormControl(''),
-      title: new FormControl('', [Validators.required]),
+      nome: new FormControl('', [Validators.required]),
       composicao: new FormControl(''),
       image: new FormControl(''),
       gramatura: new FormControl(''),
@@ -36,8 +38,23 @@ get title() {
     });
   }
 
-  createHandler(event: any){
-    console.log('deu boa');
+  async createHandler(tecido: Tecidos){
+    const formData = new FormData();
+
+    formData.append("nome", tecido.nome);
+    if (tecido.composicao){formData.append("composicao", tecido.composicao);}
+    if (tecido.imagem){formData.append("image", tecido.imagem);}
+    if (tecido.gramatura){formData.append("gramatura", String(tecido.gramatura));}
+    if (tecido.rendimento){formData.append("rendimento", String(tecido.rendimento));}
+    if (tecido.acabamento){formData.append("acabamento", String(tecido.acabamento));}
+    if (tecido.referencia){formData.append("referencia", String(tecido.referencia));}
+    if (tecido.avista){formData.append("avista", String(tecido.avista));}
+    if (tecido.prazo){formData.append("aprazo", String(tecido.prazo));}
+    if (tecido.fornecedor){formData.append("nomeFornecedor", tecido.fornecedor);}
+    if (tecido.fornecedorId){formData.append("fornecedor", String(tecido.fornecedorId));}
+    if (tecido.observacao){formData.append("complemento", tecido.observacao);}    
+
+    await this.apptecidoService.createTecido(formData).subscribe();
   }
 
   OnFileSelected(event: any) {
@@ -52,6 +69,4 @@ get title() {
     console.log(this.tecidoForm.value);
     this.createHandler(this.tecidoForm.value);
   }
-
-
 }
