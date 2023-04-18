@@ -8,8 +8,8 @@ import { Fornecedor } from 'src/app/AppTecidos';
   templateUrl: './cadastro-fornecedor.component.html',
   styleUrls: ['./cadastro-fornecedor.component.css']
 })
-export class CadastroFornecedorComponent {
-  @Output() onSubmit = new EventEmitter<Fornecedor>()
+export class CadastroFornecedorComponent implements OnInit{
+ 
 
   btnText = 'Cadastrar';
   fornecedorForm!: FormGroup;
@@ -17,7 +17,7 @@ export class CadastroFornecedorComponent {
   ngOnInit(): void{
     this.fornecedorForm = new FormGroup({
       id: new FormControl(''),
-      title: new FormControl('', [Validators.required]),
+      nome: new FormControl('', [Validators.required]),
       email: new FormControl(''),
       telefone: new FormControl(''),
       whatsapp: new FormControl(''),
@@ -26,22 +26,22 @@ export class CadastroFornecedorComponent {
     });
   }
 
-  get title() {
-    return this.fornecedorForm.get('title')!;
+  get nome() {
+    return this.fornecedorForm.get('nome')!;
   }
 
-  submit() {
-    if (this.fornecedorForm.invalid){
-      return;
-    }
-    console.log(this.fornecedorForm.value);
-
-    this.onSubmit.emit(this.fornecedorForm.value);
+//---------------------------------
+createHandler(event: any){
+  console.log('deu boa');
+}
+submit() {
+  if (this.fornecedorForm.invalid){
+    return;
   }
-
-  createHandler(event: any){
-    console.log('deu boa');
-  }
+  console.log(this.fornecedorForm.value);
+  this.createHandler(this.fornecedorForm.value);
+}
+//---------------------------------
 
 }
 

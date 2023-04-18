@@ -7,15 +7,15 @@
     #formDir="ngForm">
 
     <div class="form-group">
-        <label for="title">Fornecedor:</label>
+        <label for="nome">Fornecedor:</label>
         <input 
             type="text" 
             placeholder="Coloque o nome do fornecedor"
-            formControlName="title"
+            formControlName="nome"
             required
         />
-        <div *ngIf="title.invalid && formDir.submitted" class="validation-error">
-            <p *ngIf="title.errors?.['required']">O nome do Fornecedor é obrigatório.</p>
+        <div *ngIf="nome.invalid && formDir.submitted" class="validation-error">
+            <p *ngIf="nome.errors?.['required']">O nome do Fornecedor é obrigatório.</p>
         </div>
     </div>
     <div class="form-group">

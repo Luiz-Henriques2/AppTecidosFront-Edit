@@ -10,7 +10,7 @@ export interface Tecidos {
     avista?: number,
     prazo?: number,
     observacao?: string,
-    imagem?: string,
+    image?: string,
     fornecedor?: string,
     fornecedorId?: number,
     created_at?: string,
