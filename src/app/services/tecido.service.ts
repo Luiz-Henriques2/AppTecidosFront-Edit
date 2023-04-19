@@ -18,6 +18,11 @@ export class TecidoService {
     return this.http.get<Response<TecidoInterface[]>>(this.apiUrl);
   }
 
+  getTecido(id: number): Observable<Response<TecidoInterface>>{
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Response<TecidoInterface>>(url);
+  }
+
   createTecido(formData: FormData): Observable<FormData> {
     return this.http.post<FormData>(this.apiUrl, formData);
   }

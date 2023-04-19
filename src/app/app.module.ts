@@ -16,6 +16,7 @@ import { CadastroTecidoComponent } from './components/pages/cadastro-tecido/cada
 import { PesquisaTecidoComponent } from './components/pages/pesquisa-tecido/pesquisa-tecido.component';
 import { MessageComponent } from './components/message/message.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TecidoComponent } from './components/pages/tecido/tecido.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CadastroTecidoComponent,
     PesquisaTecidoComponent,
     MessageComponent,
+    TecidoComponent,
   ],
   imports: [
     BrowserModule,

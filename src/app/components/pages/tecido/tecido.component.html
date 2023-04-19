@@ -1,0 +1,24 @@
+<div class="moment" *ngIf="tecido">
+    <h1>{{tecido.nome}}</h1>
+    <img
+    src="{{baseApiUrl}}uploads/{{tecido.image}}"
+    alt="{{tecido.nome}}"
+    />
+    <div class="about-moment">
+        <h3>Sobre este tecido, gramatura:</h3>
+        <p>{{tecido.gramatura}}</p>
+    </div>
+    <div class="actions">
+        <h3>Ações:</h3>
+        <a href="/tecido/edit/{{tecido.id}}" class="edit-btn">
+            <fa-icon [icon]="faEdit"></fa-icon> Editar
+        </a>
+        <button class="remove-btn">
+            <fa-icon [icon]="faTimes"></fa-icon> Exluir
+        </button>
+    </div>
+    <!-- To Do Comentários -->
+    <div class="comments">
+        <p>Comentario (0):</p>
+    </div>
+</div>
