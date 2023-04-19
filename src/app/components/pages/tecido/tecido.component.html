@@ -13,7 +13,7 @@
         <a href="/tecido/edit/{{tecido.id}}" class="edit-btn">
             <fa-icon [icon]="faEdit"></fa-icon> Editar
         </a>
-        <button class="remove-btn">
+        <button class="remove-btn" (click)="removeHandler(tecido.id!)">
             <fa-icon [icon]="faTimes"></fa-icon> Exluir
         </button>
     </div>

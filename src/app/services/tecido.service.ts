@@ -26,4 +26,9 @@ export class TecidoService {
   createTecido(formData: FormData): Observable<FormData> {
     return this.http.post<FormData>(this.apiUrl, formData);
   }
+
+  removeTecido(id: number){
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete(url);
+  }
 }
