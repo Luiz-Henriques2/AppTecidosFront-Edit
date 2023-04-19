@@ -1,5 +1,4 @@
-//Tecidos
-export interface Tecidos {
+export interface TecidoInterface {
     id?: number,
     nome: string,
     composicao?: string,

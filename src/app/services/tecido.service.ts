@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ApptecidoService {
+export class TecidoService {
   private baseApiUrl = environment.baseApiUrl
   private apiUrl = `${this.baseApiUrl}api/tecido`
 

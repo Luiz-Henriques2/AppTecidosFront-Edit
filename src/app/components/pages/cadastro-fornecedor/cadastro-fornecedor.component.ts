@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Fornecedor } from 'src/app/AppTecidos';
-import { CommentService } from 'src/app/services/comment.service';
+import { FornecedorInterface } from 'src/app/Fornecedor';
+import { FornecedorService } from 'src/app/services/fornecedor.service';
 import { MessagesService } from 'src/app/services/messages.service';
 import { Router } from '@angular/router';
 
@@ -14,7 +14,7 @@ export class CadastroFornecedorComponent implements OnInit{
  
 
   constructor(
-    private commentService: CommentService, 
+    private fornecedorService: FornecedorService, 
     private messageService: MessagesService,
     private router: Router
     ){}
@@ -39,7 +39,7 @@ export class CadastroFornecedorComponent implements OnInit{
   }
 
 //---------------------------------
-async createHandler(fornecedor: Fornecedor){
+async createHandler(fornecedor: FornecedorInterface){
   const formData = new FormData();
 
   formData.append("nome", fornecedor.nome);
@@ -48,7 +48,7 @@ async createHandler(fornecedor: Fornecedor){
   if (fornecedor.whatsapp){formData.append("whatsapp", fornecedor.whatsapp);}
   if (fornecedor.endereco){formData.append("endereco", fornecedor.endereco);}  
   if (fornecedor.site){formData.append("site", fornecedor.site);}  
-  await this.commentService.createFornecedor(formData).subscribe();
+  await this.fornecedorService.createFornecedor(formData).subscribe();
 
   this.messageService.add('Fornecedor adicionado com sucesso!');
 

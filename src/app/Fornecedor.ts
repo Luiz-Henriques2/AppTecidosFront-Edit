@@ -1,5 +1,4 @@
-//Fornecedor
-export interface Fornecedor {
+export interface FornecedorInterface {
     id?: number,
     nome: string,
     email?: string,

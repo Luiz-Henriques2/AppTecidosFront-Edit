@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Tecidos } from 'src/app/Comment';
-import { ApptecidoService } from 'src/app/services/apptecido.service';
+import { TecidoInterface } from 'src/app/Tecido';
+import { TecidoService } from 'src/app/services/tecido.service';
 import { MessagesService } from 'src/app/services/messages.service';
 import { Router } from '@angular/router';
 @Component({
@@ -13,7 +13,7 @@ export class CadastroTecidoComponent implements OnInit{
   
 
   constructor(
-    private apptecidoService: ApptecidoService, 
+    private tecidoService: TecidoService, 
     private messageService: MessagesService,
     private router: Router
     ){}
@@ -48,7 +48,7 @@ get nome() {
     this.tecidoForm.patchValue({image: file});
   }
 
-  async createHandler(tecido: Tecidos){
+  async createHandler(tecido: TecidoInterface){
     const formData = new FormData();
 
     formData.append("nome", tecido.nome);
@@ -64,7 +64,7 @@ get nome() {
     if (tecido.fornecedorId){formData.append("fornecedorId", String(tecido.fornecedorId));}
     if (tecido.observacao){formData.append("observacao", tecido.observacao);}    
 
-    await this.apptecidoService.createTecido(formData).subscribe();
+    await this.tecidoService.createTecido(formData).subscribe();
 
     this.messageService.add('Tecido adicionado com sucesso!');
 

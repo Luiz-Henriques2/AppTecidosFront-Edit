@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CommentService {
+export class FornecedorService {
 
   private baseApiUrl = environment.baseApiUrl
   private apiUrl = `${this.baseApiUrl}api/fornecedor`
