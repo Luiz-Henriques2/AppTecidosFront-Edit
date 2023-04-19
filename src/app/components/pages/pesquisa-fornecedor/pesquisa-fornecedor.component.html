@@ -1,1 +1,27 @@
-<p>pesquisa-fornecedor works!</p>
+<div class="home-container">
+    <h1>Veja</h1>
+    <div class="search-container">
+        <form>
+            <fa-icon [icon]="faSearch"></fa-icon>
+            <input 
+                type="text"
+                placeholder="Buscar por tecido..."
+                (input)="search($event)"
+            />
+        </form>
+    </div>
+    <div *ngIf="fornecedores.length>0; else noTecidos">
+        <div class="moments-conteiner">
+            <div class="moment" *ngFor="let tecido of fornecedores">
+
+                <h3>{{tecido.nome}}</h3>
+                <p class="date">Em: {{tecido.created_at}}</p>
+                <p>Email: {{tecido.email}}</p>
+                <p><a routerLink="tecido/{{tecido.id}}">Detalhes</a></p>
+            </div>
+        </div>
+    </div>
+    <ng-template #noTecidos>
+        <h1>Não há Tecidos cadastrados!</h1>
+    </ng-template>
+</div>
