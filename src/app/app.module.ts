@@ -17,6 +17,7 @@ import { PesquisaTecidoComponent } from './components/pages/pesquisa-tecido/pesq
 import { MessageComponent } from './components/message/message.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TecidoComponent } from './components/pages/tecido/tecido.component';
+import { FornecedorComponent } from './components/pages/fornecedor/fornecedor.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { TecidoComponent } from './components/pages/tecido/tecido.component';
     PesquisaTecidoComponent,
     MessageComponent,
     TecidoComponent,
+    FornecedorComponent,
   ],
   imports: [
     BrowserModule,

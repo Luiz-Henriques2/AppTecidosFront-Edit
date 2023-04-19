@@ -1,0 +1,23 @@
+<div class="moment" *ngIf="fornecedor">
+    <h1>{{fornecedor.nome}}</h1>
+
+
+
+    <div class="about-moment">
+        <h3>Sobre este tecido, email:</h3>
+        <p>{{fornecedor.email}}</p>
+    </div>
+    <div class="actions">
+        <h3>Ações:</h3>
+        <a href="/fornecedor/edit/{{fornecedor.id}}" class="edit-btn">
+            <fa-icon [icon]="faEdit"></fa-icon> Editar
+        </a>
+        <button class="remove-btn" (click)="removeHandler(fornecedor.id!)">
+            <fa-icon [icon]="faTimes"></fa-icon> Exluir
+        </button>
+    </div>
+    <!-- To Do Comentários -->
+    <div class="comments">
+        <p>Comentario (0):</p>
+    </div>
+</div>

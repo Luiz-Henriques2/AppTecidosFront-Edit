@@ -21,4 +21,14 @@ export class FornecedorService {
   getFornecedores(): Observable<Response<FornecedorInterface[]>>{
     return this.http.get<Response<FornecedorInterface[]>>(this.apiUrl);
   }
+
+  removeFornecedor(id: number){
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete(url);
+  }
+
+  getFornecedor(id: number): Observable<Response<FornecedorInterface>>{
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Response<FornecedorInterface>>(url);
+  }
 }
