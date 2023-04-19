@@ -15,7 +15,8 @@ export class PesquisaTecidoComponent implements OnInit {
   tecidos: TecidoInterface[] = []
   baseApiUrl = environment.baseApiUrl
 
-  // to do search
+  faSearch = faSearch
+  searchTerm: string = '';
 
   constructor(private tecidoService: TecidoService) {}
   ngOnInit(): void {
@@ -28,6 +29,15 @@ export class PesquisaTecidoComponent implements OnInit {
       });
       this.allTecidos = data;
       this.tecidos = data;
+    });
+  }
+
+  search(e: Event):void {
+    const target = e.target as HTMLInputElement
+    const value = target.value
+
+    this.tecidos = this.allTecidos.filter(tecido => {
+      return tecido.nome.toLowerCase().includes(value);
     });
   }
 }

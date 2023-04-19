@@ -1,6 +1,15 @@
 <div class="home-container">
     <h1>Veja</h1>
-    <!-- form de busca-->
+    <div class="search-container">
+        <form>
+            <fa-icon [icon]="faSearch"></fa-icon>
+            <input 
+                type="text"
+                placeholder="Buscar por tecido..."
+                (input)="search($event)"
+            />
+        </form>
+    </div>
     <div *ngIf="tecidos.length>0; else noTecidos">
         <div class="moments-conteiner">
             <div class="moment" *ngFor="let tecido of tecidos">
