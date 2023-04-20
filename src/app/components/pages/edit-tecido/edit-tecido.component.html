@@ -1,6 +1,9 @@
-<h2>Cadastro de <span>Tecido</span>.</h2>
-
-<form 
+<div *ngIf="tecido">
+    <h2>
+        Editando o Tecido <span>{{tecido.nome}}</span>
+    </h2>
+    <!--Formulario-----[tecidoData]="tecido"----[btnText]="btnText"---------------------------->
+    <form 
     (ngSubmit)="submit()"
     [formGroup]="tecidoForm" 
     #formDir="ngForm"
@@ -66,3 +69,5 @@
     
     <input type="submit" value="{{btnText}}"/>
 </form>
+    <!--Fim Formulario--------------------------------->
+</div>

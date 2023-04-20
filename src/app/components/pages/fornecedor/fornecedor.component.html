@@ -9,7 +9,7 @@
     </div>
     <div class="actions">
         <h3>Ações:</h3>
-        <a href="/fornecedor/edit/{{fornecedor.id}}" class="edit-btn">
+        <a routerLink="/fornecedor/edit/{{fornecedor.id}}" class="edit-btn">
             <fa-icon [icon]="faEdit"></fa-icon> Editar
         </a>
         <button class="remove-btn" (click)="removeHandler(fornecedor.id!)">

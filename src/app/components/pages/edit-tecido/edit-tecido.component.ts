@@ -3,26 +3,36 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TecidoInterface } from 'src/app/Tecido';
 import { TecidoService } from 'src/app/services/tecido.service';
 import { MessagesService } from 'src/app/services/messages.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
-  selector: 'app-cadastro-tecido',
-  templateUrl: './cadastro-tecido.component.html',
-  styleUrls: ['./cadastro-tecido.component.css']
+  selector: 'app-edit-tecido',
+  templateUrl: './edit-tecido.component.html',
+  styleUrls: ['./edit-tecido.component.css']
 })
-export class CadastroTecidoComponent implements OnInit{
-  
+
+export class EditTecidoComponent implements OnInit{
 
   constructor(
-    private tecidoService: TecidoService, 
+    //----tecidoService chamado nos dois
+    private tecidoService: TecidoService,
+    //---novo------
+    private route: ActivatedRoute,
+    //--fim-novo---
     private messageService: MessagesService,
-    private router: Router
+    private router: Router,
     ){}
 
 get nome() {
   return this.tecidoForm.get('nome')!;
 }
+  //--------------------novo--
+  tecido!: TecidoInterface;
+  btnText: string = 'Editar';
+  tecidoData: TecidoInterface | null = null;
 
-  btnText = 'Cadastrar';
+  //--------------------fim-novo--
+  //btnText = 'Cadastrar';
   tecidoForm!: FormGroup;
 
   ngOnInit(): void {
@@ -41,7 +51,31 @@ get nome() {
       fornecedor_id: new FormControl(''),
       observacao: new FormControl(''),
     });
-  }
+  
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+  
+    this.tecidoService.getTecido(id).subscribe((item) => {
+      this.tecidoData = item.data;
+      this.tecidoForm.patchValue({nome: this.tecidoData?.nome});
+      this.tecidoForm.patchValue({composicao: this.tecidoData?.composicao});
+      this.tecidoForm.patchValue({image: this.tecidoData?.image});
+      this.tecidoForm.patchValue({gramatura: this.tecidoData?.gramatura});
+      this.tecidoForm.patchValue({rendimento: this.tecidoData?.rendimento});
+      this.tecidoForm.patchValue({acabamento: this.tecidoData?.acabamento});
+      this.tecidoForm.patchValue({referencia: this.tecidoData?.referencia});
+      this.tecidoForm.patchValue({avista: this.tecidoData?.avista});
+      this.tecidoForm.patchValue({prazo: this.tecidoData?.prazo});
+      this.tecidoForm.patchValue({fornecedor: this.tecidoData?.fornecedor});
+      this.tecidoForm.patchValue({fornecedor_id: this.tecidoData?.fornecedor_id});
+      this.tecidoForm.patchValue({observacao: this.tecidoData?.observacao});
+    });
+  
+  this.tecidoService.getTecido(id).subscribe((item) => {
+    this.tecido = item.data;
+  });
+
+}
+  
 
   OnFileSelected(event: any) {
     const file: File = event.target.files[0];
@@ -62,12 +96,10 @@ get nome() {
     if (tecido.prazo){formData.append("prazo", String(tecido.prazo));}
     if (tecido.fornecedor){formData.append("fornecedor", tecido.fornecedor);}
     if (tecido.fornecedor_id){formData.append("fornecedor_id", String(tecido.fornecedor_id));}
-    if (tecido.observacao){formData.append("observacao", tecido.observacao);}    
-
+    if (tecido.observacao){formData.append("observacao", tecido.observacao);}   
+    
     await this.tecidoService.createTecido(formData).subscribe();
-
     this.messageService.add('Tecido adicionado com sucesso!');
-
     this.router.navigate(['/']);
   }
 

@@ -11,7 +11,7 @@ export interface TecidoInterface {
     observacao?: string,
     image?: string,
     fornecedor?: string,
-    fornecedorId?: number,
+    fornecedor_id?: number,
     created_at?: string,
     updated_at?: string,
 }

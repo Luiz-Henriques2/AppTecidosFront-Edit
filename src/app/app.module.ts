@@ -18,6 +18,7 @@ import { MessageComponent } from './components/message/message.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TecidoComponent } from './components/pages/tecido/tecido.component';
 import { FornecedorComponent } from './components/pages/fornecedor/fornecedor.component';
+import { EditTecidoComponent } from './components/pages/edit-tecido/edit-tecido.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { FornecedorComponent } from './components/pages/fornecedor/fornecedor.co
     MessageComponent,
     TecidoComponent,
     FornecedorComponent,
+    EditTecidoComponent,
   ],
   imports: [
     BrowserModule,

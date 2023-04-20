@@ -31,4 +31,5 @@ export class TecidoService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.delete(url);
   }
+
 }

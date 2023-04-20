@@ -43,7 +43,7 @@ form {
 }
 
 input[type="submit"] {
-    background-color: #efefef;
+    background-color: #d6d6d6;
     border: 2px solid transparent;
     padding: 0.6em 1em;
     font-weight: bold;
