@@ -82,8 +82,20 @@ get nome() {
     this.tecidoForm.patchValue({image: file});
   }
 
-  async createHandler(tecido: TecidoInterface){
-    const formData = new FormData();
+
+  
+  submit() {
+    if (this.tecidoForm.invalid){
+      return;
+    }
+    console.log(this.tecidoForm.value);
+    this.editHandler(this.tecidoForm.value);
+  }
+
+  async editHandler(tecido: TecidoInterface){
+    const id = this.tecido.id
+
+    const formData = new FormData()
 
     formData.append("nome", tecido.nome);
     if (tecido.composicao){formData.append("composicao", tecido.composicao);}
@@ -98,17 +110,8 @@ get nome() {
     if (tecido.fornecedor_id){formData.append("fornecedor_id", String(tecido.fornecedor_id));}
     if (tecido.observacao){formData.append("observacao", tecido.observacao);}   
     
-    await this.tecidoService.createTecido(formData).subscribe();
-    this.messageService.add('Tecido adicionado com sucesso!');
+    await this.tecidoService.updateTecido(id!, formData).subscribe();
+    this.messageService.add(`Tecido ${id} atualizado com sucesso!`);
     this.router.navigate(['/']);
-  }
-
-  
-  submit() {
-    if (this.tecidoForm.invalid){
-      return;
-    }
-    console.log(this.tecidoForm.value);
-    this.createHandler(this.tecidoForm.value);
   }
 }
