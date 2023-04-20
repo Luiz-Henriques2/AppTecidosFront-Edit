@@ -7,6 +7,7 @@ import { CadastroTecidoComponent } from './components/pages/cadastro-tecido/cada
 import { PesquisaFornecedorComponent } from './components/pages/pesquisa-fornecedor/pesquisa-fornecedor.component';
 import { PesquisaTecidoComponent } from './components/pages/pesquisa-tecido/pesquisa-tecido.component';
 import { TecidoComponent } from './components/pages/tecido/tecido.component';
+import { FornecedorComponent } from './components/pages/fornecedor/fornecedor.component';
 
 const routes: Routes = [
   {path: '',component: HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'pesquisa/fornecedor', component: PesquisaFornecedorComponent},
   {path: 'pesquisa/tecido', component: PesquisaTecidoComponent},
   {path: 'pesquisa/tecido/:id', component: TecidoComponent},
+  {path: 'pesquisa/fornecedor/:id', component: FornecedorComponent},
 ];
 
 @NgModule({
