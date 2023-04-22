@@ -14,17 +14,30 @@
             required
         />
         <div *ngIf="nome.invalid && formDir.submitted" class="validation-error">
-            <p *ngIf="nome.errors?.['required']">O nome do Tecido é obrigatório.</p>
+            <div class="alert alert-danger" role="alert" *ngIf="nome.errors?.['required']">
+                O nome do Tecido é obrigatório.
+              </div>
         </div>
     </div>
     
     <div class="form-group">
         <label for="composicao">Composição:</label>
-        <input type="text" placeholder="Coloque a composição do tecido" formControlName="composicao"/>
+        <input 
+        type="text" 
+        placeholder="Coloque a composição do tecido" 
+        formControlName="composicao"
+        />
     </div>
     <div class="form-group">
         <label for="gramatura">Gramatura:</label>
-        <input type="text" placeholder="Coloque gramatura do tecido" formControlName="gramatura"/>
+        <input type="text" 
+        placeholder="Coloque gramatura do tecido" 
+        formControlName="gramatura"
+        pattern
+        />
+        <div *ngIf="gramatura.invalid && formDir.submitted" class="validation-error">
+            <p *ngIf="gramatura.errors?.['pattern']">Esse campo só aceita números.</p>
+        </div>
     </div>
     <div class="form-group">
         <label for="rendimento">Rendimento:</label>
@@ -54,10 +67,17 @@
         <label for="fornecedor_id">Fornecedor:</label>
         <input type="text" placeholder="Selecione o Fornecedor" formControlName="fornecedor_id"/>
     </div>
+
+
+    
     <div class="form-group">
-        <label for="observacao">Complemento:</label>
+        <label>Complemento:</label>
         <textarea placeholder="Informação adicional" formControlName="observacao"></textarea>
     </div>
+
+
+
+
 
     <div class="form-group">
         <label for="image">Coloque a foto do tecido:</label>

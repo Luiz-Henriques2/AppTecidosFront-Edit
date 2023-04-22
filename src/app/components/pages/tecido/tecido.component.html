@@ -1,24 +1,70 @@
-<div class="moment" *ngIf="tecido">
+<div class="product-details" *ngIf="tecido">
     <h1>{{tecido.nome}}</h1>
-    <img
-    src="{{baseApiUrl}}uploads/{{tecido.image}}"
-    alt="{{tecido.nome}}"
-    />
-    <div class="about-moment">
-        <h3>Sobre este tecido, gramatura:</h3>
-        <p>{{tecido.gramatura}}</p>
+    <div class="product-image">
+        <img src="{{baseApiUrl}}uploads/{{tecido.image}}" alt="{{tecido.nome}}">
     </div>
+    <div class="product-info">
+        <div class="product-property">
+            <div class="property-label">Nome do Tecido:</div>
+            <div class="property-value">{{tecido.nome}}</div>
+        </div>
+        <div class="product-property">
+            <div class="property-label">Composição:</div>
+            <div class="property-value">{{tecido.composicao}}</div>
+        </div>
+        <div class="product-property">
+            <div class="property-label">Gramatura:</div>
+            <div><span class="property-value">{{tecido.gramatura}}</span><span class="unidades"> g/m²</span></div>
+        </div>
+        <div class="product-property">
+            <div class="property-label">Rendimento:</div>
+            <div><span class="property-value">{{tecido.rendimento}}</span><span class="unidades"> m/kg</span></div>
+        </div>
+        <div class="product-property">
+            <div class="property-label">Acabamento:</div>
+            <div class="property-value">{{tecido.acabamento}}</div>
+        </div>
+        <div class="product-property">
+            <div class="property-label">Referência:</div>
+            <div class="property-value">{{tecido.referencia}}</div>
+        </div>
+
+          
+          <div class="product-property">
+            <div class="property-label">Preço à vista:</div>
+            <div class="property-value" *ngIf="tecido.prazo">{{formatarPreco(tecido.avista)}}</div>
+          </div>
+          
+          <div class="product-property">
+            <div class="property-label">Preço a prazo:</div>
+            <div class="property-value" *ngIf="tecido.prazo">{{ formatarPreco(tecido.prazo) }}</div>
+          </div>
+
+        <div class="product-property">
+            <div class="property-label">Fornecedor:</div>
+            <div class="property-value">{{tecido.fornecedor}}</div>
+        </div>
+        <div class="product-property">
+            <div class="property-label">ID do fornecedor:</div>
+            <div class="property-value">{{tecido.fornecedor_id}}</div>
+        </div>
+        <div class="product-property">
+            <div class="property-label">Complemento:</div>
+            <div class="property-value">{{tecido.observacao}}</div>
+        </div>
+    </div>
+
     <div class="actions">
-        <h3>Ações:</h3>
         <a routerLink="/tecido/edit/{{tecido.id}}" class="edit-btn">
             <fa-icon [icon]="faEdit"></fa-icon> Editar
         </a>
-        <button class="remove-btn" (click)="removeHandler(tecido.id!)">
-            <fa-icon [icon]="faTimes"></fa-icon> Exluir
+        
+
+        <button class="remove-btn" (click)="exibirMensagemDeConfirmacao(tecido.id!)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <fa-icon [icon]="faTimes"></fa-icon> Excluir
         </button>
-    </div>
-    <!-- To Do Comentários -->
-    <div class="comments">
-        <p>Comentario (0):</p>
+        
+  
+
     </div>
 </div>

@@ -4,9 +4,34 @@
 
 
     <div class="about-moment">
-        <h3>Sobre este tecido, email:</h3>
+        <h3>Nome do Fornecedor:</h3>
+        <p>{{fornecedor.nome}}</p>
+    </div>
+    <div class="about-moment">
+        <h3>Email:</h3>
         <p>{{fornecedor.email}}</p>
     </div>
+    <div class="about-moment">
+        <h3>Telefone:</h3>
+        <p>{{fornecedor.telefone}}</p>
+    </div>
+    <div class="about-moment">
+        <h3>WhatsApp:</h3>
+        <p>{{fornecedor.whatsapp}}</p>
+    </div>
+    <div class="about-moment">
+        <h3>Endereço:</h3>
+        <p>{{fornecedor.endereco}}</p>
+    </div>
+    <div class="about-moment">
+        <h3>Site:</h3>
+        <p>{{fornecedor.site}}</p>
+    </div>
+
+
+
+
+
     <div class="actions">
         <h3>Ações:</h3>
         <a routerLink="/fornecedor/edit/{{fornecedor.id}}" class="edit-btn">
@@ -15,9 +40,5 @@
         <button class="remove-btn" (click)="removeHandler(fornecedor.id!)">
             <fa-icon [icon]="faTimes"></fa-icon> Exluir
         </button>
-    </div>
-    <!-- To Do Comentários -->
-    <div class="comments">
-        <p>Comentario (0):</p>
     </div>
 </div>
