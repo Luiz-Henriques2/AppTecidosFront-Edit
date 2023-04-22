@@ -5,22 +5,22 @@ nav {
     border-bottom: 1px solid #777;
 }
 
-.brand, .links {
+.container-fluid, .links {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.brand img {
+.container-fluid img {
     width: 40px;
     margin-right: 0.6em;
 }
 
-.brand h2 {
+.container-fluid h2 {
     transition: 0.4s;
 }
 
-.brand:hover > h2 {
+.container-fluid:hover > h2 {
     color: #dec129;
 }
 

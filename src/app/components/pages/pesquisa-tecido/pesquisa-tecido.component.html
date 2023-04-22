@@ -1,13 +1,15 @@
 <div class="home-container">
-    <h1>Veja</h1>
+    <h1>Tecidos</h1>
     <div class="search-container">
         <form>
-            <fa-icon [icon]="faSearch"></fa-icon>
             <input 
-                type="text"
-                placeholder="Buscar por tecido..."
+                type="text" 
+                class="form-control" 
+                id="formGroupExampleInput" 
+                placeholder="Buscar por Tecido..."
                 (input)="search($event)"
-            />
+                >
+            <fa-icon [icon]="faSearch"></fa-icon>
         </form>
     </div>
     <div *ngIf="tecidos.length>0; else noTecidos">

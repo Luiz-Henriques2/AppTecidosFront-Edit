@@ -1,41 +1,39 @@
 <h2>Cadastro de <span>Fornecedor</span>.</h2>
+
+
 <form 
     (ngSubmit)="submit()"
     [formGroup]="fornecedorForm" 
     #formDir="ngForm">
-
-    <div class="form-group">
-        <label for="nome">Fornecedor:</label>
-        <input 
-            type="text" 
-            placeholder="Coloque o nome do fornecedor"
-            formControlName="nome"
-            required
-        />
-        <div *ngIf="nome.invalid && formDir.submitted" class="validation-error">
-            <p *ngIf="nome.errors?.['required']">O nome do Fornecedor é obrigatório.</p>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder=" " formControlName="nome" required>
+        <label for="floatingInput">Fornecedor:</label>
+      </div>
+    <div *ngIf="nome.invalid && formDir.submitted">
+        <div class="alert alert-danger" role="alert" *ngIf="nome.errors?.['required']">
+            O nome do Fornecedor é obrigatório.
         </div>
     </div>
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="text" placeholder="Coloque o email do fornecedor" formControlName="email"/>
-    </div>
-    <div class="form-group">
-        <label for="telefone">Telefone:</label>
-        <input type="text" placeholder="Coloque o telefone do fornecedor" formControlName="telefone"/>
-    </div>
-    <div class="form-group">
-        <label for="whatsapp">Whatsapp:</label>
-        <input type="text" placeholder="Coloque o whatsapp do fornecedor" formControlName="whatsapp"/>
-    </div>
-    <div class="form-group">
-        <label for="endereco">Endereço:</label>
-        <input type="text" placeholder="Coloque o endereço do fornecedor" formControlName="endereco"/>
-    </div>
-    <div class="form-group">
-        <label for="site">Site:</label>
-        <input type="text" placeholder="Coloque o site do fornecedor" formControlName="site"/>
-    </div>
-    
-    <input type="submit" value="{{btnText}}"/>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder=" " formControlName="email">
+        <label for="floatingInput">Email:</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder=" " formControlName="telefone">
+        <label for="floatingInput">Telefone:</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder=" " formControlName="whatsapp">
+        <label for="floatingInput">Whatsapp:</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder=" " formControlName="endereco">
+        <label for="floatingInput">Endereço:</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder=" " formControlName="site">
+        <label for="floatingInput">Site:</label>
+      </div>
+      
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>

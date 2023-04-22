@@ -27,6 +27,15 @@ get nome() {
 get gramatura() {
   return this.tecidoForm.get('gramatura')!;
 }
+get rendimento() {
+  return this.tecidoForm.get('rendimento')!;
+}
+get prazo() {
+  return this.tecidoForm.get('prazo')!;
+}
+get avista() {
+  return this.tecidoForm.get('avista')!;
+}
 
   btnText = 'Cadastrar';
   tecidoForm!: FormGroup;
@@ -39,8 +48,8 @@ get gramatura() {
       image: new FormControl(''),
       gramatura: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),// apenas numero
       rendimento: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2})?$|^\d{1,3}(\.\d{1,2})?$/), Validators.max(100)]),//maior numero 100 
-      acabamento: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),
-      referencia: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),
+      acabamento: new FormControl(''),
+      referencia: new FormControl(''),
       avista: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2}|\.\d{1,2})?$/), Validators.max(999.99), Validators.maxLength(6)]),
       prazo: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2}|\.\d{1,2})?$/), Validators.max(999.99), Validators.maxLength(6)]),
       fornecedor: new FormControl(''),

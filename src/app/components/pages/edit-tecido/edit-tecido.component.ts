@@ -14,11 +14,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EditTecidoComponent implements OnInit{
 
   constructor(
-    //----tecidoService chamado nos dois
     private tecidoService: TecidoService,
-    //---novo------
     private route: ActivatedRoute,
-    //--fim-novo---
     private messageService: MessagesService,
     private router: Router,
     ){}
@@ -26,13 +23,10 @@ export class EditTecidoComponent implements OnInit{
 get nome() {
   return this.tecidoForm.get('nome')!;
 }
-  //--------------------novo--
+
   tecido!: TecidoInterface;
   btnText: string = 'Editar';
   tecidoData: TecidoInterface | null = null;
-
-  //--------------------fim-novo--
-  //btnText = 'Cadastrar';
   tecidoForm!: FormGroup;
 
   ngOnInit(): void {

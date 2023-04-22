@@ -1,14 +1,18 @@
-<nav>
-    <a class="brand" routerLink="/">
-        <img src="/assets/textil.png" alt="Tecidos"/>
-        <h2>AppTecidos</h2>
-    </a>
-    <ul class="links">
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/about">Sobre</a></li>
-        <li><a routerLink="/cadastro/fornecedor">Cadastro Fornecedor</a></li>
-        <li><a routerLink="/cadastro/tecido">Cadastro Tecido</a></li>
-        <li><a routerLink="/pesquisa/fornecedor">Pesquisa Fornecedor</a></li>
-        <li><a routerLink="/pesquisa/tecido">Pesquisa Tecido</a></li>
-    </ul>
-</nav>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+    
+      <a class="navbar-brand" routerLink="/"><img src="/assets/textil.png" alt="Tecidos"/>AppTecidos</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-link" routerLink="/pesquisa/fornecedor">Fornecedores</a>
+            <a class="nav-link" routerLink="/pesquisa/tecido">Tecidos</a>
+            <a class="nav-link" routerLink="/cadastro/fornecedor">Cadastrar Fornecedor</a>
+            <a class="nav-link" routerLink="/cadastro/tecido">Cadastrar Tecido</a>
+        </div>
+      </div>
+    </div>
+  </nav>
