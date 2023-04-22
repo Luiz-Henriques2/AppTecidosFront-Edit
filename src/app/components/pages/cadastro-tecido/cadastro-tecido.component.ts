@@ -69,7 +69,7 @@ get avista() {
     formData.append("nome", tecido.nome);
     if (tecido.composicao){formData.append("composicao", tecido.composicao);}
     if (tecido.image){formData.append("image", tecido.image);}
-    if (tecido.gramatura){formData.append("gramatura", String(tecido.gramatura));}
+    if (tecido.gramatura){formData.append("gramatura", String(tecido.gramatura).replace(',', '.'));}
     if (tecido.rendimento){formData.append("rendimento", String(tecido.rendimento).replace(',', '.'));}
     if (tecido.acabamento){formData.append("acabamento", String(tecido.acabamento));}
     if (tecido.referencia){formData.append("referencia", String(tecido.referencia));}

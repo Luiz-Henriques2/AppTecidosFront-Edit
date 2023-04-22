@@ -31,4 +31,9 @@ export class FornecedorService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<Response<FornecedorInterface>>(url);
   }
+
+  updateFornecedor(id: number, formData: FormData): Observable<FormData>{
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.put<FormData>(url, formData);
+  }
 }

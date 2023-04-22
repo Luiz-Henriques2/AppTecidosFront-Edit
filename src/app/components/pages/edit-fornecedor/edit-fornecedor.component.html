@@ -1,0 +1,42 @@
+<div *ngIf="fornecedor">
+  <h2>
+    <p>Editando o Fornecedor <span>{{fornecedor.nome}}</span></p>
+</h2>
+
+<form 
+    (ngSubmit)="submit()"
+    [formGroup]="fornecedorForm" 
+    #formDir="ngForm">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder=" " formControlName="nome" required>
+        <label for="floatingInput">Fornecedor:</label>
+      </div>
+    <div *ngIf="nome.invalid && formDir.submitted">
+        <div class="alert alert-danger" role="alert" *ngIf="nome.errors?.['required']">
+            O nome do Fornecedor é obrigatório.
+        </div>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder=" " formControlName="email">
+        <label for="floatingInput">Email:</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder=" " formControlName="telefone">
+        <label for="floatingInput">Telefone:</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder=" " formControlName="whatsapp">
+        <label for="floatingInput">Whatsapp:</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder=" " formControlName="endereco">
+        <label for="floatingInput">Endereço:</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder=" " formControlName="site">
+        <label for="floatingInput">Site:</label>
+      </div>
+      
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+</div>
