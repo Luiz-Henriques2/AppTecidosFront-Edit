@@ -20,6 +20,8 @@ import { TecidoComponent } from './components/pages/tecido/tecido.component';
 import { FornecedorComponent } from './components/pages/fornecedor/fornecedor.component';
 import { EditTecidoComponent } from './components/pages/edit-tecido/edit-tecido.component';
 import { EditFornecedorComponent } from './components/pages/edit-fornecedor/edit-fornecedor.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 
 @NgModule({
@@ -38,7 +40,6 @@ import { EditFornecedorComponent } from './components/pages/edit-fornecedor/edit
     FornecedorComponent,
     EditTecidoComponent,
     EditFornecedorComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -48,6 +49,7 @@ import { EditFornecedorComponent } from './components/pages/edit-fornecedor/edit
     ReactiveFormsModule,
     FontAwesomeModule,
     NgbModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

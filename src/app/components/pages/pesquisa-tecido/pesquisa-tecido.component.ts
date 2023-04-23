@@ -17,6 +17,14 @@ export class PesquisaTecidoComponent implements OnInit {
 
   faSearch = faSearch
   searchTerm: string = '';
+  //----------------------
+  page = 1;
+
+minPrice: number = 0;
+maxPrice: number = 0;
+minGramatura: number = 0;
+maxGramatura: number = 0;
+//---------------------
 
   constructor(private tecidoService: TecidoService) {}
   ngOnInit(): void {
@@ -37,7 +45,15 @@ export class PesquisaTecidoComponent implements OnInit {
     const value = target.value
 
     this.tecidos = this.allTecidos.filter(tecido => {
-      return tecido.nome.toLowerCase().includes(value);
+      return tecido.nome.toLowerCase().includes(value) &&
+             (tecido.avista === undefined || 
+              (this.minPrice == 0 || tecido.avista >= this.minPrice) && 
+              (this.maxPrice == 0 || tecido.avista <= this.maxPrice)) &&
+             (tecido.gramatura === undefined || 
+             (this.minGramatura == 0 || tecido.gramatura >= this.minGramatura) && 
+             (this.maxGramatura == 0 || tecido.gramatura <= this.maxGramatura));
     });
+    this.page = 1;
   }
 }
+
