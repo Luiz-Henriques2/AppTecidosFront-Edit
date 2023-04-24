@@ -1,3 +1,5 @@
-problema
+Na Pagina Detalhe Tecido.{Tecido}
 
+Pegar TODOS os dados de UM fornecedor pelo fornecedor_id(que esta no tecido).
 
+pagina exemplo pagina de detalhes {fornecedor}
