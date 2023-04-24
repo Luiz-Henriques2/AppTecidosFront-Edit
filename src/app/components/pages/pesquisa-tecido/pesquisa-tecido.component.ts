@@ -45,14 +45,23 @@ maxGramatura: number = 0;
     const value = target.value
 
     this.tecidos = this.allTecidos.filter(tecido => {
-      return tecido.nome.toLowerCase().includes(value) &&
-             (tecido.avista === undefined || 
-              (this.minPrice == 0 || tecido.avista >= this.minPrice) && 
-              (this.maxPrice == 0 || tecido.avista <= this.maxPrice)) &&
-             (tecido.gramatura === undefined || 
-             (this.minGramatura == 0 || tecido.gramatura >= this.minGramatura) && 
-             (this.maxGramatura == 0 || tecido.gramatura <= this.maxGramatura));
+      return tecido.nome.toLowerCase().includes(value)
     });
+    this.page = 1;
+  }
+
+  searchIntervalo(e: Event):void {
+    const target = e.target as HTMLInputElement
+    const value = target.value
+
+    this.tecidos = this.allTecidos.filter(tecido => {
+      return (tecido.avista === undefined || 
+        (this.minPrice == 0 || (tecido.avista !== undefined && tecido.avista >= this.minPrice)) && 
+        (this.maxPrice == 0 || (tecido.avista !== undefined && tecido.avista <= this.maxPrice))) &&
+       (tecido.gramatura === undefined || 
+        (this.minGramatura == 0 || tecido.gramatura >= this.minGramatura) && 
+        (this.maxGramatura == 0 || tecido.gramatura <= this.maxGramatura));
+});
     this.page = 1;
   }
 }

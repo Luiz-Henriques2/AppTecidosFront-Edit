@@ -1,14 +1,13 @@
 
 <form>
-    <input type="text" class="form-control" placeholder="Buscar por Tecido..." (input)="search($event)">
-    <div class="form-group">
+    <!--<div class="form-group">
       <label for="minPrice">Preço mínimo:</label>
       <input type="number" class="form-control" id="minPrice" [(ngModel)]="minPrice" name="minPrice">
     </div>
     <div class="form-group">
       <label for="maxPrice">Preço máximo:</label>
       <input type="number" class="form-control" id="maxPrice" [(ngModel)]="maxPrice" name="maxPrice">
-    </div>
+    </div>-->
     <div class="form-group">
       <label for="minGramatura">Gramatura mínima:</label>
       <input type="number" class="form-control" id="minGramatura" [(ngModel)]="minGramatura" name="minGramatura">
@@ -17,7 +16,8 @@
       <label for="maxGramatura">Gramatura máxima:</label>
       <input type="number" class="form-control" id="maxGramatura" [(ngModel)]="maxGramatura" name="maxGramatura">
     </div>
-    <button type="submit" class="btn btn-primary">Filtrar</button>
+
+    <button (click)="searchIntervalo($event)">Enviar</button>
   </form>
   
 <!---------------------------------------------------------->
@@ -32,6 +32,12 @@
                 placeholder="Buscar por Tecido..."
                 (input)="search($event)"
                 >
+                <!--<div *ngIf="(maxGramatura != 0 || minGramatura != 0)">
+                    <p class="alert-001">
+                        Ao preencher o campo "gramatura", a pesquisa irá filtrar os resultados por nome e gramatura simultaneamente.
+                </p>
+                </div>-->
+
             <fa-icon [icon]="faSearch"></fa-icon>
         </form>
     </div>
