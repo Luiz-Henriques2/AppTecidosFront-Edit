@@ -36,4 +36,10 @@ export class FornecedorService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.put<FormData>(url, formData);
   }
+
+
+  getFornecedoresS(): Observable<Response<FornecedorInterface[]>>{
+    return this.http.get<Response<FornecedorInterface[]>>(this.apiUrl);
+  }
+
 }

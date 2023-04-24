@@ -4,21 +4,21 @@ import { TecidoInterface } from 'src/app/Tecido';
 import { TecidoService } from 'src/app/services/tecido.service';
 import { MessagesService } from 'src/app/services/messages.service';
 import { Router } from '@angular/router';
+import { FornecedorInterface } from 'src/app/Fornecedor';
+import { FornecedorService } from 'src/app/services/fornecedor.service';
 @Component({
   selector: 'app-cadastro-tecido',
   templateUrl: './cadastro-tecido.component.html',
   styleUrls: ['./cadastro-tecido.component.css']
 })
 export class CadastroTecidoComponent implements OnInit{
+  fornecedores: FornecedorInterface[] = [];
   
-  
-
-
-
   constructor(
     private tecidoService: TecidoService, 
     private messageService: MessagesService,
-    private router: Router
+    private router: Router,
+    private fornecedorService: FornecedorService
     ){}
 
 get nome() {
@@ -41,6 +41,11 @@ get avista() {
   tecidoForm!: FormGroup;
 
   ngOnInit(): void {
+    this.fornecedorService.getFornecedores().subscribe((items) => {
+      const data = items.data;
+      this.fornecedores = data;
+    });
+
     this.tecidoForm = new FormGroup({
       id: new FormControl(''),
       nome: new FormControl('', [Validators.required]),
