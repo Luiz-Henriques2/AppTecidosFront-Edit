@@ -72,9 +72,6 @@ maxID: number = 0;
     this.page = 1;
   }
 
-  atribuir(id: number){
-    this.maxID = id;
-  }
 
   searchIntervalo(e: Event):void {
     const target = e.target as HTMLInputElement
