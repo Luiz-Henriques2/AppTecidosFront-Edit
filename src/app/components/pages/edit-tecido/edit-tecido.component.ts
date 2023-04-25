@@ -4,6 +4,8 @@ import { TecidoInterface } from 'src/app/Tecido';
 import { TecidoService } from 'src/app/services/tecido.service';
 import { MessagesService } from 'src/app/services/messages.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FornecedorInterface } from 'src/app/Fornecedor';
+import { FornecedorService } from 'src/app/services/fornecedor.service';
 
 @Component({
   selector: 'app-edit-tecido',
@@ -12,12 +14,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class EditTecidoComponent implements OnInit{
+  fornecedores: FornecedorInterface[] = [];
 
   constructor(
     private tecidoService: TecidoService,
     private route: ActivatedRoute,
     private messageService: MessagesService,
     private router: Router,
+    private fornecedorService: FornecedorService
     ){}
 
     get nome() {
@@ -42,6 +46,11 @@ export class EditTecidoComponent implements OnInit{
   tecidoForm!: FormGroup;
 
   ngOnInit(): void {
+    this.fornecedorService.getFornecedores().subscribe((items) => {
+      const data = items.data;
+      this.fornecedores = data;
+    });
+
     this.tecidoForm = new FormGroup({
       id: new FormControl(''),
       nome: new FormControl('', [Validators.required]),

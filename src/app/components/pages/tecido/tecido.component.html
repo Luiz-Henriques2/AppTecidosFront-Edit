@@ -40,20 +40,48 @@
             <div class="property-label">Preço a prazo:</div>
             <div class="property-value" *ngIf="tecido.prazo">{{ formatarPreco(tecido.prazo) }}</div>
           </div>
-
-        <div class="product-property">
-            <div class="property-label">Fornecedor:</div>
-            <div class="property-value">{{fornecedor?.nome}}</div>
-        </div>
-        <!--<div class="product-property">
-            <div class="property-label">ID do fornecedor:</div>
-            <div class="property-value">{{tecido.fornecedor_id}}</div>
-        </div>-->
         <div class="product-property">
             <div class="property-label">Complemento:</div>
             <div class="property-value">{{tecido.observacao}}</div>
         </div>
     </div>
+<!--Dados do Fornecedor-------------------------------------------------------------------->
+
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <div class="product-property">
+                <div class="property-label">Fornecedor:</div>
+                <div class="property-value">{{fornecedor?.nome}}</div>
+            </div>
+          </button>
+          
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+            <div class="product-info">
+                <div class="product-property2">
+                    <div class="property-label">Email:</div>
+                    <div class="property-value">{{fornecedor?.email}}</div>
+                </div>
+                <div class="product-property2">
+                    <div class="property-label">Telefone:</div>
+                    <div class="property-value">{{fornecedor?.telefone}}</div>
+                </div>
+                <div class="product-property2">
+                    <div class="property-label">WhatsApp:</div>
+                    <div class="property-value">{{fornecedor?.whatsapp}}</div>
+                </div>
+                <div class="product-property2">
+                    <div class="property-label">Endereço:</div>
+                    <div class="property-value">{{fornecedor?.endereco}}</div>
+                </div>
+                <div class="product-property2">
+                    <div class="property-label">Site:</div>
+                    <div class="property-value">{{fornecedor?.site}}</div>
+                </div>
+                <a routerLink="/pesquisa/fornecedor/{{fornecedor?.id}}">Pagina do Fornecedor</a>
+        </div>
+      </div>
+    </div>
+    <!------------------------------------------------------------------------------------------>
 
     <div class="actions">
         <a routerLink="/tecido/edit/{{tecido.id}}" class="edit-btn">
@@ -64,8 +92,7 @@
         <button class="remove-btn" (click)="exibirMensagemDeConfirmacao(tecido.id!)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             <fa-icon [icon]="faTimes"></fa-icon> Excluir
         </button>
-        
-  
-
     </div>
 </div>
+
+
