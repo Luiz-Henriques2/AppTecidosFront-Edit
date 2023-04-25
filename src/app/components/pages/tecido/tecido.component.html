@@ -1,4 +1,5 @@
 <div class="product-details" *ngIf="tecido">
+    <div class="property-value" *ngIf="tecido.fornecedor_id" >{{inFornecedor(tecido.fornecedor_id)}}</div>
     <h1>{{tecido.nome}}</h1>
     <div class="product-image">
         <img src="{{baseApiUrl}}uploads/{{tecido.image}}" alt="{{tecido.nome}}">
@@ -42,12 +43,12 @@
 
         <div class="product-property">
             <div class="property-label">Fornecedor:</div>
-            <div class="property-value">{{tecido.fornecedor}}</div>
+            <div class="property-value">{{fornecedor?.nome}}</div>
         </div>
-        <div class="product-property">
+        <!--<div class="product-property">
             <div class="property-label">ID do fornecedor:</div>
             <div class="property-value">{{tecido.fornecedor_id}}</div>
-        </div>
+        </div>-->
         <div class="product-property">
             <div class="property-label">Complemento:</div>
             <div class="property-value">{{tecido.observacao}}</div>
