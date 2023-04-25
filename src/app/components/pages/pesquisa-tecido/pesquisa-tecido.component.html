@@ -19,7 +19,13 @@
 
     <button (click)="searchIntervalo($event)">Enviar</button>
   </form>
-  
+
+    <form (change)="searchFiltro($event)">
+        <label for="floatingTextarea2">Fornecedor:</label>
+        <select class="form-select" aria-label="Default select example" name="maxID" [(ngModel)]="maxID">
+            <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">{{fornecedor.nome}}</option>
+        </select>
+    </form>
 <!---------------------------------------------------------->
 <div class="home-container">
     <h1>Tecidos</h1>
@@ -52,7 +58,7 @@
                     <div class="moment-description">
                         <h4>{{tecido.nome}}</h4>
                         <!--<p class="date">Em: {{tecido.created_at}}</p>-->
-                        <!--<p>Composição: {{tecido.composicao}}</p>-->
+                        <p>ID do fornecedor: {{tecido.fornecedor_id}}</p>
                         <p>
                             <a routerLink="{{tecido.id}}" class="btn btn-custom">Detalhes</a>
                         </p>
