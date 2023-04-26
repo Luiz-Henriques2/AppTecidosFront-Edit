@@ -40,10 +40,11 @@
     width: 100%;
     margin-bottom: 0.5em;
     min-width: 350px;
-    background-color: #ffe8774c;
+    background-color: #fff;
     padding: 5px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
   }
   .product-property2 {
     display: flex;
@@ -52,10 +53,10 @@
     width: 100%;
     margin-bottom: 0.5em;
     min-width: 350px;
-    background-color: #5e708563;
+    background-color: #fff;
     padding: 5px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
   .unidades {
     font-size: 12px;
