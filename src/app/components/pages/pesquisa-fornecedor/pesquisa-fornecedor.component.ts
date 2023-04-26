@@ -17,7 +17,7 @@ export class PesquisaFornecedorComponent implements OnInit {
 
   faSearch = faSearch
   searchTerm: string = '';
-
+  page = 1;
   constructor(private fornecedorService: FornecedorService) {}
   ngOnInit(): void {
     this.fornecedorService.getFornecedores().subscribe((items) => {
@@ -32,12 +32,14 @@ export class PesquisaFornecedorComponent implements OnInit {
     });
   }
 
+
   search(e: Event):void {
     const target = e.target as HTMLInputElement
     const value = target.value
 
     this.fornecedores = this.allFornecedores.filter(fornecedor => {
-      return fornecedor.nome.toLowerCase().includes(value);
+      return fornecedor.nome.toLowerCase().includes(value)
     });
+    this.page = 1;
   }
 }

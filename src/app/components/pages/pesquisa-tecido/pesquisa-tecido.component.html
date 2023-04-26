@@ -34,7 +34,6 @@
             <input 
                 type="text" 
                 class="form-control" 
-                id="formGroupExampleInput" 
                 placeholder="Buscar por Tecido..."
                 (input)="search($event)"
                 >
@@ -42,26 +41,25 @@
                     <p class="alert-001">
                         Ao preencher o campo "gramatura", a pesquisa irá filtrar os resultados por nome e gramatura simultaneamente.
                 </p>
-                </div>-->
+                </div>
 
-            <fa-icon [icon]="faSearch"></fa-icon>
+            <fa-icon [icon]="faSearch"></fa-icon>-->
         </form>
     </div>
     <div *ngIf="tecidos.length>0; else noTecidos">
         <div class="row">
             <div class="col-6 col-md-4" *ngFor="let tecido of tecidos | paginate: { itemsPerPage: 6, currentPage: page, totalItems: tecidos.length }">
-                <div class="moment">
+                <div class="moment" routerLink="{{tecido.id}}">
                     <div class="product-image">
                     <img src="{{baseApiUrl}}uploads/{{tecido.image}}" alt="{{tecido.nome}}"/>
                     </div>
                     
                     <div class="moment-description">
                         <h4>{{tecido.nome}}</h4>
-                        <!--<p class="date">Em: {{tecido.created_at}}</p>-->
-                        <p>ID do fornecedor: {{tecido.fornecedor_id}}</p>
-                        <p>
-                            <a routerLink="{{tecido.id}}" class="btn btn-custom">Detalhes</a>
-                        </p>
+                        <p class="date">Em: {{tecido.created_at}}</p>
+                        <p>Gramatura: {{tecido.gramatura}}</p>
+                        <p>Fornecedor: {{tecido.fornecedor}}</p>
+                        
                     </div>
                 </div>
             </div>

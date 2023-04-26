@@ -1,29 +1,37 @@
+
 <div class="home-container">
-    <h1>Fornecedores</h1>
+    <h1>Fornecedor</h1>
     <div class="search-container">
         <form>
-            <fa-icon [icon]="faSearch"></fa-icon>
             <input 
                 type="text" 
                 class="form-control" 
-                id="formGroupExampleInput" 
-                placeholder="Buscar por Fornecedor..."
+                placeholder="Buscar por Tecido..."
                 (input)="search($event)"
-            >
+                >
         </form>
     </div>
     <div *ngIf="fornecedores.length>0; else noTecidos">
-        <div class="moments-conteiner">
-            <div class="moment" *ngFor="let tecido of fornecedores">
-
-                <h3>{{tecido.nome}}</h3>
-                <p class="date">Em: {{tecido.created_at}}</p>
-                <p>Email: {{tecido.email}}</p>
-                <p><a routerLink="{{tecido.id}}">Detalhes</a></p>
+        <div class="row">
+            <div class="col-6 col-md-4" *ngFor="let fornecedor of fornecedores | paginate: { itemsPerPage: 6, currentPage: page, totalItems: fornecedores.length }">
+                <div class="moment" routerLink="{{fornecedor.id}}">
+                    <div class="product-image">
+                    <img src="{{baseApiUrl}}uploads/782b163e-332a-4824-87ed-86e92172739c.jpg" alt="{{fornecedor.nome}}"/>
+                    </div>
+                    
+                    <div class="moment-description">
+                        <h4>{{fornecedor.nome}}</h4>
+                        <p class="date">Em: {{fornecedor.created_at}}</p>
+                        <p>Site: {{fornecedor.site}}</p>
+                        <p>Fornecedor: {{fornecedor.nome}}</p>
+                        
+                    </div>
+                </div>
             </div>
         </div>
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
     <ng-template #noTecidos>
-        <h1>Não há Tecidos cadastrados!</h1>
+        <h1>Fornecedor Não encontrado!</h1>
     </ng-template>
 </div>
