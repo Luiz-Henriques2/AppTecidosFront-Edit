@@ -1,0 +1,42 @@
+Banco de Dados API back
+instalar Node.js
+git clone ou Download
+npm install
+node ace generate:key
+KPW5TlkYkLlQU0tw15XhBHsZytQ8TPbp
+A chave deve ser copiada para o arquivo de ambiente '.env' em APP_KEY=
+criar arquivo .env atraves do .env.example
+node ace migration:run
+node ace serve
+
+Aplicativo front
+verificar se Node.js esta instalado
+git clone ou Download
+ng build
+cd dist
+cd projeto
+npm install lite-server --save-dev
+lite-server
+ou
+npx lite-server
+configura o arquivo AppTecidos.bat para os caminhos das pastas AppTecidosBack e AppTecidosFront,
+e configurar o comando 'lite-server' ou 'npx lite-server'.
+-------------------------------------
+editar o arquivo .env no backend
+
+PORT=3333
+HOST=192.168.0.75
+NODE_ENV=development
+APP_KEY=DzenKDlvi7JrrnyrYEr3O_slFC5ZqitA
+DRIVE_DISK=local
+DB_CONNECTION=sqlite
+
+ e environment.ts no angular.
+
+
+export const environment = {
+    production: false,
+    baseApiUrl: "http://192.168.0.75:3333/",
+};
+
+O host deve ser o ip de rede da maquina.

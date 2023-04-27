@@ -1,5 +1,88 @@
-Na Pagina Detalhe Tecido.{Tecido}
+Adonisjs versão de produção
+npm run build
 
-Pegar TODOS os dados de UM fornecedor pelo fornecedor_id(que esta no tecido).
+│    > cd build                                                          │
+│    > npm ci --production                                               │
+│    > node server.js
 
-pagina exemplo pagina de detalhes {fornecedor}
+Conectando o bd no adonis
+.env
+--------------------				│
+PORT=3333					│
+HOST=0.0.0.0					│
+NODE_ENV=development				│
+APP_KEY=aU9jdIShmAnMHQKMA6cNFCbmXpeOBKGo	│
+DRIVE_DISK=local				│
+DB_CONNECTION=sqlite				│
+--------------------------------		│
+
+
+
+HOST=127.0.0.1
+PORT=3333
+NODE_ENV=development
+APP_URL=http://${HOST}:${PORT}
+CACHE_VIEWS=false
+APP_KEY=aU9jdIShmAnMHQKMA6cNFCbmXpeOBKGo(DEVE SER GERADO)
+DB_CONNECTION=pg
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=
+DB_DATABASE=adonis
+HASH_DRIVER=bcrypt
+
+Para usar um banco de dados é preciso instalar seu pacote.
+Ex: npm install sqlite3, npm install pg
+
+HOST=127.0.0.1
+PORT=3333
+NODE_ENV=development
+APP_URL=http://${HOST}:${PORT}
+CACHE_VIEWS=false
+APP_KEY=aU9jdIShmAnMHQKMA6cNFCbmXpeOBKGo(DEVE SER GERADO)
+DB_CONNECTION=pg
+DB_HOST=127.0.0.1
+DB_PORT=5433
+DB_USER=docker
+DB_PASSWORD=docker
+DB_DATABASE=adonis123
+HASH_DRIVER=bcrypt
+
+
+Cria um banco de dados com nome adonis123 e apos isso usa o comando "node ace migration:run"
+
+
+
+
+
+
+-----------------------------------------------------
+Banco de Dados API back
+instalar Node.js
+git clone
+npm install
+node ace generate:key
+KPW5TlkYkLlQU0tw15XhBHsZytQ8TPbp
+A chave deve ser copiada para o arquivo de ambiente '.env' em APP_KEY=
+criar arquivo .env atraves do .env.example
+node ace migration:run
+node ace serve
+
+Aplicativo front
+npm install lite-server --save-dev
+lite-server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
