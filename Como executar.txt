@@ -21,7 +21,7 @@ ou
 npx lite-server
 configura o arquivo AppTecidos.bat para os caminhos das pastas AppTecidosBack e AppTecidosFront,
 e configurar o comando 'lite-server' ou 'npx lite-server'.
--------------------------------------|
+-------------------------------------|-|
 editar o arquivo .env no backend
 
 PORT=3333
