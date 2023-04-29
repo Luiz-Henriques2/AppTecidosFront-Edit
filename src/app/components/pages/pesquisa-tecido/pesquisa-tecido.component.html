@@ -33,7 +33,7 @@
     <h1>Tecidos</h1>
     <div *ngIf="tecidos.length>0; else noTecidos">
         <div class="row">
-            <div class="col-6 col-md-4" *ngFor="let tecido of tecidos | paginate: { itemsPerPage: 6, currentPage: page, totalItems: tecidos.length }">
+            <div class="col-6 col-md-4" *ngFor="let tecido of tecidos | paginate: { itemsPerPage: 20, currentPage: page, totalItems: tecidos.length }">
                 <div class="moment" routerLink="{{tecido.id}}">
                     <div class="product-image">
                     <img src="{{baseApiUrl}}uploads/{{tecido.image}}" alt="{{tecido.nome}}"/>
