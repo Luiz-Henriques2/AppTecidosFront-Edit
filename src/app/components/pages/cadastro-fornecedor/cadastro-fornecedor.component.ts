@@ -31,7 +31,13 @@ export class CadastroFornecedorComponent implements OnInit{
       whatsapp: new FormControl(''),
       endereco: new FormControl(''),
       site: new FormControl(''),
+      image: new FormControl(''),
     });
+  }
+
+  OnFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    this.fornecedorForm.patchValue({image: file});
   }
 
   get nome() {
@@ -44,6 +50,7 @@ async createHandler(fornecedor: FornecedorInterface){
 
   formData.append("nome", fornecedor.nome);
   if (fornecedor.email){formData.append("email", fornecedor.email);}
+  if (fornecedor.image){formData.append("image", fornecedor.image);}
   if (fornecedor.telefone){formData.append("telefone", fornecedor.telefone);}
   if (fornecedor.whatsapp){formData.append("whatsapp", fornecedor.whatsapp);}
   if (fornecedor.endereco){formData.append("endereco", fornecedor.endereco);}  

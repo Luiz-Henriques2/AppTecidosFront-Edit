@@ -51,6 +51,7 @@ export class EditFornecedorComponent implements OnInit{
       whatsapp: new FormControl(''),
       endereco: new FormControl(''),
       site: new FormControl(''),
+      image: new FormControl(''),
     });
   
     const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -63,6 +64,7 @@ export class EditFornecedorComponent implements OnInit{
       this.fornecedorForm.patchValue({whatsapp: this.fornecedorData?.whatsapp});
       this.fornecedorForm.patchValue({endereco: this.fornecedorData?.endereco});
       this.fornecedorForm.patchValue({site: this.fornecedorData?.site});
+      this.fornecedorForm.patchValue({image: this.fornecedorData?.image});
     });
   
   this.fornecedorService.getFornecedor(id).subscribe((item) => {
@@ -92,6 +94,7 @@ export class EditFornecedorComponent implements OnInit{
 
     formData.append("nome", fornecedor.nome);
     if (fornecedor.email){formData.append("composicao", fornecedor.email);}
+    if (fornecedor.image){formData.append("image", fornecedor.image);}
     if (fornecedor.telefone){formData.append("gramatura", String(fornecedor.telefone));}
     if (fornecedor.whatsapp){formData.append("rendimento", String(fornecedor.whatsapp));}
     if (fornecedor.endereco){formData.append("acabamento", String(fornecedor.endereco));}

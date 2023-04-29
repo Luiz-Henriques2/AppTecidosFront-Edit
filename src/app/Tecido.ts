@@ -10,6 +10,13 @@ export interface TecidoInterface {
     prazo?: number,
     observacao?: string,
     image?: string,
+
+    caracteristica?: string,
+    tecnologia?: string,
+    favoritar?: boolean,
+    prazoentrega?: number,
+    prazodesenvolvimento?: number,
+
     fornecedor?: string,
     fornecedor_id?: number,
     created_at?: string,

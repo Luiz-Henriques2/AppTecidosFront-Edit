@@ -58,6 +58,18 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
+  .product-property3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 0.5em;
+    min-width: 350px;
+    background-color: #c4c4c4;
+    padding: 5px;
+    border-radius: 5px;
+
+  }
   .unidades {
     font-size: 12px;
   }
