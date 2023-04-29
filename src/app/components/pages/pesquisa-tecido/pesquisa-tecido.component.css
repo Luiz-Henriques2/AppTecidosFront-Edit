@@ -144,3 +144,32 @@ h1 {
   font-weight: 700;
   text-decoration: underline;
 }
+.small-input input[type="number"],
+.small-input input[type="text"] {
+  width: 120px;
+}
+nav.form-nav {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+nav.form-nav label {
+  width: 120px;
+  margin-right: 10px;
+}
+
+nav.form-nav .form-group {
+  display: inline-block;
+  margin-right: 20px;
+  width: calc(25% - 32px);
+}
+
+@media (max-width: 767px) {
+  nav.form-nav .form-group {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}

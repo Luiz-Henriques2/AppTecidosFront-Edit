@@ -28,6 +28,7 @@ minGramatura: number = 0;
 maxGramatura: number = 0;
 minID: number = 0;
 maxID: number = 0;
+value: string = "";
 //---------------------
 
   constructor(
@@ -54,43 +55,18 @@ maxID: number = 0;
   search(e: Event):void {
     const target = e.target as HTMLInputElement
     const value = target.value.toLowerCase()
+    console.log(this.value)
 
     this.tecidos = this.allTecidos.filter(tecido => {
-      return tecido.nome.toLowerCase().includes(value) && (tecido.fornecedor_id === undefined || 
+      return tecido.nome.toLowerCase().includes(this.value) && (tecido.fornecedor_id === undefined || 
         (this.maxID == 0 || tecido.fornecedor_id == this.maxID)) && (tecido.avista === undefined || 
           (this.minPrice == 0 || (tecido.avista !== undefined && tecido.avista >= this.minPrice)) && 
           (this.maxPrice == 0 || (tecido.avista !== undefined && tecido.avista <= this.maxPrice))) &&
          (tecido.gramatura === undefined || 
           (this.minGramatura == 0 || tecido.gramatura >= this.minGramatura) && 
           (this.maxGramatura == 0 || tecido.gramatura <= this.maxGramatura));
+          console.log(this.maxGramatura)
     });
-    this.page = 1;
-  }
-
-  searchFiltro(e: Event):void {
-    const target = e.target as HTMLInputElement
-    const value = target.value
-
-    this.tecidos = this.allTecidos.filter(tecido => {
-      return (tecido.fornecedor_id === undefined || 
-      (this.maxID == 0 || tecido.fornecedor_id == this.maxID));
-});
-    this.page = 1;
-  }
-
-
-  searchIntervalo(e: Event):void {
-    const target = e.target as HTMLInputElement
-    const value = target.value
-
-    this.tecidos = this.allTecidos.filter(tecido => {
-      return (tecido.avista === undefined || 
-        (this.minPrice == 0 || (tecido.avista !== undefined && tecido.avista >= this.minPrice)) && 
-        (this.maxPrice == 0 || (tecido.avista !== undefined && tecido.avista <= this.maxPrice))) &&
-       (tecido.gramatura === undefined || 
-        (this.minGramatura == 0 || tecido.gramatura >= this.minGramatura) && 
-        (this.maxGramatura == 0 || tecido.gramatura <= this.maxGramatura));
-});
     this.page = 1;
   }
 }

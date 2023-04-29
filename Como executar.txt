@@ -40,3 +40,7 @@ export const environment = {
 };
 
 O host deve ser o ip de rede da maquina.
+----------------------------------------
+para usar o angular
+npm install ou npm install --force
+npm install -g @angular/cli

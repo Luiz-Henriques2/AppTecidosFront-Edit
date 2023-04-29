@@ -1,13 +1,12 @@
-
-<form>
-    <!--<div class="form-group">
+<nav class="form-nav">
+    <div class="form-group">
       <label for="minPrice">Preço mínimo:</label>
       <input type="number" class="form-control" id="minPrice" [(ngModel)]="minPrice" name="minPrice">
     </div>
     <div class="form-group">
       <label for="maxPrice">Preço máximo:</label>
       <input type="number" class="form-control" id="maxPrice" [(ngModel)]="maxPrice" name="maxPrice">
-    </div>-->
+    </div>
     <div class="form-group">
       <label for="minGramatura">Gramatura mínima:</label>
       <input type="number" class="form-control" id="minGramatura" [(ngModel)]="minGramatura" name="minGramatura">
@@ -16,36 +15,22 @@
       <label for="maxGramatura">Gramatura máxima:</label>
       <input type="number" class="form-control" id="maxGramatura" [(ngModel)]="maxGramatura" name="maxGramatura">
     </div>
+  </nav>
+  
+  <div class="form-group">
+    <label for="value">Buscar por Tecido:</label>
+    <input type="text" class="form-control" placeholder="Buscar por Tecido..." [(ngModel)]="value" name="value">
+  </div>
 
-    <button (click)="searchIntervalo($event)">Enviar</button>
-  </form>
-
-    <form (change)="searchFiltro($event)">
-        <label for="floatingTextarea2">Fornecedor:</label>
-        <select class="form-select" aria-label="Default select example" name="maxID" [(ngModel)]="maxID">
-            <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">{{fornecedor.nome}}</option>
-        </select>
-    </form>
+  <label for="floatingTextarea2">Fornecedor:</label>
+  <select class="form-select" aria-label="Default select example" name="maxID" [(ngModel)]="maxID">
+      <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">{{fornecedor.nome}}</option>
+  </select>
+  
+  <button class="btn btn-primary" (click)="search($event)">Enviar</button>
 <!---------------------------------------------------------->
 <div class="home-container">
     <h1>Tecidos</h1>
-    <div class="search-container">
-        <form>
-            <input 
-                type="text" 
-                class="form-control" 
-                placeholder="Buscar por Tecido..."
-                (input)="search($event)"
-                >
-                <!--<div *ngIf="(maxGramatura != 0 || minGramatura != 0)">
-                    <p class="alert-001">
-                        Ao preencher o campo "gramatura", a pesquisa irá filtrar os resultados por nome e gramatura simultaneamente.
-                </p>
-                </div>
-
-            <fa-icon [icon]="faSearch"></fa-icon>-->
-        </form>
-    </div>
     <div *ngIf="tecidos.length>0; else noTecidos">
         <div class="row">
             <div class="col-6 col-md-4" *ngFor="let tecido of tecidos | paginate: { itemsPerPage: 6, currentPage: page, totalItems: tecidos.length }">
