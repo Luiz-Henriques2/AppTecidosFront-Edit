@@ -5,6 +5,8 @@ import { environment } from 'src/app/environment';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FornecedorInterface } from 'src/app/Fornecedor';
 import { FornecedorService } from 'src/app/services/fornecedor.service';
+import { FormControl, FormGroup,} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-pesquisa-tecido',
@@ -29,11 +31,14 @@ maxGramatura: number = 0;
 minID: number = 0;
 maxID: number = 0;
 value: string = "";
+
 //---------------------
 
   constructor(
     private tecidoService: TecidoService,
-    private fornecedorService: FornecedorService
+    private fornecedorService: FornecedorService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {}
   ngOnInit(): void {
     this.fornecedorService.getFornecedores().subscribe((items) => {
@@ -50,8 +55,14 @@ value: string = "";
       this.allTecidos = data;
       this.tecidos = data;
     });
+    this.tecidoForm = new FormGroup({favoritar: new FormControl(''),});
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if(id!=0){
+    this.tecidoService.getTecido(id).subscribe((item) => {
+      this.tecidoForm.patchValue({favoritar: this.tecidoData?.favoritar});
+      this.tecido = item.data;
+    });}
   }
-
   search(e: Event):void {
     const target = e.target as HTMLInputElement
     const value = target.value.toLowerCase()
@@ -70,9 +81,27 @@ value: string = "";
          (tecido.gramatura === undefined || 
           (this.minGramatura == 0 || tecido.gramatura >= this.minGramatura) && 
           (this.maxGramatura == 0 || tecido.gramatura <= this.maxGramatura));
-          console.log(this.maxGramatura)
+
     });
     this.page = 1;
   }
+//---favoritar
+editHandlert(tecido: any) {
+  tecido.favoritar = !tecido.favoritar;
+  const id = this.tecido.id;
+  console.log(id);
 }
 
+
+  tecido!: TecidoInterface;
+  tecidoData: TecidoInterface | null = null;
+  tecidoForm!: FormGroup;
+  async editHandler(tecido: TecidoInterface){
+    tecido.favoritar = tecido.favoritar == 0 ? 1 : 0; // Alterna entre true (1) e false (0)
+    const id = tecido.id
+    const formData = new FormData()
+    formData.append("favoritar", String(tecido.favoritar));
+    await this.tecidoService.updateTecido(id!, formData).subscribe();
+  }
+//-------------------------
+}

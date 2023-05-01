@@ -63,7 +63,7 @@ get avista() {
 
       caracteristica: new FormControl(''),
       tecnologia: new FormControl(''),
-      favoritar: new FormControl(''),
+      favoritar: new FormControl('0'),
       prazoentrega: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),// apenas numero
       prazodesenvolvimento: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),// apenas numero
 

@@ -13,7 +13,7 @@ export interface TecidoInterface {
 
     caracteristica?: string,
     tecnologia?: string,
-    favoritar?: boolean,
+    favoritar?: number,
     prazoentrega?: number,
     prazodesenvolvimento?: number,
 

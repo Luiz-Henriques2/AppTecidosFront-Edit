@@ -27,24 +27,25 @@
       <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">{{fornecedor.nome}}</option>
   </select>
   
-  <button class="btn btn-primary" (click)="search($event)">Enviar</button>
+  <button class="btn btn-primary" (click)="search($event)">Pesquisar</button>
 <!---------------------------------------------------------->
 <div class="home-container">
     <h1>Tecidos</h1>
     <div *ngIf="tecidos.length>0; else noTecidos">
         <div class="row">
             <div class="col-6 col-md-4" *ngFor="let tecido of tecidos | paginate: { itemsPerPage: 20, currentPage: page, totalItems: tecidos.length }">
-                <div class="moment" routerLink="{{tecido.id}}">
-                    <div class="product-image">
+                <!--routerLink="{{tecido.id}}"-->
+                    <div class="product-image" routerLink="{{tecido.id}}">
+
                     <img src="{{baseApiUrl}}uploads/{{tecido.image}}" alt="{{tecido.nome}}"/>
-                    </div>
-                    
+                  </div>
+                  <div class="moment">
                     <div class="moment-description">
                         <h4>{{tecido.nome}}</h4>
                         <p class="date">Em: {{tecido.created_at}}</p>
                         <p>Gramatura: {{tecido.gramatura}}</p>
-                        
-                        
+                        <button *ngIf="!tecido.favoritar" class="estrela" (click)="editHandler(tecido)"><i class="bi bi-bookmark-star"></i></button>
+                        <button *ngIf="tecido.favoritar" class="estrela " (click)="editHandler(tecido)"><i class="bi bi-bookmark-star-fill text-pink"></i></button>
                     </div>
                 </div>
             </div>
