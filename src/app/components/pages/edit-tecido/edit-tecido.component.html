@@ -48,10 +48,6 @@
         <label for="floatingInput">Referencia:</label>
       </div>
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" placeholder=" " formControlName="caracteristica">
-        <label for="floatingInput">Característica:</label>
-      </div>
-      <div class="form-floating mb-3">
         <input type="text" class="form-control" placeholder=" " formControlName="tecnologia">
         <label for="floatingInput">Tecnologia:</label>
       </div>
@@ -100,6 +96,16 @@
           <option [value]="1" > Sim </option>
           <option [value]="0" > Não </option>
       </select>
+      <label for="floatingTextarea2">Característica:</label>
+      <select class="form-select" aria-label="Default select example" formControlName="caracteristica" >
+        <option > Tela </option>
+        <option > Textura com brilho </option>
+        <option > Textura sem brilho </option>
+        <option > Tule </option>
+        <option > Liso </option>
+        <option > Estampado </option>
+        <option > Platinado </option>
+    </select>
       
 
 

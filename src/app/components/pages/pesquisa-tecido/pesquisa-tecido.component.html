@@ -26,6 +26,22 @@
   <select class="form-select" aria-label="Default select example" name="maxID" [(ngModel)]="maxID">
       <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">{{fornecedor.nome}}</option>
   </select>
+  <label for="floatingTextarea2">Favorito:</label>
+  <select class="form-select" aria-label="Default select example" name="favorit" [(ngModel)]="favorit">
+    <option [value]="1" > Favoritos </option>
+    <option [value]="0" > Todos </option>
+</select>
+
+  <label for="floatingTextarea2">Característica:</label>
+  <select class="form-select" aria-label="Default select example" name="caract" [(ngModel)]="caract">
+    <option > Tela </option>
+    <option > Textura com brilho </option>
+    <option > Textura sem brilho </option>
+    <option > Tule </option>
+    <option > Liso </option>
+    <option > Estampado </option>
+    <option > Platinado </option>
+</select>
   
   <button class="btn btn-primary" (click)="search($event)">Pesquisar</button>
 <!---------------------------------------------------------->

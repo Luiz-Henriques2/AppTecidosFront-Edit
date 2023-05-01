@@ -31,6 +31,8 @@ maxGramatura: number = 0;
 minID: number = 0;
 maxID: number = 0;
 value: string = "";
+caract:string = "";
+favorit:number = 0;
 
 //---------------------
 
@@ -71,9 +73,18 @@ value: string = "";
     this.tecidos = this.allTecidos.filter(tecido => {
       return tecido.nome.toLowerCase().includes(this.value) 
        && (tecido.fornecedor_id === undefined || 
-        (this.maxID == 0 || tecido.fornecedor_id == this.maxID)) && (tecido.avista === undefined || 
+        (this.maxID == 0 || tecido.fornecedor_id == this.maxID)) &&
+
+        (tecido.favoritar === undefined || 
+          (this.favorit == 0 || tecido.favoritar == this.favorit)) &&
+          
+          (tecido.caracteristica === undefined || 
+        (this.caract == "" || tecido.caracteristica == this.caract)) &&
+
+        (tecido.avista === undefined || 
           (this.minPrice == 0 || (tecido.avista !== undefined && tecido.avista >= this.minPrice)) && 
           (this.maxPrice == 0 || (tecido.avista !== undefined && tecido.avista <= this.maxPrice))) &&
+          
          (tecido.gramatura === undefined || 
           (this.minGramatura == 0 || tecido.gramatura >= this.minGramatura) && 
           (this.maxGramatura == 0 || tecido.gramatura <= this.maxGramatura));
