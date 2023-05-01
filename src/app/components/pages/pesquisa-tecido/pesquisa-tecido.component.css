@@ -57,6 +57,7 @@ h1 {
   margin-top: -10px;
 }
 img {
+  cursor: pointer;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);

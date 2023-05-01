@@ -41,7 +41,7 @@
                   </div>
                   <div class="moment">
                     <div class="moment-description">
-                        <h4>{{tecido.nome}}</h4>
+                        <h4>{{tecido.nome.length > 10 ? tecido.nome.substr(0, 10) + '...' : tecido.nome}}</h4>
                         <p class="date">Em: {{tecido.created_at}}</p>
                         <p>Gramatura: {{tecido.gramatura}}</p>
                         <button *ngIf="!tecido.favoritar" class="estrela" (click)="editHandler(tecido)"><i class="bi bi-bookmark-star"></i></button>

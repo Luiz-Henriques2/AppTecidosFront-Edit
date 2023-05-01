@@ -100,7 +100,6 @@ get avista() {
 
     if (tecido.avista){formData.append("avista", String(tecido.avista).replace(',', '.'));}
     if (tecido.prazo){formData.append("prazo", String(tecido.prazo).replace(',', '.'));}
-    if (tecido.fornecedor){formData.append("fornecedor", tecido.fornecedor);}
     if (tecido.fornecedor_id){formData.append("fornecedor_id", String(tecido.fornecedor_id));}
     if (tecido.observacao){formData.append("observacao", tecido.observacao);}    
 
@@ -109,6 +108,9 @@ get avista() {
     this.messageService.add('Tecido adicionado com sucesso!');
 
     this.router.navigate(['/']);
+    //this.tecidoForm.reset();
+    //document.documentElement.scrollTop = 0;
+    //document.body.scrollTop = 0;
   }
 
   
