@@ -69,11 +69,7 @@ value: string = "";
     console.log(this.value)
 
     this.tecidos = this.allTecidos.filter(tecido => {
-      return tecido.nome.toLowerCase().includes(this.value) ||
-      tecido.tecnologia?.toLowerCase().includes(this.value) ||
-      tecido.caracteristica?.toLowerCase().includes(this.value) ||
-      tecido.composicao?.toLowerCase().includes(this.value) ||
-      tecido.observacao?.toLowerCase().includes(this.value)
+      return tecido.nome.toLowerCase().includes(this.value) 
        && (tecido.fornecedor_id === undefined || 
         (this.maxID == 0 || tecido.fornecedor_id == this.maxID)) && (tecido.avista === undefined || 
           (this.minPrice == 0 || (tecido.avista !== undefined && tecido.avista >= this.minPrice)) && 
