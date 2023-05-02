@@ -1,6 +1,20 @@
 <div class="product-details" *ngIf="fornecedor">
     <h1>{{fornecedor.nome}}</h1>
 
+    <div class="product-image">
+        <img src="{{baseApiUrl}}uploads/{{fornecedor.image}}" alt="{{fornecedor.nome}}">
+    </div>
+<!-- Large modal -->
+<div type="button" z="10" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg"><i class="bi-arrows-fullscreen btn btn-custom"></i></div>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <img src="{{baseApiUrl}}uploads/{{fornecedor.image}}" alt="{{fornecedor.nome}}">
+    </div>
+  </div>
+</div>
+
     <div class="product-info">
         <div class="product-property">
             <div class="property-label">Nome do fornecedor:</div>

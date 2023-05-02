@@ -34,6 +34,10 @@
         <input type="text" class="form-control" placeholder=" " formControlName="site">
         <label for="floatingInput">Site:</label>
       </div>
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Foto do fornecedor:</label>
+        <input class="form-control" type="file" id="formFile" (change)="OnFileSelected($event)">
+      </div>
       
     <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>

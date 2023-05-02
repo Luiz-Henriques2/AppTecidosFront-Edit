@@ -39,6 +39,12 @@ export class EditTecidoComponent implements OnInit{
     get avista() {
       return this.tecidoForm.get('avista')!;
     }
+    get prazoentrega() {
+      return this.tecidoForm.get('prazoentrega')!;
+    }
+    get prazodesenvolvimento() {
+      return this.tecidoForm.get('prazodesenvolvimento')!;
+    }
 
   tecido!: TecidoInterface;
   btnText: string = 'Editar';
@@ -56,6 +62,13 @@ export class EditTecidoComponent implements OnInit{
       nome: new FormControl('', [Validators.required]),
       composicao: new FormControl(''),
       image: new FormControl(''),
+
+      caracteristica: new FormControl(''),
+      tecnologia: new FormControl(''),
+      favoritar: new FormControl(''),
+      prazoentrega: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),// apenas numero
+      prazodesenvolvimento: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),// apenas numero
+
       gramatura: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),// apenas numero
       rendimento: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2})?$|^\d{1,3}(\.\d{1,2})?$/), Validators.max(100)]),//maior numero 100 
       acabamento: new FormControl(''),
@@ -74,6 +87,13 @@ export class EditTecidoComponent implements OnInit{
       this.tecidoForm.patchValue({nome: this.tecidoData?.nome});
       this.tecidoForm.patchValue({composicao: this.tecidoData?.composicao});
       this.tecidoForm.patchValue({image: this.tecidoData?.image});
+
+      this.tecidoForm.patchValue({caracteristica: this.tecidoData?.caracteristica});
+      this.tecidoForm.patchValue({tecnologia: this.tecidoData?.tecnologia});
+      this.tecidoForm.patchValue({favoritar: this.tecidoData?.favoritar});
+      this.tecidoForm.patchValue({prazoentrega: this.tecidoData?.prazoentrega});
+      this.tecidoForm.patchValue({prazodesenvolvimento: this.tecidoData?.prazodesenvolvimento});
+
       this.tecidoForm.patchValue({gramatura: this.tecidoData?.gramatura});
       this.tecidoForm.patchValue({rendimento: this.tecidoData?.rendimento});
       this.tecidoForm.patchValue({acabamento: this.tecidoData?.acabamento});
@@ -115,6 +135,13 @@ export class EditTecidoComponent implements OnInit{
     formData.append("nome", tecido.nome);
     if (tecido.composicao){formData.append("composicao", tecido.composicao);}
     if (tecido.image){formData.append("image", tecido.image);}
+
+    if (tecido.caracteristica){formData.append("caracteristica", String(tecido.caracteristica));}
+    if (tecido.tecnologia){formData.append("tecnologia", String(tecido.tecnologia));}
+    if (tecido.favoritar){formData.append("favoritar", String(tecido.favoritar));}
+    if (tecido.prazoentrega){formData.append("prazoentrega", String(tecido.prazoentrega));}
+    if (tecido.prazodesenvolvimento){formData.append("prazodesenvolvimento", String(tecido.prazodesenvolvimento));}
+
     if (tecido.gramatura){formData.append("gramatura", String(tecido.gramatura).replace(',', '.'));}
     if (tecido.rendimento){formData.append("rendimento", String(tecido.rendimento).replace(',', '.'));}
     if (tecido.acabamento){formData.append("acabamento", String(tecido.acabamento));}

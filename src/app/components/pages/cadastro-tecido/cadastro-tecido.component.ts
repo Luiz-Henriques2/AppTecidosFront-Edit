@@ -30,6 +30,12 @@ get gramatura() {
 get rendimento() {
   return this.tecidoForm.get('rendimento')!;
 }
+get prazoentrega() {
+  return this.tecidoForm.get('rendimento')!;
+}
+get prazodesenvolvimento() {
+  return this.tecidoForm.get('rendimento')!;
+}
 get prazo() {
   return this.tecidoForm.get('prazo')!;
 }
@@ -54,6 +60,13 @@ get avista() {
       gramatura: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),// apenas numero
       rendimento: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2})?$|^\d{1,3}(\.\d{1,2})?$/), Validators.max(100)]),//maior numero 100 
       acabamento: new FormControl(''),
+
+      caracteristica: new FormControl(''),
+      tecnologia: new FormControl(''),
+      favoritar: new FormControl('0'),
+      prazoentrega: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),// apenas numero
+      prazodesenvolvimento: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),// apenas numero
+
       referencia: new FormControl(''),
       avista: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2}|\.\d{1,2})?$/), Validators.max(999.99), Validators.maxLength(6)]),
       prazo: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2}|\.\d{1,2})?$/), Validators.max(999.99), Validators.maxLength(6)]),
@@ -78,9 +91,15 @@ get avista() {
     if (tecido.rendimento){formData.append("rendimento", String(tecido.rendimento).replace(',', '.'));}
     if (tecido.acabamento){formData.append("acabamento", String(tecido.acabamento));}
     if (tecido.referencia){formData.append("referencia", String(tecido.referencia));}
+
+    if (tecido.caracteristica){formData.append("caracteristica", String(tecido.caracteristica));}
+    if (tecido.tecnologia){formData.append("tecnologia", String(tecido.tecnologia));}
+    if (tecido.favoritar){formData.append("favoritar", String(tecido.favoritar));}
+    if (tecido.prazoentrega){formData.append("prazoentrega", String(tecido.prazoentrega));}
+    if (tecido.prazodesenvolvimento){formData.append("prazodesenvolvimento", String(tecido.prazodesenvolvimento));}
+
     if (tecido.avista){formData.append("avista", String(tecido.avista).replace(',', '.'));}
     if (tecido.prazo){formData.append("prazo", String(tecido.prazo).replace(',', '.'));}
-    if (tecido.fornecedor){formData.append("fornecedor", tecido.fornecedor);}
     if (tecido.fornecedor_id){formData.append("fornecedor_id", String(tecido.fornecedor_id));}
     if (tecido.observacao){formData.append("observacao", tecido.observacao);}    
 
@@ -89,6 +108,9 @@ get avista() {
     this.messageService.add('Tecido adicionado com sucesso!');
 
     this.router.navigate(['/']);
+    //this.tecidoForm.reset();
+    //document.documentElement.scrollTop = 0;
+    //document.body.scrollTop = 0;
   }
 
   

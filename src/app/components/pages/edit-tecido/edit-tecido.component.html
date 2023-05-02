@@ -47,6 +47,25 @@
         <input type="text" class="form-control" placeholder=" " formControlName="referencia">
         <label for="floatingInput">Referencia:</label>
       </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder=" " formControlName="tecnologia">
+        <label for="floatingInput">Tecnologia:</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder=" " formControlName="prazoentrega" pattern>
+        <label for="floatingInput">Prazo de entrega:</label>
+        <div *ngIf="prazoentrega.invalid && formDir.submitted">
+            <p *ngIf="prazoentrega.errors?.['pattern']" class="alert alert-danger" role="alert" >Esse campo só aceita números.</p>
+        </div>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder=" " formControlName="prazodesenvolvimento" pattern>
+        <label for="floatingInput">Prazo de desenvolvimento:</label>
+        <div *ngIf="prazodesenvolvimento.invalid && formDir.submitted">
+            <p *ngIf="prazodesenvolvimento.errors?.['pattern']" class="alert alert-danger" role="alert" >Esse campo só aceita números.</p>
+        </div>
+      </div>
 
       <div class="form-floating mb-3">
         <input type="text" class="form-control" placeholder=" " formControlName="avista" pattern>
@@ -63,15 +82,31 @@
         <p *ngIf="prazo.errors?.['pattern']" class="alert alert-danger" role="alert" >Esse campo só aceita números.</p>
         </div>
       </div>
-      <label for="floatingTextarea2">Fornecedor:</label>
-      <select class="form-select" aria-label="Default select example" formControlName="fornecedor_id" >
-          <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id" >{{ fornecedor.nome }}</option>
-      </select>
 
       <div class="form-floating">
         <textarea class="form-control" placeholder=" " id="floatingTextarea2" style="height: 100px" formControlName="observacao"></textarea>
         <label for="floatingTextarea2">Complemento:</label>
       </div>
+      <label for="floatingTextarea2">Fornecedor:</label>
+      <select class="form-select" aria-label="Default select example" formControlName="fornecedor_id" >
+          <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id" >{{ fornecedor.nome }}</option>
+      </select>
+      <label for="floatingTextarea2">Favorito:</label>
+      <select class="form-select" aria-label="Default select example" formControlName="favoritar" >
+          <option [value]="1" > Sim </option>
+          <option [value]="0" > Não </option>
+      </select>
+      <label for="floatingTextarea2">Característica:</label>
+      <select class="form-select" aria-label="Default select example" formControlName="caracteristica" >
+        <option > Tela </option>
+        <option > Textura com brilho </option>
+        <option > Textura sem brilho </option>
+        <option > Tule </option>
+        <option > Liso </option>
+        <option > Estampado </option>
+        <option > Platinado </option>
+    </select>
+      
 
 
     <div class="mb-3">
@@ -84,6 +119,8 @@
     <div *ngIf="
     prazo.invalid || 
     avista.invalid || 
+    prazodesenvolvimento.invalid ||
+    prazoentrega.invalid ||
     rendimento.invalid || 
     gramatura.invalid || nome.invalid && formDir.submitted">
     <p class="alert alert-danger" role="alert" >
@@ -91,4 +128,5 @@
      </div>
 </form>
     <!--Fim Formulario--------------------------------->
+    
 </div>

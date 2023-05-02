@@ -6,6 +6,9 @@ export interface FornecedorInterface {
     whatsapp?: string,
     endereco?: string,
     site?: string,
+
+    image?: string,
+    
     created_at?: string,
     updated_at?: string,
 }

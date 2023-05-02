@@ -39,6 +39,7 @@ export const environment = {
 };
 
 O host deve ser o ip de rede da maquina.
+
 -----------------------------------------------
 criar um arquivo na pasta do projeto copilado 'dist/projeto'
 bs-config.json
@@ -47,4 +48,6 @@ bs-config.json
   "sync": false
 }
 -----------------------------------------------
-
+para usar o angular
+npm install ou npm install --force
+npm install -g @angular/cli

@@ -39,8 +39,27 @@
             <div class="property-label">Referência:</div>
             <div class="property-value">{{tecido.referencia}}</div>
         </div>
+        <div class="product-property">
+            <div class="property-label">Característica:</div>
+            <div class="property-value">{{tecido.caracteristica}}</div>
+        </div>
+        <div class="product-property">
+            <div class="property-label">Tecnologia:</div>
+            <div class="property-value">{{tecido.tecnologia}}</div>
+        </div>
+        <div class="product-property">
+            <div class="property-label">Favorito:</div>
+            <div class="property-value">{{tecido.favoritar}}</div>
+        </div>
+        <div class="product-property">
+            <div class="property-label">Prazo de entrega:</div>
+            <div class="property-value">{{tecido.prazoentrega}}<span class="unidades"> dias</span></div>
+        </div>
+        <div class="product-property">
+            <div class="property-label">Prazo de desenvolvimento:</div>
+            <div class="property-value">{{tecido.prazodesenvolvimento}}<span class="unidades"> dias</span></div>
+        </div>
 
-          
           <div class="product-property">
             <div class="property-label">Preço à vista:</div>
             <div class="property-value" *ngIf="tecido.prazo">{{formatarPreco(tecido.avista)}}</div>
@@ -67,23 +86,23 @@
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
         <div class="card-body">
             <div class="product-info">
-                <div class="product-property2">
+                <div class="product-property3">
                     <div class="property-label">Email:</div>
                     <div class="property-value">{{fornecedor?.email}}</div>
                 </div>
-                <div class="product-property2">
+                <div class="product-property3">
                     <div class="property-label">Telefone:</div>
                     <div class="property-value">{{fornecedor?.telefone}}</div>
                 </div>
-                <div class="product-property2">
+                <div class="product-property3">
                     <div class="property-label">WhatsApp:</div>
                     <div class="property-value">{{fornecedor?.whatsapp}}</div>
                 </div>
-                <div class="product-property2">
+                <div class="product-property3">
                     <div class="property-label">Endereço:</div>
                     <div class="property-value">{{fornecedor?.endereco}}</div>
                 </div>
-                <div class="product-property2">
+                <div class="product-property3">
                     <div class="property-label">Site:</div>
                     <div class="property-value">{{fornecedor?.site}}</div>
                 </div>

@@ -43,25 +43,37 @@ h1 {
 
 @media (min-width: 768px) {
   .col-md-4 {
-    width: calc(33.333333% - 20px);
+    width: calc(20% - 20px);
     margin-right: 20px;
   }
 }
 
 .moment {
   background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  margin-top: -10px;
+}
+img {
+  cursor: pointer;
+  background-color: #fff;
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   transition: all 0.2s ease-in-out;
 }
-
+img:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+/*
 .moment:hover {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
-
+*/
 .product-image {
-  height: 200px;
+  height: 150px;
   position: relative;
 }
 
@@ -143,4 +155,54 @@ h1 {
   color: #fff;
   font-weight: 700;
   text-decoration: underline;
+}
+.small-input input[type="number"],
+.small-input input[type="text"] {
+  width: 120px;
+}
+nav.form-nav {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+nav.form-nav label {
+  width: 120px;
+  margin-right: 10px;
+}
+
+nav.form-nav .form-group {
+  display: inline-block;
+  margin-right: 20px;
+  width: calc(25% - 32px);
+}
+
+@media (max-width: 767px) {
+  nav.form-nav .form-group {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.estrela {
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin-top: -10px;
+  margin-left: 0;
+}
+
+button i {
+  font-size: 24px;
+  color: black;
+}
+
+button:hover i {
+  transform: scale(1.2);
+}
+.luminous {
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 1);
 }
