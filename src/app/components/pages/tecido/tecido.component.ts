@@ -22,6 +22,7 @@ export class TecidoComponent implements OnInit{
   faEdit = faEdit
   modalRef?: BsModalRef;
   fornecedor?: FornecedorInterface;
+  favoritar:string = "";
 
 
   constructor(

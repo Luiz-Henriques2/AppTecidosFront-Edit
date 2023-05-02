@@ -49,7 +49,10 @@
         </div>
         <div class="product-property">
             <div class="property-label">Favorito:</div>
-            <div class="property-value">{{tecido.favoritar}}</div>
+            <div class="property-value" *ngIf="tecido.favoritar == 1; then favorito else naoFavorito"></div>
+            <ng-template #favorito>sim</ng-template>
+            <ng-template #naoFavorito>não</ng-template>
+            
         </div>
         <div class="product-property">
             <div class="property-label">Prazo de entrega:</div>
