@@ -33,10 +33,18 @@ DB_CONNECTION=sqlite
 
  e environment.ts no angular.
 
-
 export const environment = {
     production: false,
     baseApiUrl: "http://192.168.0.75:3333/",
 };
 
 O host deve ser o ip de rede da maquina.
+-----------------------------------------------
+criar um arquivo na pasta do projeto copilado 'dist/projeto'
+bs-config.json
+{
+  "open": false,
+  "sync": false
+}
+-----------------------------------------------
+
