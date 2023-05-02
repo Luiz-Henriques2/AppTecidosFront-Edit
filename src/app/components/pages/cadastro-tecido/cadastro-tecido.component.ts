@@ -31,10 +31,10 @@ get rendimento() {
   return this.tecidoForm.get('rendimento')!;
 }
 get prazoentrega() {
-  return this.tecidoForm.get('rendimento')!;
+  return this.tecidoForm.get('prazoentrega')!;
 }
 get prazodesenvolvimento() {
-  return this.tecidoForm.get('rendimento')!;
+  return this.tecidoForm.get('prazodesenvolvimento')!;
 }
 get prazo() {
   return this.tecidoForm.get('prazo')!;

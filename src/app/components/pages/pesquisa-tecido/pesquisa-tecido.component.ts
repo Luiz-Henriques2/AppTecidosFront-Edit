@@ -33,6 +33,7 @@ maxID: number = 0;
 value: string = "";
 caract:string = "";
 favorit:number = 0;
+isLoading = false;
 
 //---------------------
 
@@ -66,6 +67,9 @@ favorit:number = 0;
     });}
   }
   search(e: Event):void {
+    this.isLoading = true;
+    //setTimeout(() => {
+      // código de pesquisa aqui
     const target = e.target as HTMLInputElement
     const value = target.value.toLowerCase()
     console.log(this.value)
@@ -91,6 +95,8 @@ favorit:number = 0;
 
     });
     this.page = 1;
+    this.isLoading = false;
+  //}, 2000);
   }
 //---favoritar
 editHandlert(tecido: any) {

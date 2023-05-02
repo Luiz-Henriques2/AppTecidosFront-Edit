@@ -44,6 +44,7 @@
 </select>
   
   <button class="btn btn-primary" (click)="search($event)">Pesquisar</button>
+  <div *ngIf="isLoading">Carregando...</div>
 <!---------------------------------------------------------->
 <div class="home-container">
     <h1>Tecidos</h1>
