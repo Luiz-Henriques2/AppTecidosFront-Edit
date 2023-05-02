@@ -51,3 +51,11 @@ bs-config.json
 para usar o angular
 npm install ou npm install --force
 npm install -g @angular/cli
+
+
+npm install -g live-server
+live-server --host=192.168.0.75 --no-browser
+
+
+
+
