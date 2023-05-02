@@ -45,13 +45,11 @@
   
   <button class="btn btn-primary" (click)="search($event)">Pesquisar</button>
   <div *ngIf="isLoading">Carregando...</div>
-<!---------------------------------------------------------->
 <div class="home-container">
     <h1>Tecidos</h1>
     <div *ngIf="tecidos.length>0; else noTecidos">
         <div class="row">
             <div class="col-6 col-md-4" *ngFor="let tecido of tecidos | paginate: { itemsPerPage: 20, currentPage: page, totalItems: tecidos.length }">
-                <!--routerLink="{{tecido.id}}"-->
                     <div class="product-image" routerLink="{{tecido.id}}">
 
                     <img src="{{baseApiUrl}}uploads/{{tecido.image}}" alt="{{tecido.nome}}"/>

@@ -98,13 +98,6 @@ isLoading = false;
     this.isLoading = false;
   //}, 2000);
   }
-//---favoritar
-editHandlert(tecido: any) {
-  tecido.favoritar = !tecido.favoritar;
-  const id = this.tecido.id;
-  console.log(id);
-}
-
 
   tecido!: TecidoInterface;
   tecidoData: TecidoInterface | null = null;
@@ -116,5 +109,5 @@ editHandlert(tecido: any) {
     formData.append("favoritar", String(tecido.favoritar));
     await this.tecidoService.updateTecido(id!, formData).subscribe();
   }
-//-------------------------
+
 }
