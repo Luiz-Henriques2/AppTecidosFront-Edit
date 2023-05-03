@@ -104,7 +104,15 @@
         <label for="formFile" class="form-label">Foto do tecido:</label>
         <input class="form-control" type="file" id="formFile" (change)="OnFileSelected($event)">
       </div>
+      <input #_fileInput type="file" (change)="openCropperDialog($event)" accept="image/*" hidden>
       
+    <a ly-button color="primary" (click)="_fileInput.click()" >
+      <ly-icon [lyMf]="1">image</ly-icon>
+      <span>Select File</span>
+    </a>
+
+    <div *ngIf="cropped"><img [src]="cropped"></div>
+
     <button type="submit" class="btn btn-primary">Cadastrar</button>
     <div *ngIf="
     prazo.invalid || 

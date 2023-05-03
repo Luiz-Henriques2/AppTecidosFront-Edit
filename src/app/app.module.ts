@@ -24,7 +24,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { LyHammerGestureConfig, LY_THEME, LY_THEME_NAME, StyleRenderer, LyTheme2 } from '@alyle/ui';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MinimaLight } from '@alyle/ui/themes/minima';
-
+import { CropperDialogComponent } from './components/cropper-dialog/cropper-dialog.component';
+import { CommonModule } from '@angular/common';
+import { LyImageCropperModule } from '@alyle/ui/image-cropper';
+import { LySliderModule } from '@alyle/ui/slider';
+import { LyButtonModule } from '@alyle/ui/button';
+import { LyIconModule } from '@alyle/ui/icon';
+import { LyDialogModule } from '@alyle/ui/dialog';
 
 
 @NgModule({
@@ -43,6 +49,7 @@ import { MinimaLight } from '@alyle/ui/themes/minima';
     FornecedorComponent,
     EditTecidoComponent,
     EditFornecedorComponent,
+    CropperDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +62,13 @@ import { MinimaLight } from '@alyle/ui/themes/minima';
     NgxPaginationModule,
     BrowserAnimationsModule,
     HammerModule,
+    CommonModule,
+    FormsModule,
+    LyImageCropperModule,
+    LySliderModule,
+    LyButtonModule,
+    LyIconModule,
+    LyDialogModule
   ],
   providers: [
     { provide: HAMMER_GESTURE_CONFIG, useClass: LyHammerGestureConfig },
@@ -63,6 +77,7 @@ import { MinimaLight } from '@alyle/ui/themes/minima';
     { provide: LY_THEME_NAME, useValue: 'minima-light' },
     { provide: LY_THEME, useClass: MinimaLight, multi: true }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [CadastroTecidoComponent]
 })
 export class AppModule { }
