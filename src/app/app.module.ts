@@ -1,5 +1,5 @@
 import { NgModule, getNgModuleById } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG, HammerModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -21,6 +21,9 @@ import { FornecedorComponent } from './components/pages/fornecedor/fornecedor.co
 import { EditTecidoComponent } from './components/pages/edit-tecido/edit-tecido.component';
 import { EditFornecedorComponent } from './components/pages/edit-fornecedor/edit-fornecedor.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { LyHammerGestureConfig, LY_THEME, LY_THEME_NAME, StyleRenderer, LyTheme2 } from '@alyle/ui';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MinimaLight } from '@alyle/ui/themes/minima';
 
 
 
@@ -50,8 +53,16 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FontAwesomeModule,
     NgbModule,
     NgxPaginationModule,
+    BrowserAnimationsModule,
+    HammerModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HAMMER_GESTURE_CONFIG, useClass: LyHammerGestureConfig },
+    StyleRenderer,
+    LyTheme2,
+    { provide: LY_THEME_NAME, useValue: 'minima-light' },
+    { provide: LY_THEME, useClass: MinimaLight, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
