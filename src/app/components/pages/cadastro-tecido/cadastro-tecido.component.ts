@@ -6,19 +6,27 @@ import { MessagesService } from 'src/app/services/messages.service';
 import { Router } from '@angular/router';
 import { FornecedorInterface } from 'src/app/Fornecedor';
 import { FornecedorService } from 'src/app/services/fornecedor.service';
+import { ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { LyDialog } from '@alyle/ui/dialog';
+import { ImgCropperEvent } from '@alyle/ui/image-cropper';
+import { CropperDialogComponent } from '../../cropper-dialog/cropper-dialog.component';
+
 @Component({
   selector: 'app-cadastro-tecido',
   templateUrl: './cadastro-tecido.component.html',
-  styleUrls: ['./cadastro-tecido.component.css']
+  styleUrls: ['./cadastro-tecido.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CadastroTecidoComponent implements OnInit{
   fornecedores: FornecedorInterface[] = [];
-  
+  cropped?: string;
   constructor(
     private tecidoService: TecidoService, 
     private messageService: MessagesService,
     private router: Router,
-    private fornecedorService: FornecedorService
+    private fornecedorService: FornecedorService,
+    private _dialog: LyDialog,
+    private _cd: ChangeDetectorRef,
     ){}
 
 get nome() {
@@ -76,10 +84,6 @@ get avista() {
     });
   }
 
-  OnFileSelected(event: any) {
-    const file: File = event.target.files[0];
-    this.tecidoForm.patchValue({image: file});
-  }
 
   async createHandler(tecido: TecidoInterface){
     const formData = new FormData();
@@ -121,4 +125,24 @@ get avista() {
     console.log(this.tecidoForm.value);
     this.createHandler(this.tecidoForm.value);
   }
+  
+  OnFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    this.tecidoForm.patchValue({image: file});
+  }
+  //-------------------------------------
+  openCropperDialog(event: Event) {
+    this.cropped = null!;
+    this._dialog.open<CropperDialogComponent, Event>(CropperDialogComponent, {
+      data: event,
+      width: 320,
+      disableClose: true
+    }).afterClosed.subscribe((result?: ImgCropperEvent) => {
+      if (result) {
+        this.cropped = result.dataURL;
+        this._cd.markForCheck();
+      }
+    });
+  }
+  
 }
