@@ -125,6 +125,7 @@ get avista() {
     console.log(this.tecidoForm.value);
     this.createHandler(this.tecidoForm.value);
   }
+  
   OnFileSelected(event: any) {
     const file: File = event.target.files[0];
     this.tecidoForm.patchValue({image: file});

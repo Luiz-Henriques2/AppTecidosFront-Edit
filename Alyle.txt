@@ -1,0 +1,12 @@
+update angular
+ng update @angular/core@15.2.8
+
+instalar angular
+npm install -g @angular/cli
+
+instalar alyle
+ng add @alyle/ui
+
+
+cropper-with-dialog.component.html ===  cadastro-tecido.component.html
+cropper-dialog.html === cropper-dialog.component.html
