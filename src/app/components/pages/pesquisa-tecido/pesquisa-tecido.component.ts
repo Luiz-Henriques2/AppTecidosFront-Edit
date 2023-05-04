@@ -97,8 +97,7 @@ ultraflex = false;
         (this.caract == "" || tecido.caracteristica == this.caract)) &&
 
         ((!this.uv&&!this.dry&&!this.insect&&!this.smart&&!this.defense&&!this.chlomax&&!this.hydro&&!this.eco&&!this.shield&&!this.undertech&&!this.ultraflex)||
-        (
-        (this.uv&&tecido.uv||!this.uv)&&
+        ((this.uv&&tecido.uv||!this.uv)&&
         (this.dry&&tecido.dry||!this.dry)&&
         (this.insect&&tecido.insect||!this.insect)&&
         (this.smart&&tecido.smart||!this.smart)&&
@@ -108,8 +107,7 @@ ultraflex = false;
         (this.eco&&tecido.eco||!this.eco)&&
         (this.shield&&tecido.shield||!this.shield)&&
         (this.undertech&&tecido.undertech||!this.undertech)&&
-        (this.ultraflex&&tecido.ultraflex||!this.ultraflex)
-        ))&&
+        (this.ultraflex&&tecido.ultraflex||!this.ultraflex)))&&
 
         (tecido.avista === undefined || 
           (this.minPrice == 0 || (tecido.avista !== undefined && tecido.avista >= this.minPrice)) && 
