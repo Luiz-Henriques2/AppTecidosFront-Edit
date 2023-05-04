@@ -35,6 +35,17 @@ caract:string = "";
 favorit:number = 0;
 isLoading = false;
 
+uv = false;
+dry = false;
+insect = false;
+smart = false;
+defense = false;
+chlomax = false;
+hydro = false;
+eco = false;
+shield = false;
+undertech = false;
+ultraflex = false;
 //---------------------
 
   constructor(
@@ -84,6 +95,21 @@ isLoading = false;
           
           (tecido.caracteristica === undefined || 
         (this.caract == "" || tecido.caracteristica == this.caract)) &&
+
+        ((!this.uv&&!this.dry&&!this.insect&&!this.smart&&!this.defense&&!this.chlomax&&!this.hydro&&!this.eco&&!this.shield&&!this.undertech&&!this.ultraflex)||
+        (
+        (this.uv&&tecido.uv||!this.uv)&&
+        (this.dry&&tecido.dry||!this.dry)&&
+        (this.insect&&tecido.insect||!this.insect)&&
+        (this.smart&&tecido.smart||!this.smart)&&
+        (this.defense&&tecido.defense||!this.defense)&&
+        (this.chlomax&&tecido.chlomax||!this.chlomax)&&
+        (this.hydro&&tecido.hydro||!this.hydro)&&
+        (this.eco&&tecido.eco||!this.eco)&&
+        (this.shield&&tecido.shield||!this.shield)&&
+        (this.undertech&&tecido.undertech||!this.undertech)&&
+        (this.ultraflex&&tecido.ultraflex||!this.ultraflex)
+        ))&&
 
         (tecido.avista === undefined || 
           (this.minPrice == 0 || (tecido.avista !== undefined && tecido.avista >= this.minPrice)) && 

@@ -42,6 +42,17 @@
     <option > Estampado </option>
     <option > Platinado </option>
 </select>
+
+<div><ly-checkbox [(ngModel)]="uv">UV</ly-checkbox>
+<ly-checkbox [(ngModel)]="dry">DRY</ly-checkbox>
+<ly-checkbox [(ngModel)]="insect">INSECT</ly-checkbox>
+<ly-checkbox [(ngModel)]="smart">SMART</ly-checkbox>
+<ly-checkbox [(ngModel)]="defense">DEFENSE</ly-checkbox>
+<ly-checkbox [(ngModel)]="chlomax">CHLOMAX</ly-checkbox>
+<ly-checkbox [(ngModel)]="hydro">HYDRO</ly-checkbox>
+<ly-checkbox [(ngModel)]="shield">SHIELD</ly-checkbox>
+<ly-checkbox [(ngModel)]="undertech">UNDERTECH</ly-checkbox>
+<ly-checkbox [(ngModel)]="ultraflex">ULTRAFLEX</ly-checkbox></div>
   
   <button class="btn btn-primary" (click)="search($event)">Pesquisar</button>
   <div *ngIf="isLoading">Carregando...</div>
