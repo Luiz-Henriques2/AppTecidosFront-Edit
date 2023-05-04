@@ -125,11 +125,12 @@ get avista() {
     console.log(this.tecidoForm.value);
     this.createHandler(this.tecidoForm.value);
   }
-  
+  /*
   OnFileSelected(event: any) {
     const file: File = event.target.files[0];
     this.tecidoForm.patchValue({image: file});
   }
+  */
   //-------------------------------------
   openCropperDialog(event: Event) {
     this.cropped = null!;
@@ -140,9 +141,19 @@ get avista() {
     }).afterClosed.subscribe((result?: ImgCropperEvent) => {
       if (result) {
         this.cropped = result.dataURL;
+        const byteString = atob(this.cropped!.split(',')[1]);
+        const mimeString = this.cropped!.split(',')[0].split(':')[1].split(';')[0];
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for (let i = 0; i < byteString.length; i++) {
+          ia[i] = byteString.charCodeAt(i);
+        }
+        const blob = new Blob([ab], { type: mimeString });
+        const file = new File([blob], "filename.jpg");
+        console.log(file);
+        this.tecidoForm.patchValue({image: file});
         this._cd.markForCheck();
       }
     });
   }
-  
 }
