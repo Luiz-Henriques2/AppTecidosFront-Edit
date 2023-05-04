@@ -6,6 +6,10 @@ import { MessagesService } from 'src/app/services/messages.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FornecedorInterface } from 'src/app/Fornecedor';
 import { FornecedorService } from 'src/app/services/fornecedor.service';
+import { ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { LyDialog } from '@alyle/ui/dialog';
+import { ImgCropperEvent } from '@alyle/ui/image-cropper';
+import { CropperDialogComponent } from '../../cropper-dialog/cropper-dialog.component';
 
 @Component({
   selector: 'app-edit-tecido',
@@ -15,13 +19,16 @@ import { FornecedorService } from 'src/app/services/fornecedor.service';
 
 export class EditTecidoComponent implements OnInit{
   fornecedores: FornecedorInterface[] = [];
+  cropped?: string;
 
   constructor(
     private tecidoService: TecidoService,
     private route: ActivatedRoute,
     private messageService: MessagesService,
     private router: Router,
-    private fornecedorService: FornecedorService
+    private fornecedorService: FornecedorService,
+    private _dialog: LyDialog,
+    private _cd: ChangeDetectorRef,
     ){}
 
     get nome() {
@@ -132,12 +139,12 @@ export class EditTecidoComponent implements OnInit{
 
 }
   
-
+/*
   OnFileSelected(event: any) {
     const file: File = event.target.files[0];
     this.tecidoForm.patchValue({image: file});
   }
-
+*/
 
   
   submit() {
@@ -187,5 +194,30 @@ export class EditTecidoComponent implements OnInit{
     await this.tecidoService.updateTecido(id!, formData).subscribe();
     this.messageService.add(`Tecido ${id} atualizado com sucesso!`);
     this.router.navigate(['/']);
+  }
+
+  openCropperDialog(event: Event) {
+    this.cropped = null!;
+    this._dialog.open<CropperDialogComponent, Event>(CropperDialogComponent, {
+      data: event,
+      width: 320,
+      disableClose: true
+    }).afterClosed.subscribe((result?: ImgCropperEvent) => {
+      if (result) {
+        this.cropped = result.dataURL;
+        const byteString = atob(this.cropped!.split(',')[1]);
+        const mimeString = this.cropped!.split(',')[0].split(':')[1].split(';')[0];
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for (let i = 0; i < byteString.length; i++) {
+          ia[i] = byteString.charCodeAt(i);
+        }
+        const blob = new Blob([ab], { type: mimeString });
+        const file = new File([blob], "filename.jpg");
+        console.log(file);
+        this.tecidoForm.patchValue({image: file});
+        this._cd.markForCheck();
+      }
+    });
   }
 }

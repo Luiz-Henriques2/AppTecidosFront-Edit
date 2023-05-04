@@ -115,11 +115,19 @@
     <p><ly-checkbox formControlName="undertech">UNDERTECH</ly-checkbox></p>
     <p><ly-checkbox formControlName="ultraflex">ULTRAFLEX</ly-checkbox></p>
 
-
+<!--
     <div class="mb-3">
         <label for="formFile" class="form-label">Foto do tecido:</label>
         <input class="form-control" type="file" id="formFile" (change)="OnFileSelected($event)">
       </div>
+-->
+      
+      <input #_fileInput type="file" (change)="openCropperDialog($event)" accept="image/*" hidden>
+      <a ly-button class="botao" (click)="_fileInput.click()" >
+        <ly-icon [lyMf]="1">image</ly-icon>
+        <span>Selecione a Imagem</span>
+      </a>
+      <div *ngIf="cropped"><img class="timg" [src]="cropped"></div>
       
       
     <button type="submit" class="btn btn-primary">Cadastrar</button>
