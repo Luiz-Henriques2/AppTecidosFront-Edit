@@ -75,10 +75,21 @@ get avista() {
       prazoentrega: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),// apenas numero
       prazodesenvolvimento: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),// apenas numero
 
+      uv: new FormControl(false),
+      dry: new FormControl(false),
+      insect: new FormControl(false),
+      smart: new FormControl(false),
+      defense: new FormControl(false),
+      chlomax: new FormControl(false),
+      hydro: new FormControl(false),
+      eco: new FormControl(false),
+      shield: new FormControl(false),
+      undertech: new FormControl(false),
+      ultraflex: new FormControl(false),
+
       referencia: new FormControl(''),
       avista: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2}|\.\d{1,2})?$/), Validators.max(999.99), Validators.maxLength(6)]),
       prazo: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2}|\.\d{1,2})?$/), Validators.max(999.99), Validators.maxLength(6)]),
-      fornecedor: new FormControl(''),
       fornecedor_id: new FormControl(''),
       observacao: new FormControl(''),
     });
@@ -101,6 +112,18 @@ get avista() {
     if (tecido.favoritar){formData.append("favoritar", String(tecido.favoritar));}
     if (tecido.prazoentrega){formData.append("prazoentrega", String(tecido.prazoentrega));}
     if (tecido.prazodesenvolvimento){formData.append("prazodesenvolvimento", String(tecido.prazodesenvolvimento));}
+
+    if (tecido.uv){formData.append("uv", String(tecido.uv));}
+    if (tecido.dry){formData.append("dry", String(tecido.dry));}
+    if (tecido.insect){formData.append("insect", String(tecido.insect));}
+    if (tecido.smart){formData.append("smart", String(tecido.smart));}
+    if (tecido.defense){formData.append("defense", String(tecido.defense));}
+    if (tecido.chlomax){formData.append("chlomax", String(tecido.chlomax));}
+    if (tecido.hydro){formData.append("hydro", String(tecido.hydro));}
+    if (tecido.eco){formData.append("eco", String(tecido.eco));}
+    if (tecido.shield){formData.append("shield", String(tecido.shield));}
+    if (tecido.undertech){formData.append("undertech", String(tecido.undertech));}
+    if (tecido.ultraflex){formData.append("ultraflex", String(tecido.ultraflex));}
 
     if (tecido.avista){formData.append("avista", String(tecido.avista).replace(',', '.'));}
     if (tecido.prazo){formData.append("prazo", String(tecido.prazo).replace(',', '.'));}

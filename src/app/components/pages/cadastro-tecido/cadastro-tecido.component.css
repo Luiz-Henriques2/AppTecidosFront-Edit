@@ -21,3 +21,8 @@ button {
   height: 250px;
   width: 250px;
 }
+
+.botao{
+  background-color: #dec129;
+  align-items: center;
+}

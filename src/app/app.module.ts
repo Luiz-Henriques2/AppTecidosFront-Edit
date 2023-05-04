@@ -31,7 +31,7 @@ import { LySliderModule } from '@alyle/ui/slider';
 import { LyButtonModule } from '@alyle/ui/button';
 import { LyIconModule } from '@alyle/ui/icon';
 import { LyDialogModule } from '@alyle/ui/dialog';
-
+import { LyCheckboxModule } from '@alyle/ui/checkbox';
 
 @NgModule({
   declarations: [
@@ -68,7 +68,8 @@ import { LyDialogModule } from '@alyle/ui/dialog';
     LySliderModule,
     LyButtonModule,
     LyIconModule,
-    LyDialogModule
+    LyDialogModule,
+    LyCheckboxModule
   ],
   providers: [
     { provide: HAMMER_GESTURE_CONFIG, useClass: LyHammerGestureConfig },

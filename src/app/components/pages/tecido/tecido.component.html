@@ -44,16 +44,27 @@
             <div class="property-value">{{tecido.caracteristica}}</div>
         </div>
         <div class="product-property">
-            <div class="property-label">Tecnologia:</div>
-            <div class="property-value">{{tecido.tecnologia}}</div>
-        </div>
-        <div class="product-property">
             <div class="property-label">Favorito:</div>
             <div class="property-value" *ngIf="tecido.favoritar == 1; then favorito else naoFavorito"></div>
             <ng-template #favorito>sim</ng-template>
             <ng-template #naoFavorito>não</ng-template>
-            
         </div>
+
+        <div class="product-property">
+            <div class="property-label">Tecnologias:</div>
+            <span class="property-label" *ngIf="tecido.uv">UV</span>
+            <span class="property-label" *ngIf="tecido.dry">DRY</span>
+            <span class="property-label" *ngIf="tecido.insect">INSECT</span>
+            <span class="property-label" *ngIf="tecido.smart">SMART</span>
+            <span class="property-label" *ngIf="tecido.defense">DEFENSE</span>
+            <span class="property-label" *ngIf="tecido.chlomax">CHLOMAX</span>
+            <span class="property-label" *ngIf="tecido.hydro">HYDRO</span>
+            <span class="property-label" *ngIf="tecido.eco">ECO</span>
+            <span class="property-label" *ngIf="tecido.shield">SHIELD</span>
+            <span class="property-label" *ngIf="tecido.undertech">UNDERTECH</span>
+            <span class="property-label" *ngIf="tecido.ultraflex">ULTRAFLEX</span>
+        </div>
+
         <div class="product-property">
             <div class="property-label">Prazo de entrega:</div>
             <div class="property-value">{{tecido.prazoentrega}}<span class="unidades"> dias</span></div>
