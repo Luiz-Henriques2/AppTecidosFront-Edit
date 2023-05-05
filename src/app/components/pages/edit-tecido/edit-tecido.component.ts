@@ -53,6 +53,10 @@ export class EditTecidoComponent implements OnInit{
       return this.tecidoForm.get('prazodesenvolvimento')!;
     }
 
+    get uv() {
+      return this.tecidoForm.get('uv')!;
+    }
+    
   tecido!: TecidoInterface;
   btnText: string = 'Editar';
   tecidoData: TecidoInterface | null = null;
