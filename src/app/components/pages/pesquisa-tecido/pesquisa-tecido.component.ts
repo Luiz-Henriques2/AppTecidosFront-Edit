@@ -46,6 +46,24 @@ eco = false;
 shield = false;
 undertech = false;
 ultraflex = false;
+
+durabilidade = false;
+toqueaveludado = false;
+respirabilidade = false;
+duplaface = false;
+leveza = false;
+altacobertura = false;
+elasticidade = false;
+secagemrapida = false;
+toquegelado = false;
+toquemacio = false;
+toquedebrilho = false;
+zerotransparencia = false;
+naoesgarca = false;
+naopinica = false;
+oekotex = false;
+compressao = false;
+controledeodor = false;
 //---------------------
 
   constructor(
@@ -96,7 +114,10 @@ ultraflex = false;
           (tecido.caracteristica === undefined || 
         (this.caract == "" || tecido.caracteristica == this.caract)) &&
 
-        ((!this.uv&&!this.dry&&!this.insect&&!this.smart&&!this.defense&&!this.chlomax&&!this.hydro&&!this.eco&&!this.shield&&!this.undertech&&!this.ultraflex)||
+        (
+        (!this.uv&&!this.dry&&!this.insect&&!this.smart&&!this.defense&&!this.chlomax&&!this.hydro&&!this.eco&&!this.shield&&!this.undertech&&!this.ultraflex)&&
+        (!this.durabilidade&&!this.toqueaveludado&&!this.respirabilidade&&!this.duplaface&&!this.leveza&&!this.altacobertura&&!this.elasticidade&&!this.secagemrapida&&!this.toquegelado&&!this.toquemacio&&!this.toquedebrilho)&&
+        (!this.zerotransparencia&&!this.naoesgarca&&!this.naopinica&&!this.oekotex&&!this.compressao&&!this.controledeodor)||
         ((this.uv&&tecido.uv||!this.uv)&&
         (this.dry&&tecido.dry||!this.dry)&&
         (this.insect&&tecido.insect||!this.insect)&&
@@ -107,7 +128,26 @@ ultraflex = false;
         (this.eco&&tecido.eco||!this.eco)&&
         (this.shield&&tecido.shield||!this.shield)&&
         (this.undertech&&tecido.undertech||!this.undertech)&&
-        (this.ultraflex&&tecido.ultraflex||!this.ultraflex)))&&
+        (this.ultraflex&&tecido.ultraflex||!this.ultraflex)&&
+
+        (this.durabilidade&&tecido.durabilidade||!this.durabilidade)&&
+        (this.toqueaveludado&&tecido.toqueaveludado||!this.toqueaveludado)&&
+        (this.respirabilidade&&tecido.respirabilidade||!this.respirabilidade)&&
+        (this.duplaface&&tecido.duplaface||!this.duplaface)&&
+        (this.leveza&&tecido.leveza||!this.leveza)&&
+        (this.altacobertura&&tecido.altacobertura||!this.altacobertura)&&
+        (this.elasticidade&&tecido.elasticidade||!this.elasticidade)&&
+        (this.secagemrapida&&tecido.secagemrapida||!this.secagemrapida)&&
+        (this.toquegelado&&tecido.toquegelado||!this.toquegelado)&&
+        (this.toquemacio&&tecido.toquemacio||!this.toquemacio)&&
+        (this.toquedebrilho&&tecido.toquedebrilho||!this.toquedebrilho)&&
+        (this.zerotransparencia&&tecido.zerotransparencia||!this.zerotransparencia)&&
+        (this.naoesgarca&&tecido.naoesgarca||!this.naoesgarca)&&
+        (this.naopinica&&tecido.naopinica||!this.naopinica)&&
+        (this.oekotex&&tecido.oekotex||!this.oekotex)&&
+        (this.compressao&&tecido.compressao||!this.compressao)&&
+        (this.controledeodor&&tecido.controledeodor||!this.controledeodor)
+        ))&&
 
         (tecido.avista === undefined || 
           (this.minPrice == 0 || (tecido.avista !== undefined && tecido.avista >= this.minPrice)) && 

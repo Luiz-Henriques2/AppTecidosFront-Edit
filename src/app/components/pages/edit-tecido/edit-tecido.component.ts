@@ -87,6 +87,24 @@ export class EditTecidoComponent implements OnInit{
       undertech: new FormControl(''),
       ultraflex: new FormControl(''),
 
+      durabilidade: new FormControl(''),
+      toqueaveludado: new FormControl(''),
+      respirabilidade: new FormControl(''),
+      duplaface: new FormControl(''),
+      leveza: new FormControl(''),
+      altacobertura: new FormControl(''),
+      elasticidade: new FormControl(''),
+      secagemrapida: new FormControl(''),
+      toquegelado: new FormControl(''),
+      toquemacio: new FormControl(''),
+      toquedebrilho: new FormControl(''),
+      zerotransparencia: new FormControl(''),
+      naoesgarca: new FormControl(''),
+      naopinica: new FormControl(''),
+      oekotex: new FormControl(''),
+      compressao: new FormControl(''),
+      controledeodor: new FormControl(''),
+
       gramatura: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),// apenas numero
       rendimento: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2})?$|^\d{1,3}(\.\d{1,2})?$/), Validators.max(100)]),//maior numero 100 
       acabamento: new FormControl(''),
@@ -122,6 +140,24 @@ export class EditTecidoComponent implements OnInit{
       this.tecidoForm.patchValue({shield: this.tecidoData?.shield});
       this.tecidoForm.patchValue({undertech: this.tecidoData?.undertech});
       this.tecidoForm.patchValue({ultraflex: this.tecidoData?.ultraflex});
+
+      this.tecidoForm.patchValue({durabilidade: this.tecidoData?.durabilidade});
+      this.tecidoForm.patchValue({toqueaveludado: this.tecidoData?.toqueaveludado});
+      this.tecidoForm.patchValue({respirabilidade: this.tecidoData?.respirabilidade});
+      this.tecidoForm.patchValue({duplaface: this.tecidoData?.duplaface});
+      this.tecidoForm.patchValue({leveza: this.tecidoData?.leveza});
+      this.tecidoForm.patchValue({altacobertura: this.tecidoData?.altacobertura});
+      this.tecidoForm.patchValue({elasticidade: this.tecidoData?.elasticidade});
+      this.tecidoForm.patchValue({secagemrapida: this.tecidoData?.secagemrapida});
+      this.tecidoForm.patchValue({toquegelado: this.tecidoData?.toquegelado});
+      this.tecidoForm.patchValue({toquemacio: this.tecidoData?.toquemacio});
+      this.tecidoForm.patchValue({toquedebrilho: this.tecidoData?.toquedebrilho});
+      this.tecidoForm.patchValue({zerotransparencia: this.tecidoData?.zerotransparencia});
+      this.tecidoForm.patchValue({naoesgarca: this.tecidoData?.naoesgarca});
+      this.tecidoForm.patchValue({naopinica: this.tecidoData?.naopinica});
+      this.tecidoForm.patchValue({oekotex: this.tecidoData?.oekotex});
+      this.tecidoForm.patchValue({compressao: this.tecidoData?.compressao});
+      this.tecidoForm.patchValue({controledeodor: this.tecidoData?.controledeodor});
 
       this.tecidoForm.patchValue({gramatura: this.tecidoData?.gramatura});
       this.tecidoForm.patchValue({rendimento: this.tecidoData?.rendimento});
@@ -180,6 +216,24 @@ export class EditTecidoComponent implements OnInit{
     if (tecido.shield){formData.append("shield", String(tecido.shield));}
     if (tecido.undertech){formData.append("undertech", String(tecido.undertech));}
     if (tecido.ultraflex){formData.append("ultraflex", String(tecido.ultraflex));}
+
+    if (tecido.durabilidade){formData.append("durabilidade", String(tecido.durabilidade));}
+    if (tecido.toqueaveludado){formData.append("toqueaveludado", String(tecido.toqueaveludado));}
+    if (tecido.respirabilidade){formData.append("respirabilidade", String(tecido.respirabilidade));}
+    if (tecido.duplaface){formData.append("duplaface", String(tecido.duplaface));}
+    if (tecido.leveza){formData.append("leveza", String(tecido.leveza));}
+    if (tecido.altacobertura){formData.append("altacobertura", String(tecido.altacobertura));}
+    if (tecido.elasticidade){formData.append("elasticidade", String(tecido.elasticidade));}
+    if (tecido.secagemrapida){formData.append("secagemrapida", String(tecido.secagemrapida));}
+    if (tecido.toquegelado){formData.append("toquegelado", String(tecido.toquegelado));}
+    if (tecido.toquemacio){formData.append("toquemacio", String(tecido.toquemacio));}
+    if (tecido.toquedebrilho){formData.append("toquedebrilho", String(tecido.toquedebrilho));}
+    if (tecido.zerotransparencia){formData.append("zerotransparencia", String(tecido.zerotransparencia));}
+    if (tecido.naoesgarca){formData.append("naoesgarca", String(tecido.naoesgarca));}
+    if (tecido.naopinica){formData.append("naopinica", String(tecido.naopinica));}
+    if (tecido.oekotex){formData.append("oekotex", String(tecido.oekotex));}
+    if (tecido.compressao){formData.append("compressao", String(tecido.compressao));}
+    if (tecido.controledeodor){formData.append("controledeodor", String(tecido.controledeodor));}
 
     if (tecido.gramatura){formData.append("gramatura", String(tecido.gramatura).replace(',', '.'));}
     if (tecido.rendimento){formData.append("rendimento", String(tecido.rendimento).replace(',', '.'));}
