@@ -208,8 +208,8 @@ export class EditTecidoComponent implements OnInit{
     if (tecido.favoritar){formData.append("favoritar", String(tecido.favoritar));}
     if (tecido.prazoentrega){formData.append("prazoentrega", String(tecido.prazoentrega));}
     if (tecido.prazodesenvolvimento){formData.append("prazodesenvolvimento", String(tecido.prazodesenvolvimento));}
-
-    if (tecido.uv){formData.append("uv", String(tecido.uv));}
+    if(tecido.uv==false){formData.append("uv", String(0));}else
+    {formData.append("uv", String(tecido.uv));}
     if (tecido.dry){formData.append("dry", String(tecido.dry));}
     if (tecido.insect){formData.append("insect", String(tecido.insect));}
     if (tecido.smart){formData.append("smart", String(tecido.smart));}

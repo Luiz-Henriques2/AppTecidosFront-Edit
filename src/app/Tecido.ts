@@ -17,7 +17,7 @@ export interface TecidoInterface {
     prazoentrega?: number,
     prazodesenvolvimento?: number,
 
-    uv?: number,
+    uv?: boolean,
     dry?: number,
     insect?: number,
     smart?: number,
