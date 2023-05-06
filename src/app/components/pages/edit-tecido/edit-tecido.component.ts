@@ -208,36 +208,35 @@ export class EditTecidoComponent implements OnInit{
     if (tecido.favoritar){formData.append("favoritar", String(tecido.favoritar));}
     if (tecido.prazoentrega){formData.append("prazoentrega", String(tecido.prazoentrega));}
     if (tecido.prazodesenvolvimento){formData.append("prazodesenvolvimento", String(tecido.prazodesenvolvimento));}
-    if(tecido.uv==false){formData.append("uv", String(0));}else
-    {formData.append("uv", String(tecido.uv));}
-    if (tecido.dry){formData.append("dry", String(tecido.dry));}
-    if (tecido.insect){formData.append("insect", String(tecido.insect));}
-    if (tecido.smart){formData.append("smart", String(tecido.smart));}
-    if (tecido.defense){formData.append("defense", String(tecido.defense));}
-    if (tecido.chlomax){formData.append("chlomax", String(tecido.chlomax));}
-    if (tecido.hydro){formData.append("hydro", String(tecido.hydro));}
-    if (tecido.eco){formData.append("eco", String(tecido.eco));}
-    if (tecido.shield){formData.append("shield", String(tecido.shield));}
-    if (tecido.undertech){formData.append("undertech", String(tecido.undertech));}
-    if (tecido.ultraflex){formData.append("ultraflex", String(tecido.ultraflex));}
 
-    if (tecido.durabilidade){formData.append("durabilidade", String(tecido.durabilidade));}
-    if (tecido.toqueaveludado){formData.append("toqueaveludado", String(tecido.toqueaveludado));}
-    if (tecido.respirabilidade){formData.append("respirabilidade", String(tecido.respirabilidade));}
-    if (tecido.duplaface){formData.append("duplaface", String(tecido.duplaface));}
-    if (tecido.leveza){formData.append("leveza", String(tecido.leveza));}
-    if (tecido.altacobertura){formData.append("altacobertura", String(tecido.altacobertura));}
-    if (tecido.elasticidade){formData.append("elasticidade", String(tecido.elasticidade));}
-    if (tecido.secagemrapida){formData.append("secagemrapida", String(tecido.secagemrapida));}
-    if (tecido.toquegelado){formData.append("toquegelado", String(tecido.toquegelado));}
-    if (tecido.toquemacio){formData.append("toquemacio", String(tecido.toquemacio));}
-    if (tecido.toquedebrilho){formData.append("toquedebrilho", String(tecido.toquedebrilho));}
-    if (tecido.zerotransparencia){formData.append("zerotransparencia", String(tecido.zerotransparencia));}
-    if (tecido.naoesgarca){formData.append("naoesgarca", String(tecido.naoesgarca));}
-    if (tecido.naopinica){formData.append("naopinica", String(tecido.naopinica));}
-    if (tecido.oekotex){formData.append("oekotex", String(tecido.oekotex));}
-    if (tecido.compressao){formData.append("compressao", String(tecido.compressao));}
-    if (tecido.controledeodor){formData.append("controledeodor", String(tecido.controledeodor));}
+    if(tecido.uv==false){formData.append("uv", String(0));}else{formData.append("uv", String(tecido.uv));}
+    if(tecido.dry==false){formData.append("dry", String(0));}else{formData.append("dry", String(tecido.dry));}
+    if(tecido.insect==false){formData.append("insect", String(0));}else{formData.append("insect", String(tecido.insect));}
+    if(tecido.smart==false){formData.append("smart", String(0));}else{formData.append("smart", String(tecido.smart));}
+    if(tecido.defense==false){formData.append("defense", String(0));}else{formData.append("defense", String(tecido.defense));}
+    if(tecido.chlomax==false){formData.append("chlomax", String(0));}else{formData.append("chlomax", String(tecido.chlomax));}
+    if(tecido.hydro==false){formData.append("hydro", String(0));}else{formData.append("hydro", String(tecido.hydro));}
+    if(tecido.eco==false){formData.append("eco", String(0));}else{formData.append("eco", String(tecido.eco));}
+    if(tecido.shield==false){formData.append("shield", String(0));}else{formData.append("shield", String(tecido.shield));}
+    if(tecido.undertech==false){formData.append("undertech", String(0));}else{formData.append("undertech", String(tecido.undertech));}
+    if(tecido.ultraflex==false){formData.append("ultraflex", String(0));}else{formData.append("ultraflex", String(tecido.ultraflex));}
+    if(tecido.durabilidade==false){formData.append("durabilidade", String(0));}else{formData.append("durabilidade", String(tecido.durabilidade));}
+    if(tecido.toqueaveludado==false){formData.append("toqueaveludado", String(0));}else{formData.append("toqueaveludado", String(tecido.toqueaveludado));}
+    if(tecido.respirabilidade==false){formData.append("respirabilidade", String(0));}else{formData.append("respirabilidade", String(tecido.respirabilidade));}
+    if(tecido.duplaface==false){formData.append("duplaface", String(0));}else{formData.append("duplaface", String(tecido.duplaface));}
+    if(tecido.leveza==false){formData.append("leveza", String(0));}else{formData.append("leveza", String(tecido.leveza));}
+    if(tecido.altacobertura==false){formData.append("altacobertura", String(0));}else{formData.append("altacobertura", String(tecido.altacobertura));}
+    if(tecido.elasticidade==false){formData.append("elasticidade", String(0));}else{formData.append("elasticidade", String(tecido.elasticidade));}
+    if(tecido.secagemrapida==false){formData.append("secagemrapida", String(0));}else{formData.append("secagemrapida", String(tecido.secagemrapida));}
+    if(tecido.toquegelado==false){formData.append("toquegelado", String(0));}else{formData.append("toquegelado", String(tecido.toquegelado));}
+    if(tecido.toquemacio==false){formData.append("toquemacio", String(0));}else{formData.append("toquemacio", String(tecido.toquemacio));}
+    if(tecido.toquedebrilho==false){formData.append("toquedebrilho", String(0));}else{formData.append("toquedebrilho", String(tecido.toquedebrilho));}
+    if(tecido.zerotransparencia==false){formData.append("zerotransparencia", String(0));}else{formData.append("zerotransparencia", String(tecido.zerotransparencia));}
+    if(tecido.naoesgarca==false){formData.append("naoesgarca", String(0));}else{formData.append("naoesgarca", String(tecido.naoesgarca));}
+    if(tecido.naopinica==false){formData.append("naopinica", String(0));}else{formData.append("naopinica", String(tecido.naopinica));}
+    if(tecido.oekotex==false){formData.append("oekotex", String(0));}else{formData.append("oekotex", String(tecido.oekotex));}
+    if(tecido.compressao==false){formData.append("compressao", String(0));}else{formData.append("compressao", String(tecido.compressao));}
+    if(tecido.controledeodor==false){formData.append("controledeodor", String(0));}else{formData.append("controledeodor", String(tecido.controledeodor));}
 
     if (tecido.gramatura){formData.append("gramatura", String(tecido.gramatura).replace(',', '.'));}
     if (tecido.rendimento){formData.append("rendimento", String(tecido.rendimento).replace(',', '.'));}

@@ -109,9 +109,9 @@
 <!--Dados do Fornecedor-------------------------------------------------------------------->
 
           <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            <div class="product-property">
-                <div class="property-label">Fornecedor:</div>
-                <div class="property-value">{{fornecedor?.nome}}</div>
+            <div class="btn btn-light">
+                <div>Fornecedor:</div>
+                <div>{{fornecedor?.nome}}</div>
             </div>
           </button>
           
@@ -145,12 +145,12 @@
     <!------------------------------------------------------------------------------------------>
 
     <div class="actions">
-        <a routerLink="/tecido/edit/{{tecido.id}}" class="edit-btn">
+        <a routerLink="/tecido/edit/{{tecido.id}}" class="edit-btn btn btn-primary">
             <fa-icon [icon]="faEdit"></fa-icon> Editar
         </a>
         
 
-        <button class="remove-btn" (click)="exibirMensagemDeConfirmacao(tecido.id!)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <button class="remove-btn btn btn-danger" (click)="exibirMensagemDeConfirmacao(tecido.id!)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             <fa-icon [icon]="faTimes"></fa-icon> Excluir
         </button>
     </div>

@@ -3,12 +3,12 @@
     margin: 0;
     font-family: Cambria;
     box-sizing: border-box;
-    color: #444;
+
 }
 
 a {
     text-decoration: none;
-    color: #444;
+
     transition: 0.4s;
 }
 
@@ -83,28 +83,24 @@ a fa-icon {
 
 .edit-btn,
 .edit-btn path {
-    border-color: #007BFF;
-    color: #007BFF;
+    color: #ffffff;
     transition: 0.4s;
 }
 
 .edit-btn:hover,
 .edit-btn:hover path {
     color: #fff;
-    background-color: #007BFF;
     transition: 0.4s;
 }
 
 .remove-btn,
 .remove-btn path {
-    border-color: #dc3545;
-    color: #dc3545;
+    color: #ffffff;
     transition: 0.4s;
 }
 
 .remove-btn:hover,
 .remove-btn:hover path {
     color: #fff;
-    background-color: #dc3545;
     transition: 0.4s;
 }
