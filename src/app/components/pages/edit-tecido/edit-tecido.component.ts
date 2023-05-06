@@ -6,6 +6,10 @@ import { MessagesService } from 'src/app/services/messages.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FornecedorInterface } from 'src/app/Fornecedor';
 import { FornecedorService } from 'src/app/services/fornecedor.service';
+import { ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { LyDialog } from '@alyle/ui/dialog';
+import { ImgCropperEvent } from '@alyle/ui/image-cropper';
+import { CropperDialogComponent } from '../../cropper-dialog/cropper-dialog.component';
 
 @Component({
   selector: 'app-edit-tecido',
@@ -15,13 +19,16 @@ import { FornecedorService } from 'src/app/services/fornecedor.service';
 
 export class EditTecidoComponent implements OnInit{
   fornecedores: FornecedorInterface[] = [];
+  cropped?: string;
 
   constructor(
     private tecidoService: TecidoService,
     private route: ActivatedRoute,
     private messageService: MessagesService,
     private router: Router,
-    private fornecedorService: FornecedorService
+    private fornecedorService: FornecedorService,
+    private _dialog: LyDialog,
+    private _cd: ChangeDetectorRef,
     ){}
 
     get nome() {
@@ -46,6 +53,10 @@ export class EditTecidoComponent implements OnInit{
       return this.tecidoForm.get('prazodesenvolvimento')!;
     }
 
+    get uv() {
+      return this.tecidoForm.get('uv')!;
+    }
+    
   tecido!: TecidoInterface;
   btnText: string = 'Editar';
   tecidoData: TecidoInterface | null = null;
@@ -64,10 +75,39 @@ export class EditTecidoComponent implements OnInit{
       image: new FormControl(''),
 
       caracteristica: new FormControl(''),
-      tecnologia: new FormControl(''),
       favoritar: new FormControl(''),
       prazoentrega: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),// apenas numero
       prazodesenvolvimento: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),// apenas numero
+
+      uv: new FormControl(''),
+      dry: new FormControl(''),
+      insect: new FormControl(''),
+      smart: new FormControl(''),
+      defense: new FormControl(''),
+      chlomax: new FormControl(''),
+      hydro: new FormControl(''),
+      eco: new FormControl(''),
+      shield: new FormControl(''),
+      undertech: new FormControl(''),
+      ultraflex: new FormControl(''),
+
+      durabilidade: new FormControl(''),
+      toqueaveludado: new FormControl(''),
+      respirabilidade: new FormControl(''),
+      duplaface: new FormControl(''),
+      leveza: new FormControl(''),
+      altacobertura: new FormControl(''),
+      elasticidade: new FormControl(''),
+      secagemrapida: new FormControl(''),
+      toquegelado: new FormControl(''),
+      toquemacio: new FormControl(''),
+      toquedebrilho: new FormControl(''),
+      zerotransparencia: new FormControl(''),
+      naoesgarca: new FormControl(''),
+      naopinica: new FormControl(''),
+      oekotex: new FormControl(''),
+      compressao: new FormControl(''),
+      controledeodor: new FormControl(''),
 
       gramatura: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),// apenas numero
       rendimento: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2})?$|^\d{1,3}(\.\d{1,2})?$/), Validators.max(100)]),//maior numero 100 
@@ -89,10 +129,39 @@ export class EditTecidoComponent implements OnInit{
       this.tecidoForm.patchValue({image: this.tecidoData?.image});
 
       this.tecidoForm.patchValue({caracteristica: this.tecidoData?.caracteristica});
-      this.tecidoForm.patchValue({tecnologia: this.tecidoData?.tecnologia});
       this.tecidoForm.patchValue({favoritar: this.tecidoData?.favoritar});
       this.tecidoForm.patchValue({prazoentrega: this.tecidoData?.prazoentrega});
       this.tecidoForm.patchValue({prazodesenvolvimento: this.tecidoData?.prazodesenvolvimento});
+
+      this.tecidoForm.patchValue({uv: this.tecidoData?.uv});
+      this.tecidoForm.patchValue({dry: this.tecidoData?.dry});
+      this.tecidoForm.patchValue({insect: this.tecidoData?.insect});
+      this.tecidoForm.patchValue({smart: this.tecidoData?.smart});
+      this.tecidoForm.patchValue({defense: this.tecidoData?.defense});
+      this.tecidoForm.patchValue({chlomax: this.tecidoData?.chlomax});
+      this.tecidoForm.patchValue({hydro: this.tecidoData?.hydro});
+      this.tecidoForm.patchValue({eco: this.tecidoData?.eco});
+      this.tecidoForm.patchValue({shield: this.tecidoData?.shield});
+      this.tecidoForm.patchValue({undertech: this.tecidoData?.undertech});
+      this.tecidoForm.patchValue({ultraflex: this.tecidoData?.ultraflex});
+
+      this.tecidoForm.patchValue({durabilidade: this.tecidoData?.durabilidade});
+      this.tecidoForm.patchValue({toqueaveludado: this.tecidoData?.toqueaveludado});
+      this.tecidoForm.patchValue({respirabilidade: this.tecidoData?.respirabilidade});
+      this.tecidoForm.patchValue({duplaface: this.tecidoData?.duplaface});
+      this.tecidoForm.patchValue({leveza: this.tecidoData?.leveza});
+      this.tecidoForm.patchValue({altacobertura: this.tecidoData?.altacobertura});
+      this.tecidoForm.patchValue({elasticidade: this.tecidoData?.elasticidade});
+      this.tecidoForm.patchValue({secagemrapida: this.tecidoData?.secagemrapida});
+      this.tecidoForm.patchValue({toquegelado: this.tecidoData?.toquegelado});
+      this.tecidoForm.patchValue({toquemacio: this.tecidoData?.toquemacio});
+      this.tecidoForm.patchValue({toquedebrilho: this.tecidoData?.toquedebrilho});
+      this.tecidoForm.patchValue({zerotransparencia: this.tecidoData?.zerotransparencia});
+      this.tecidoForm.patchValue({naoesgarca: this.tecidoData?.naoesgarca});
+      this.tecidoForm.patchValue({naopinica: this.tecidoData?.naopinica});
+      this.tecidoForm.patchValue({oekotex: this.tecidoData?.oekotex});
+      this.tecidoForm.patchValue({compressao: this.tecidoData?.compressao});
+      this.tecidoForm.patchValue({controledeodor: this.tecidoData?.controledeodor});
 
       this.tecidoForm.patchValue({gramatura: this.tecidoData?.gramatura});
       this.tecidoForm.patchValue({rendimento: this.tecidoData?.rendimento});
@@ -100,7 +169,6 @@ export class EditTecidoComponent implements OnInit{
       this.tecidoForm.patchValue({referencia: this.tecidoData?.referencia});
       this.tecidoForm.patchValue({avista: this.tecidoData?.avista});
       this.tecidoForm.patchValue({prazo: this.tecidoData?.prazo});
-      this.tecidoForm.patchValue({fornecedor: this.tecidoData?.fornecedor});
       this.tecidoForm.patchValue({fornecedor_id: this.tecidoData?.fornecedor_id});
       this.tecidoForm.patchValue({observacao: this.tecidoData?.observacao});
     });
@@ -111,12 +179,12 @@ export class EditTecidoComponent implements OnInit{
 
 }
   
-
+/*
   OnFileSelected(event: any) {
     const file: File = event.target.files[0];
     this.tecidoForm.patchValue({image: file});
   }
-
+*/
 
   
   submit() {
@@ -137,10 +205,39 @@ export class EditTecidoComponent implements OnInit{
     if (tecido.image){formData.append("image", tecido.image);}
 
     if (tecido.caracteristica){formData.append("caracteristica", String(tecido.caracteristica));}
-    if (tecido.tecnologia){formData.append("tecnologia", String(tecido.tecnologia));}
     if (tecido.favoritar){formData.append("favoritar", String(tecido.favoritar));}
     if (tecido.prazoentrega){formData.append("prazoentrega", String(tecido.prazoentrega));}
     if (tecido.prazodesenvolvimento){formData.append("prazodesenvolvimento", String(tecido.prazodesenvolvimento));}
+    if(tecido.uv==false){formData.append("uv", String(0));}else
+    {formData.append("uv", String(tecido.uv));}
+    if (tecido.dry){formData.append("dry", String(tecido.dry));}
+    if (tecido.insect){formData.append("insect", String(tecido.insect));}
+    if (tecido.smart){formData.append("smart", String(tecido.smart));}
+    if (tecido.defense){formData.append("defense", String(tecido.defense));}
+    if (tecido.chlomax){formData.append("chlomax", String(tecido.chlomax));}
+    if (tecido.hydro){formData.append("hydro", String(tecido.hydro));}
+    if (tecido.eco){formData.append("eco", String(tecido.eco));}
+    if (tecido.shield){formData.append("shield", String(tecido.shield));}
+    if (tecido.undertech){formData.append("undertech", String(tecido.undertech));}
+    if (tecido.ultraflex){formData.append("ultraflex", String(tecido.ultraflex));}
+
+    if (tecido.durabilidade){formData.append("durabilidade", String(tecido.durabilidade));}
+    if (tecido.toqueaveludado){formData.append("toqueaveludado", String(tecido.toqueaveludado));}
+    if (tecido.respirabilidade){formData.append("respirabilidade", String(tecido.respirabilidade));}
+    if (tecido.duplaface){formData.append("duplaface", String(tecido.duplaface));}
+    if (tecido.leveza){formData.append("leveza", String(tecido.leveza));}
+    if (tecido.altacobertura){formData.append("altacobertura", String(tecido.altacobertura));}
+    if (tecido.elasticidade){formData.append("elasticidade", String(tecido.elasticidade));}
+    if (tecido.secagemrapida){formData.append("secagemrapida", String(tecido.secagemrapida));}
+    if (tecido.toquegelado){formData.append("toquegelado", String(tecido.toquegelado));}
+    if (tecido.toquemacio){formData.append("toquemacio", String(tecido.toquemacio));}
+    if (tecido.toquedebrilho){formData.append("toquedebrilho", String(tecido.toquedebrilho));}
+    if (tecido.zerotransparencia){formData.append("zerotransparencia", String(tecido.zerotransparencia));}
+    if (tecido.naoesgarca){formData.append("naoesgarca", String(tecido.naoesgarca));}
+    if (tecido.naopinica){formData.append("naopinica", String(tecido.naopinica));}
+    if (tecido.oekotex){formData.append("oekotex", String(tecido.oekotex));}
+    if (tecido.compressao){formData.append("compressao", String(tecido.compressao));}
+    if (tecido.controledeodor){formData.append("controledeodor", String(tecido.controledeodor));}
 
     if (tecido.gramatura){formData.append("gramatura", String(tecido.gramatura).replace(',', '.'));}
     if (tecido.rendimento){formData.append("rendimento", String(tecido.rendimento).replace(',', '.'));}
@@ -148,12 +245,37 @@ export class EditTecidoComponent implements OnInit{
     if (tecido.referencia){formData.append("referencia", String(tecido.referencia));}
     if (tecido.avista){formData.append("avista", String(tecido.avista).replace(',', '.'));}
     if (tecido.prazo){formData.append("prazo", String(tecido.prazo).replace(',', '.'));}
-    if (tecido.fornecedor){formData.append("fornecedor", tecido.fornecedor);}
+
     if (tecido.fornecedor_id){formData.append("fornecedor_id", String(tecido.fornecedor_id));}
     if (tecido.observacao){formData.append("observacao", tecido.observacao);}   
     
     await this.tecidoService.updateTecido(id!, formData).subscribe();
     this.messageService.add(`Tecido ${id} atualizado com sucesso!`);
     this.router.navigate(['/']);
+  }
+
+  openCropperDialog(event: Event) {
+    this.cropped = null!;
+    this._dialog.open<CropperDialogComponent, Event>(CropperDialogComponent, {
+      data: event,
+      width: 320,
+      disableClose: true
+    }).afterClosed.subscribe((result?: ImgCropperEvent) => {
+      if (result) {
+        this.cropped = result.dataURL;
+        const byteString = atob(this.cropped!.split(',')[1]);
+        const mimeString = this.cropped!.split(',')[0].split(':')[1].split(';')[0];
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for (let i = 0; i < byteString.length; i++) {
+          ia[i] = byteString.charCodeAt(i);
+        }
+        const blob = new Blob([ab], { type: mimeString });
+        const file = new File([blob], "filename.jpg");
+        console.log(file);
+        this.tecidoForm.patchValue({image: file});
+        this._cd.markForCheck();
+      }
+    });
   }
 }

@@ -60,8 +60,8 @@ export class CropperDialogComponent implements WithStyles, AfterViewInit {
     keepAspectRatio: true,
     responsiveArea: true,
     output: {
-      width: 200,
-      height: 200
+      width: 900,
+      height: 900
     },
     resizableArea: true
   };
