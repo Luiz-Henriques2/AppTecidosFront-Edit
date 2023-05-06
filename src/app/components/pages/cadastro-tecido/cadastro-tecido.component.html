@@ -13,7 +13,6 @@
             O nome do Tecido é obrigatório.
         </div>
     </div>
-
   </div>
   <div class="form-floating mb-3">
     <input type="text" class="form-control" placeholder=" " formControlName="composicao">
@@ -60,6 +59,16 @@
       </div>
 
       <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder=" " formControlName="referencia" required>
+        <label for="floatingInput">Referencia:</label>
+        <div *ngIf="referencia.invalid && formDir.submitted">
+            <div class="alert alert-danger" role="alert" *ngIf="referencia.errors?.['required']">
+                Campo obrigatório.
+            </div>
+        </div>
+      </div>
+
+      <div class="form-floating mb-3">
         <input type="text" class="form-control" placeholder=" " formControlName="avista" pattern>
         <label for="floatingInput">Preço À Vista:</label>
         <div *ngIf="avista.invalid && formDir.submitted">
@@ -81,9 +90,14 @@
       </div>
 
       <label for="floatingTextarea2">Fornecedor:</label>
-      <select class="form-select" aria-label="Default select example" formControlName="fornecedor_id" >
+      <select class="form-select" aria-label="Default select example" formControlName="fornecedor_id" required>
           <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id" >{{ fornecedor.nome }}</option>
       </select>
+      <div *ngIf="fornecedor_id.invalid && formDir.submitted">
+        <div class="alert alert-danger" role="alert" *ngIf="fornecedor_id.errors?.['required']">
+            Campo obrigatório.
+        </div>
+    </div>
 
       <label for="floatingTextarea2">Favorito:</label>
       <select class="form-select" aria-label="Default select example" formControlName="favoritar" >

@@ -80,7 +80,7 @@ controledeodor = false;
     this.tecidoService.getTecidos().subscribe((items) => {
       const data = items.data;
       data.map((item) => {
-        item.created_at = new Date(item.created_at!).toLocaleDateString(
+        item.created_at = new Date(item.created_at!).toLocaleString(
           'pt-BR'
           );
       });

@@ -34,6 +34,12 @@ export class EditTecidoComponent implements OnInit{
     get nome() {
       return this.tecidoForm.get('nome')!;
     }
+    get referencia() {
+      return this.tecidoForm.get('referencia')!;
+    }
+    get fornecedor_id() {
+      return this.tecidoForm.get('fornecedor_id')!;
+    }
     get gramatura() {
       return this.tecidoForm.get('gramatura')!;
     }
@@ -112,11 +118,10 @@ export class EditTecidoComponent implements OnInit{
       gramatura: new FormControl('', [Validators.pattern(/^[0-9]*$/)]),// apenas numero
       rendimento: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2})?$|^\d{1,3}(\.\d{1,2})?$/), Validators.max(100)]),//maior numero 100 
       acabamento: new FormControl(''),
-      referencia: new FormControl(''),
+      referencia: new FormControl('', [Validators.required]),
       avista: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2}|\.\d{1,2})?$/), Validators.max(999.99), Validators.maxLength(6)]),
       prazo: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2}|\.\d{1,2})?$/), Validators.max(999.99), Validators.maxLength(6)]),
-      fornecedor: new FormControl(''),
-      fornecedor_id: new FormControl(''),
+      fornecedor_id: new FormControl('', [Validators.required]),
       observacao: new FormControl(''),
     });
   

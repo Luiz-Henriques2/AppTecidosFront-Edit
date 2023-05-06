@@ -32,6 +32,12 @@ export class CadastroTecidoComponent implements OnInit{
 get nome() {
   return this.tecidoForm.get('nome')!;
 }
+get referencia() {
+  return this.tecidoForm.get('referencia')!;
+}
+get fornecedor_id() {
+  return this.tecidoForm.get('fornecedor_id')!;
+}
 get gramatura() {
   return this.tecidoForm.get('gramatura')!;
 }
@@ -105,10 +111,10 @@ get avista() {
       compressao: new FormControl(false),
       controledeodor: new FormControl(false),
 
-      referencia: new FormControl(''),
+      referencia: new FormControl('', [Validators.required]),
       avista: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2}|\.\d{1,2})?$/), Validators.max(999.99), Validators.maxLength(6)]),
       prazo: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2}|\.\d{1,2})?$/), Validators.max(999.99), Validators.maxLength(6)]),
-      fornecedor_id: new FormControl(''),
+      fornecedor_id: new FormControl('', [Validators.required]),
       observacao: new FormControl(''),
     });
   }
