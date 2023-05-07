@@ -10,6 +10,8 @@ import { ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { LyDialog } from '@alyle/ui/dialog';
 import { ImgCropperEvent } from '@alyle/ui/image-cropper';
 import { CropperDialogComponent } from '../../cropper-dialog/cropper-dialog.component';
+import { AbstractControl, AsyncValidatorFn } from '@angular/forms';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cadastro-tecido',
@@ -111,7 +113,7 @@ get avista() {
       compressao: new FormControl(false),
       controledeodor: new FormControl(false),
 
-      referencia: new FormControl('', [Validators.required]),
+      referencia: new FormControl('', [Validators.required], [referenciaUnicaValidator(this.tecidoService)]),
       avista: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2}|\.\d{1,2})?$/), Validators.max(999.99), Validators.maxLength(6)]),
       prazo: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2}|\.\d{1,2})?$/), Validators.max(999.99), Validators.maxLength(6)]),
       fornecedor_id: new FormControl('', [Validators.required]),
@@ -221,4 +223,15 @@ get avista() {
       }
     });
   }
+}
+export function referenciaUnicaValidator(tecidoService: TecidoService): AsyncValidatorFn {
+  return (control: AbstractControl) => {
+    const referencia = control.value;
+
+    return tecidoService.getTecido(referencia).pipe(
+      map(tecido => {
+        return tecido ? { referenciaDuplicada: true } : null;
+      })
+    );
+  };
 }

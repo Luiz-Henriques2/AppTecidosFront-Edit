@@ -1,11 +1,5 @@
-<section class="example-section" [formGroup]="toppings">
-  <h4>Select your toppings:</h4>
-  <p><ly-checkbox formControlName="pepperoni">Pepperoni</ly-checkbox></p>
-  <p><ly-checkbox formControlName="extracheese">Extra Cheese</ly-checkbox></p>
-  <p><ly-checkbox formControlName="mushroom">Mushroom</ly-checkbox></p>
-</section>
-
-<section class="example-section" [formGroup]="toppings">
-  <h4>You chose:</h4>
-  {{toppings.value | json}}
-</section>
+<div class="form-group">
+  <label for="value">Buscar por Tecido:</label>
+  <input type="text" class="form-control" placeholder="Buscar por Tecido..." [(ngModel)]="value" name="value">
+</div>
+<button class="btn btn-primary" (click)="search($event)">Pesquisar</button>

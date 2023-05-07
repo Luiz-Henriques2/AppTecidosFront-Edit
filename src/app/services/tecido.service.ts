@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Response } from '../Response';
 import { TecidoInterface } from '../Tecido';
+import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +38,14 @@ export class TecidoService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.put<FormData>(url, formData);
   }
+
+  getTecidoByReferencia(referencia: string): Observable<TecidoInterface> {
+    return this.getTecidos().pipe(
+      map((tecidos: TecidoInterface[]) => {
+        return tecidos.find((tecido: TecidoInterface) => tecido.referencia === referencia);
+      })
+    );
+  }
+  
 
 }
