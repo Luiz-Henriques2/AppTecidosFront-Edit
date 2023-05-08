@@ -92,6 +92,7 @@
                         <p class="date">Em: {{tecido.created_at}}</p>
                         <p>Gramatura: {{tecido.gramatura}}</p>
                         <p>ID: {{tecido.id}}</p>
+                        <p>Ref: {{tecido.referencia}}</p>
                         <button *ngIf="!tecido.favoritar" class="estrela" (click)="editHandler(tecido)"><i class="bi bi-bookmark-star"></i></button>
                         <button *ngIf="tecido.favoritar" class="estrela " (click)="editHandler(tecido)"><i class="bi bi-bookmark-star-fill text-pink"></i></button>
                     </div>

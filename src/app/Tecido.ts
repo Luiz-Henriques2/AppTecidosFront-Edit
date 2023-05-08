@@ -5,7 +5,7 @@ export interface TecidoInterface {
     gramatura?: number,
     rendimento?: number,
     acabamento?: number,
-    referencia?: number,
+    referencia?: string,
     avista?: number,
     prazo?: number,
     observacao?: string,
@@ -47,7 +47,7 @@ export interface TecidoInterface {
     compressao?: boolean,
     controledeodor?: boolean,
 
-    fornecedor_id?: number,
+    fornecedor_id: number,
     created_at?: string,
     updated_at?: string,
 }

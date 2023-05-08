@@ -12,6 +12,9 @@ import { ImgCropperEvent } from '@alyle/ui/image-cropper';
 import { CropperDialogComponent } from '../../cropper-dialog/cropper-dialog.component';
 import { AbstractControl, AsyncValidatorFn } from '@angular/forms';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/app/environment';
+import { ActivatedRoute } from '@angular/router';
+import { ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro-tecido',
@@ -20,6 +23,14 @@ import { map } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CadastroTecidoComponent implements OnInit{
+  allTecidos: TecidoInterface[] = []
+  tecidos: TecidoInterface[] = []
+  baseApiUrl = environment.baseApiUrl
+  tecido!: TecidoInterface;
+  tecidoData: TecidoInterface | null = null;
+  value: string = "";
+  value2: boolean = false;
+
   fornecedores: FornecedorInterface[] = [];
   cropped?: string;
   constructor(
@@ -29,6 +40,7 @@ export class CadastroTecidoComponent implements OnInit{
     private fornecedorService: FornecedorService,
     private _dialog: LyDialog,
     private _cd: ChangeDetectorRef,
+    private route: ActivatedRoute
     ){}
 
 get nome() {
@@ -63,6 +75,12 @@ get avista() {
   tecidoForm!: FormGroup;
 
   ngOnInit(): void {
+//--------------------------------------------------------------------------   
+      this.tecidoService.getTecidos().subscribe((items) => {
+        const data = items.data;
+        this.allTecidos = data;
+      });
+//--------------------------------------------------------------------------    
     this.fornecedorService.getFornecedores().subscribe((items) => {
       const data = items.data;
       this.fornecedores = data;
@@ -113,7 +131,7 @@ get avista() {
       compressao: new FormControl(false),
       controledeodor: new FormControl(false),
 
-      referencia: new FormControl('', [Validators.required], [referenciaUnicaValidator(this.tecidoService)]),
+      referencia: new FormControl('', [this.referenciaValidator()]),
       avista: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2}|\.\d{1,2})?$/), Validators.max(999.99), Validators.maxLength(6)]),
       prazo: new FormControl('', [Validators.pattern(/^\d{1,3}(,\d{1,2}|\.\d{1,2})?$/), Validators.max(999.99), Validators.maxLength(6)]),
       fornecedor_id: new FormControl('', [Validators.required]),
@@ -177,8 +195,9 @@ get avista() {
     await this.tecidoService.createTecido(formData).subscribe();
 
     this.messageService.add('Tecido adicionado com sucesso!');
+    console.log(this.allTecidos)
 
-    this.router.navigate(['/']);
+    //this.router.navigate(['/']);
     //this.tecidoForm.reset();
     //document.documentElement.scrollTop = 0;
     //document.body.scrollTop = 0;
@@ -223,15 +242,20 @@ get avista() {
       }
     });
   }
-}
-export function referenciaUnicaValidator(tecidoService: TecidoService): AsyncValidatorFn {
-  return (control: AbstractControl) => {
-    const referencia = control.value;
 
-    return tecidoService.getTecido(referencia).pipe(
-      map(tecido => {
-        return tecido ? { referenciaDuplicada: true } : null;
-      })
-    );
+//--------------------------------------------------------------------------
+referenciaValidator = () => {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const referencia = control.value;
+    const itemExistente = this.tecidos.find(item => item.referencia == referencia);
+    return itemExistente ? { 'referenciaExistente': true } : null
   };
+};
+
+maxID: number = 0;
+referenciaValidatorf = () => {
+this.tecidos = this.allTecidos.filter(tecido => {
+return (tecido.fornecedor_id == this.maxID)})
+}
+//-------------------------------------------------------------------------- 
 }

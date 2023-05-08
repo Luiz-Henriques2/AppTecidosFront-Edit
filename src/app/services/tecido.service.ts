@@ -38,7 +38,7 @@ export class TecidoService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.put<FormData>(url, formData);
   }
-
+/*
   getTecidoByReferencia(referencia: string): Observable<TecidoInterface> {
     return this.getTecidos().pipe(
       map((tecidos: TecidoInterface[]) => {
@@ -46,6 +46,6 @@ export class TecidoService {
       })
     );
   }
-  
+  */
 
 }
