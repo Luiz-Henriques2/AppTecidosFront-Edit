@@ -195,7 +195,7 @@ get avista() {
     await this.tecidoService.createTecido(formData).subscribe();
 
     this.messageService.add('Tecido adicionado com sucesso!');
-    console.log(this.allTecidos)
+
 
     //this.router.navigate(['/']);
     //this.tecidoForm.reset();
@@ -253,9 +253,16 @@ referenciaValidator = () => {
 };
 
 maxID: number = 0;
+referenciaValue = '';
 referenciaValidatorf = () => {
 this.tecidos = this.allTecidos.filter(tecido => {
 return (tecido.fornecedor_id == this.maxID)})
+}
+onFornecedorSelected() {
+  if (this.maxID) {
+    this.referenciaValue = '';
+  }
+  this.maxID = this.fornecedor_id.value;
 }
 //-------------------------------------------------------------------------- 
 }

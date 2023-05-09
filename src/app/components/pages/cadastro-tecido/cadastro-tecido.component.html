@@ -75,7 +75,7 @@
       </div>
 
       <label for="floatingTextarea2">Fornecedor:</label>
-      <select class="form-select" aria-label="Default select example" formControlName="fornecedor_id" (change)="referenciaValidatorf()" name="maxID" [(ngModel)]="maxID" required>
+      <select class="form-select" aria-label="Default select example" formControlName="fornecedor_id" (change)="referenciaValidatorf()" (change)="onFornecedorSelected()" name="maxID" [(ngModel)]="maxID" required>
           <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id" >{{ fornecedor.nome }}</option>
       </select>
       <div *ngIf="fornecedor_id.invalid && formDir.submitted">
@@ -85,12 +85,14 @@
     </div>
 
     <div class="form-floating mb-3" *ngIf="maxID!=0">
-      <input type="text" class="form-control" placeholder=" " formControlName="referencia" required>
+      <input type="text" class="form-control" placeholder=" " formControlName="referencia" [(ngModel)]="referenciaValue" required>
       <label for="floatingInput">Referencia:</label>
       <div *ngIf="referencia.invalid && formDir.submitted" class="alert alert-danger" role="alert">
         Já existe um tecido cadastrado com a mesma referência e fornecedor.
       </div>
     </div>
+
+
 
       <label for="floatingTextarea2">Favorito:</label>
       <select class="form-select" aria-label="Default select example" formControlName="favoritar" >
