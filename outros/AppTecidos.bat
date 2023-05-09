@@ -20,8 +20,8 @@ if %errorlevel% equ 0 (
 
 echo Starting ACE and Angular servers...
 
-start /B "ACE Server" cmd /k "cd C:\Users\ti03\Desktop\AppTecFinal\AppTecidosBack && node ace serve"
-start /B "Angular Server" cmd /k "cd C:\Users\ti03\Desktop\AppTecFinal\AppTecidosFront && live-server --host=192.168.0.75 --no-browser"
+start /B "ACE Server" cmd /k "cd C:\Users\ti03\Desktop\EditarApp\AppTec2.0\backend-app-tec && node server.js"
+start /B "Angular Server" cmd /k "cd C:\Users\ti03\Desktop\EditarApp\AppTec2.0\frontend-app-tec && node server.js"
 
 
 :end

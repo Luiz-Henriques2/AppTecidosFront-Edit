@@ -21,7 +21,7 @@ ou
 npx lite-server
 configura o arquivo AppTecidos.bat para os caminhos das pastas AppTecidosBack e AppTecidosFront,
 e configurar o comando 'lite-server' ou 'npx lite-server'.
--------------------------------------|-|
+-------------------------------------
 editar o arquivo .env no backend
 
 PORT=3333
@@ -33,6 +33,7 @@ DB_CONNECTION=sqlite
 
  e environment.ts no angular.
 
+
 export const environment = {
     production: false,
     baseApiUrl: "http://192.168.0.75:3333/",
@@ -40,22 +41,31 @@ export const environment = {
 
 O host deve ser o ip de rede da maquina.
 
------------------------------------------------
-criar um arquivo na pasta do projeto copilado 'dist/projeto'
-bs-config.json
-{
-  "open": false,
-  "sync": false
-}
------------------------------------------------
-para usar o angular
-npm install ou npm install --force
-npm install -g @angular/cli
-
 
 npm install -g live-server
 live-server --host=192.168.0.75 --no-browser
-----------------------------------------------
+-------------------------------------------------------
+buildar adonisjs
+
+(1)npm run build
+(2)cd build
+(3)npm ci --production
+(4)copiar o .env do projeto adonis e colar no diretorio build
+(5)copiar a pasta tmp do projeto adonis e colar no diretorio build
+(6)adicionar esta linha no arquivo .env "DB_FILE=/tmp/db.sqlite3"
+(7)node server.js
+----------------------------------------------------------
+usar express no projeto buildado do angular
+
+(1)npm install express
+(2)criar o arquivo server.js
+(3)node server.js
+
+
+
+
+
+
 
 
 
