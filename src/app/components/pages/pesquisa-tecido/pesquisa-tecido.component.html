@@ -74,8 +74,8 @@
 <ly-checkbox [(ngModel)]="controledeodor" class="checkbox">CONTROLE DE ODOR</ly-checkbox>
 
 </div>
-  
   <button class="btn btn-primary" (click)="search($event)">Pesquisar</button>
+  <button class="btn btn-secondary" (click)="refreshPage()">Limpar Filtros</button>
   <div *ngIf="isLoading">Carregando...</div>
 <div class="home-container">
     <h1>Tecidos</h1>

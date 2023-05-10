@@ -173,5 +173,8 @@ controledeodor = false;
     formData.append("favoritar", String(tecido.favoritar));
     await this.tecidoService.updateTecido(id!, formData).subscribe();
   }
-
+  refreshPage() {
+    location.reload();
+  }
+  
 }
