@@ -14,12 +14,19 @@ h1 {
   align-items: center;
   margin-bottom: 20px;
 }
-
-.form-control {
+.form-select{
   width: 100%;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  font-size: 16px;
+  margin-right: 10px;
+}
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
   font-size: 16px;
   margin-right: 10px;
 }
@@ -161,27 +168,28 @@ img:hover {
   width: 120px;
 }
 nav.form-nav {
-  background-color: #f8f9fa;
+  background-color: #e4e4e400;
   border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: 0px;
+  margin-bottom: 0px;
 }
 
 nav.form-nav label {
-  width: 120px;
+  width: 200px;
   margin-right: 10px;
 }
 
 nav.form-nav .form-group {
   display: inline-block;
-  margin-right: 20px;
-  width: calc(25% - 32px);
+  margin-right: 10px;
+  margin-left: 10px;
+  width: calc(25% - 20px);
 }
 
 @media (max-width: 767px) {
   nav.form-nav .form-group {
     width: 100%;
-    margin-right: 0;
+    margin-right: 0px;
     margin-bottom: 10px;
   }
 }
@@ -224,7 +232,17 @@ button:hover i {
     cursor: pointer;
   }
 
-  .btn {
-    margin-right: 2px;
-    margin-top: 2px;
-  }
+  .btn 
+    {
+      display: inline-block;
+      margin-top: 10px;
+      margin-right: 10px;
+      margin-left: 10px;
+      width: calc(15% - 20px);
+      
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+    }
+    

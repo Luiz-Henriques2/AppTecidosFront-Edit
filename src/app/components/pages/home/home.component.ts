@@ -5,6 +5,8 @@ import { TecidoService } from 'src/app/services/tecido.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { FormControl } from '@angular/forms';
+import { FornecedorService } from 'src/app/services/fornecedor.service';
+import { FornecedorInterface } from 'src/app/Fornecedor';
 
 @Component({
   selector: 'app-home',
@@ -20,15 +22,21 @@ export class HomeComponent implements OnInit{
   //baseApiUrl = environment.baseApiUrl
 
   allTecidos: TecidoInterface[] = []
-  tecidos: TecidoInterface | null = null;
-  value: string = "";
+  tecidos: TecidoInterface[] = []
+  value: string = ""
+  fornecedores: FornecedorInterface[] = []
 
   constructor(
     private tecidoService: TecidoService,
     private route: ActivatedRoute,
+    private fornecedorService: FornecedorService,
   ) {}
 
   ngOnInit(): void {
+    this.fornecedorService.getFornecedores().subscribe((items) => {
+      const data = items.data;
+      this.fornecedores = data;
+    });
     this.tecidoService.getTecidos().subscribe((items) => {
       const data = items.data;
       data.map((item) => {
@@ -37,7 +45,7 @@ export class HomeComponent implements OnInit{
           );
       });
       this.allTecidos = data;
-
+      this.tecidos = data;
     });
     this.tecidoForm = new FormGroup({favoritar: new FormControl(''),});
     const id = Number(this.route.snapshot.paramMap.get('id'));

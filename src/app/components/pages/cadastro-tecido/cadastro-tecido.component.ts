@@ -194,16 +194,18 @@ get avista() {
 
     await this.tecidoService.createTecido(formData).subscribe();
 
+    //setTimeout(() => {this.refreshPage()}, 2000);
+
     this.messageService.add('Tecido adicionado com sucesso!');
 
 
-    //this.router.navigate(['/']);
+    this.router.navigate(['/']);
     //this.tecidoForm.reset();
     //document.documentElement.scrollTop = 0;
     //document.body.scrollTop = 0;
   }
 
-  
+
   submit() {
     if (this.tecidoForm.invalid){
       return;
