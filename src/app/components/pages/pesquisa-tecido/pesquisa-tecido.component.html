@@ -44,34 +44,34 @@
 </select>
 
 <div>
-<ly-checkbox [(ngModel)]="uv">UV</ly-checkbox>
-<ly-checkbox [(ngModel)]="dry">DRY</ly-checkbox>
-<ly-checkbox [(ngModel)]="insect">INSECT</ly-checkbox>
-<ly-checkbox [(ngModel)]="smart">SMART</ly-checkbox>
-<ly-checkbox [(ngModel)]="defense">DEFENSE</ly-checkbox>
-<ly-checkbox [(ngModel)]="chlomax">CHLOMAX</ly-checkbox>
-<ly-checkbox [(ngModel)]="hydro">HYDRO</ly-checkbox>
-<ly-checkbox [(ngModel)]="shield">SHIELD</ly-checkbox>
-<ly-checkbox [(ngModel)]="undertech">UNDERTECH</ly-checkbox>
-<ly-checkbox [(ngModel)]="ultraflex">ULTRAFLEX</ly-checkbox>
+<ly-checkbox [(ngModel)]="uv" class="checkbox">UV</ly-checkbox>
+<ly-checkbox [(ngModel)]="dry" class="checkbox">DRY</ly-checkbox>
+<ly-checkbox [(ngModel)]="insect" class="checkbox">INSECT</ly-checkbox>
+<ly-checkbox [(ngModel)]="smart" class="checkbox">SMART</ly-checkbox>
+<ly-checkbox [(ngModel)]="defense" class="checkbox">DEFENSE</ly-checkbox>
+<ly-checkbox [(ngModel)]="chlomax" class="checkbox">CHLOMAX</ly-checkbox>
+<ly-checkbox [(ngModel)]="hydro" class="checkbox">HYDRO</ly-checkbox>
+<ly-checkbox [(ngModel)]="shield" class="checkbox">SHIELD</ly-checkbox>
+<ly-checkbox [(ngModel)]="undertech" class="checkbox">UNDERTECH</ly-checkbox>
+<ly-checkbox [(ngModel)]="ultraflex" class="checkbox">ULTRAFLEX</ly-checkbox>
 
-<ly-checkbox [(ngModel)]="durabilidade">DURABILIDADE</ly-checkbox>
-<ly-checkbox [(ngModel)]="toqueaveludado">TOQUE AVELUDADO</ly-checkbox>
-<ly-checkbox [(ngModel)]="respirabilidade">RESPIRABILIDADE</ly-checkbox>
-<ly-checkbox [(ngModel)]="duplaface">DUPLA FACE</ly-checkbox>
-<ly-checkbox [(ngModel)]="leveza">LEVEZA</ly-checkbox>
-<ly-checkbox [(ngModel)]="altacobertura">ALTA COBERTURA</ly-checkbox>
-<ly-checkbox [(ngModel)]="elasticidade">ELASTICIDADE</ly-checkbox>
-<ly-checkbox [(ngModel)]="secagemrapida">SECAGEM RÁPIDA</ly-checkbox>
-<ly-checkbox [(ngModel)]="toquegelado">TOQUE GELADO</ly-checkbox>
-<ly-checkbox [(ngModel)]="toquemacio">TOQUE MACIO</ly-checkbox>
-<ly-checkbox [(ngModel)]="toquedebrilho">TOQUE DE BRILHO</ly-checkbox>
-<ly-checkbox [(ngModel)]="zerotransparencia">ZERO TRANSPARÊNCIA</ly-checkbox>
-<ly-checkbox [(ngModel)]="naoesgarca">NÃO ESGARÇA</ly-checkbox>
-<ly-checkbox [(ngModel)]="naopinica">NÃO PINICA</ly-checkbox>
-<ly-checkbox [(ngModel)]="oekotex">OEKO-TEX</ly-checkbox>
-<ly-checkbox [(ngModel)]="compressao">COMPRESSÃO FIRME</ly-checkbox>
-<ly-checkbox [(ngModel)]="controledeodor">CONTROLE DE ODOR</ly-checkbox>
+<ly-checkbox [(ngModel)]="durabilidade" class="checkbox">DURABILIDADE</ly-checkbox>
+<ly-checkbox [(ngModel)]="toqueaveludado" class="checkbox">TOQUE AVELUDADO</ly-checkbox>
+<ly-checkbox [(ngModel)]="respirabilidade" class="checkbox">RESPIRABILIDADE</ly-checkbox>
+<ly-checkbox [(ngModel)]="duplaface" class="checkbox">DUPLA FACE</ly-checkbox>
+<ly-checkbox [(ngModel)]="leveza" class="checkbox">LEVEZA</ly-checkbox>
+<ly-checkbox [(ngModel)]="altacobertura" class="checkbox">ALTA COBERTURA</ly-checkbox>
+<ly-checkbox [(ngModel)]="elasticidade" class="checkbox">ELASTICIDADE</ly-checkbox>
+<ly-checkbox [(ngModel)]="secagemrapida" class="checkbox">SECAGEM RÁPIDA</ly-checkbox>
+<ly-checkbox [(ngModel)]="toquegelado" class="checkbox">TOQUE GELADO</ly-checkbox>
+<ly-checkbox [(ngModel)]="toquemacio" class="checkbox">TOQUE MACIO</ly-checkbox>
+<ly-checkbox [(ngModel)]="toquedebrilho" class="checkbox">TOQUE DE BRILHO</ly-checkbox>
+<ly-checkbox [(ngModel)]="zerotransparencia" class="checkbox">ZERO TRANSPARÊNCIA</ly-checkbox>
+<ly-checkbox [(ngModel)]="naoesgarca" class="checkbox">NÃO ESGARÇA</ly-checkbox>
+<ly-checkbox [(ngModel)]="naopinica" class="checkbox">NÃO PINICA</ly-checkbox>
+<ly-checkbox [(ngModel)]="oekotex" class="checkbox">OEKO-TEX</ly-checkbox>
+<ly-checkbox [(ngModel)]="compressao" class="checkbox">COMPRESSÃO FIRME</ly-checkbox>
+<ly-checkbox [(ngModel)]="controledeodor" class="checkbox">CONTROLE DE ODOR</ly-checkbox>
 
 </div>
   
@@ -91,8 +91,6 @@
                         <h4>{{tecido.nome.length > 10 ? tecido.nome.substr(0, 10) + '...' : tecido.nome}}</h4>
                         <p class="date">Em: {{tecido.created_at}}</p>
                         <p>Gramatura: {{tecido.gramatura}}</p>
-                        <p>ID: {{tecido.id}}</p>
-                        <p>Ref: {{tecido.referencia}}</p>
                         <button *ngIf="!tecido.favoritar" class="estrela" (click)="editHandler(tecido)"><i class="bi bi-bookmark-star"></i></button>
                         <button *ngIf="tecido.favoritar" class="estrela " (click)="editHandler(tecido)"><i class="bi bi-bookmark-star-fill text-pink"></i></button>
                     </div>
