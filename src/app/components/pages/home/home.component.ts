@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit{
   tecidos: TecidoInterface[] = []
   value: string = ""
   fornecedores: FornecedorInterface[] = []
+  minData:string=''
 
   constructor(
     private tecidoService: TecidoService,
@@ -55,7 +56,7 @@ export class HomeComponent implements OnInit{
       this.tecido = item.data;
     });}
   }
-  
+  /*
   search(e: Event):void {
     const target = e.target as HTMLInputElement
     const value = target.value
@@ -66,6 +67,6 @@ export class HomeComponent implements OnInit{
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.tecidoService.getTecido(id).subscribe((item) => {})
   }
-  
+  */
 }
 //-------------------------------------------
