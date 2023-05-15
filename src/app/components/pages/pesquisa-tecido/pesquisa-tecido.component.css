@@ -239,6 +239,7 @@ button:hover i {
       margin-right: 10px;
       margin-left: 10px;
       width: calc(15% - 20px);
+      min-width: 90px;
       
     }
     .button-container {
