@@ -45,6 +45,7 @@ O host deve ser o ip de rede da maquina.
 npm install -g live-server
 live-server --host=192.168.0.75 --no-browser
 -------------------------------------------------------
+colocar o ip do cumputador no .env e no envirement.ts ou main...ts
 buildar adonisjs
 (1)npm install
 (4)copiar o .env do diretorio 'outros'
