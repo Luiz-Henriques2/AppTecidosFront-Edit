@@ -47,12 +47,13 @@ live-server --host=192.168.0.75 --no-browser
 -------------------------------------------------------
 buildar adonisjs
 (1)npm install
-(4)copiar o .env do projeto adonis e colar no diretorio build
+(4)copiar o .env do diretorio 'outros'
 (1)node ace generate:key
 (1)node ace migration:run
 (1)npm run build
 (2)cd build
 (3)npm ci --production
+(4)copiar o .env do projeto adonis e colar no diretorio build
 (5)copiar a pasta tmp do projeto adonis e colar no diretorio build
 (6)adicionar esta linha no arquivo .env "DB_FILE=/tmp/db.sqlite3"
 (7)node server.js
