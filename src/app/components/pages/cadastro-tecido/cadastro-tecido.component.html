@@ -86,7 +86,7 @@
 
     <div class="form-floating mb-3" *ngIf="maxID!=0">
       <input type="text" class="form-control" placeholder=" " formControlName="referencia" [(ngModel)]="referenciaValue" required>
-      <label for="floatingInput">Referencia:</label>
+      <label for="floatingInput">Referência:</label>
       <div *ngIf="referencia.invalid && formDir.submitted" class="alert alert-danger" role="alert">
         Já existe um tecido cadastrado com a mesma referência e fornecedor.
       </div>
