@@ -48,10 +48,34 @@ h1 {
   margin-bottom: 20px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .col-md-4 {
+    width: calc(20%);
+    /*
     width: calc(20% - 20px);
     margin-right: 20px;
+    */
+  }
+}
+
+@media (max-width: 1199px) {
+  .col-md-4 {
+    width: calc(25%);
+  }
+}
+@media (max-width: 991.2px) {
+  .col-md-4 {
+    width: calc(33%);
+  }
+}
+@media (max-width: 768px) {
+  .col-md-4 {
+    width: calc(50%);
+  }
+}
+@media (max-width: 424px) {
+  .col-md-4 {
+    width: calc(100%);
   }
 }
 
