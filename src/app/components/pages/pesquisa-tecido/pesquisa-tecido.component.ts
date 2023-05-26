@@ -100,11 +100,11 @@ controledeodor = false;
     //setTimeout(() => {
       // código de pesquisa aqui
     const target = e.target as HTMLInputElement
-    const value = target.value.toLowerCase()
+    const value = target.value
     console.log(this.value)
 
     this.tecidos = this.allTecidos.filter(tecido => {
-      return tecido.nome.toLowerCase().includes(this.value) 
+      return tecido.nome.toLowerCase().includes(this.value.toLowerCase()) 
        && (tecido.fornecedor_id === undefined || 
         (this.maxID == 0 || tecido.fornecedor_id == this.maxID)) &&
 
