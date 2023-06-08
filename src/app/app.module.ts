@@ -32,6 +32,10 @@ import { LyButtonModule } from '@alyle/ui/button';
 import { LyIconModule } from '@alyle/ui/icon';
 import { LyDialogModule } from '@alyle/ui/dialog';
 import { LyCheckboxModule } from '@alyle/ui/checkbox';
+import { LoginComponent } from './account/login/login.component';
+import { CreateAccountComponent } from './account/create-account/create-account.component';
+import { AuthenticationComponent } from './layout/authentication/authentication.component';
+import { HomeAuthComponent } from './layout/home-auth/home-auth.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +54,10 @@ import { LyCheckboxModule } from '@alyle/ui/checkbox';
     EditTecidoComponent,
     EditFornecedorComponent,
     CropperDialogComponent,
+    LoginComponent,
+    CreateAccountComponent,
+    AuthenticationComponent,
+    HomeAuthComponent,
   ],
   imports: [
     BrowserModule,
