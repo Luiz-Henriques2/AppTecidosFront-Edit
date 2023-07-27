@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AccountService } from '../shared/account.service';
 
 @Component({
   selector: 'app-create-account',
@@ -7,11 +8,26 @@ import { Component } from '@angular/core';
 })
 export class CreateAccountComponent {
   account = {
-    name: '',
+    //name: '',
     email: '',
     password: ''
   }
 
-  onSubmit(){}
+  constructor (
+    private accountService: AccountService
+  ){}
+
+  ngOnInit(){}
+
+  async onSubmit(){
+    try {
+      const result = await this.accountService.createAccount(this.account);
+
+      //exibir uma msg aqui
+      console.log(result)
+    }catch(error){
+      console.error(error)
+    }
+  }
 
 }

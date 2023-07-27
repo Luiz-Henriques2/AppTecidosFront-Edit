@@ -37,6 +37,8 @@ import { CreateAccountComponent } from './account/create-account/create-account.
 import { AuthenticationComponent } from './layout/authentication/authentication.component';
 import { HomeAuthComponent } from './layout/home-auth/home-auth.component';
 
+import { httpInterceptorProviders } from './http-interceptors/index'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,6 +82,7 @@ import { HomeAuthComponent } from './layout/home-auth/home-auth.component';
     LyCheckboxModule
   ],
   providers: [
+    httpInterceptorProviders,
     { provide: HAMMER_GESTURE_CONFIG, useClass: LyHammerGestureConfig },
     StyleRenderer,
     LyTheme2,

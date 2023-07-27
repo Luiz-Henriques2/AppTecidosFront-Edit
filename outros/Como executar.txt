@@ -12,6 +12,7 @@ node ace serve
 Aplicativo front
 verificar se Node.js esta instalado
 git clone ou Download
+npm install
 ng build
 cd dist
 cd projeto

@@ -12,14 +12,19 @@ export class AccountService {
   async login(user: any) {
     const result = await this.http.post<any>(`${environment.baseApiUrl}api/login`, user).toPromise()
     if (result && result.token) {
-      window.localStorage.setItem('token', result.token)
+      window.localStorage.setItem('token', result.token.token)
       return true
     }
     return false
   }
 
   async createAccount(account: any) {
-    const result = await this.http.post<any>(`${environment.baseApiUrl}/users`, account).toPromise()
+    const result = await this.http.post<any>(`${environment.baseApiUrl}api/users`, account).toPromise()
     return result
+  }
+
+  getAuthorizationToken() {
+    const token = window.localStorage.getItem("token");
+    return token;
   }
 }

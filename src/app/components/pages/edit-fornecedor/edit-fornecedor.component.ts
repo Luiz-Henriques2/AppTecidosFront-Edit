@@ -83,7 +83,6 @@ export class EditFornecedorComponent implements OnInit{
     if (this.fornecedorForm.invalid){
       return;
     }
-    console.log(this.fornecedorForm.value);
     this.editHandler(this.fornecedorForm.value);
   }
 
