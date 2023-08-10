@@ -8,6 +8,7 @@ import { FornecedorService } from 'src/app/services/fornecedor.service';
 import { FormControl, FormGroup,} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-pesquisa-tecido',
   templateUrl: './pesquisa-tecido.component.html',

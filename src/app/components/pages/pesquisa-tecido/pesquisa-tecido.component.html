@@ -22,6 +22,16 @@
     <label for="value">Buscar por Tecido:</label>
     <input type="text" class="form-control" placeholder="Buscar por Tecido..." [(ngModel)]="value" name="value">
   </div>
+ 
+<!-- CAMPO DIGITAVEL
+  <div class="form-group">
+    <label for="fornecedor">Fornecedor:</label>
+    <input list="fornecedores" id="fornecedor" name="maxID" class="form-control" [(ngModel)]="maxID" />
+    <datalist id="fornecedores">
+      <option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">{{fornecedor.nome}}</option>
+    </datalist>
+  </div>
+-->
 
   <div class="form-group">
   <label for="floatingTextarea2">Fornecedor:</label>
